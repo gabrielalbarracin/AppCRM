@@ -1,0 +1,33 @@
+.principal{
+    align-items: center;
+    display: flex;
+    height: 100vh;
+}
+
+.secundario{
+    margin:0 auto,
+}
+
+.modal{
+    background-color: rgb(0,0,0, .85);
+    width: 100vw;
+    height: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_dialog{
+    background: #ddd;
+    padding: 10px;
+    width: 300px;
+    height: 400px;
+}
+
+.modal-open{
+    display: grid;
+}

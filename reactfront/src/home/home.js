@@ -23,7 +23,7 @@ const Home = () =>{
                         <a href='/pedidos'> <button >
                         <div className="card-body" >
                             <h5 className="card-title"><i className="icono fa-solid fa-gear"></i>Configuracion</h5>
-                            <p className="card-text">formularios</p>
+                            <p className="card-tex card-text">formularios</p>
                         </div>
                         </button> </a>
                    </div>
@@ -32,7 +32,7 @@ const Home = () =>{
                     <a href='/pedidos'>  <button >
                         <div className="card-body" >
                             <h3 className="card-title"><i className="icono fa-solid fa-truck"></i>Logistica</h3>
-                            <p className="card-text">formularios</p>
+                            <p className="card-tex card-text">formularios</p>
                         </div>
                         </button></a>
                    </div>
@@ -41,7 +41,7 @@ const Home = () =>{
                    <a href='/pedidos'> <button href="/pedidos">
                         <div className="card-body" >
                             <h5 className="card-title"><i className="icono fa-solid fa-carrot"></i>Frescos</h5>
-                            <p className="card-text">formularios</p>
+                            <p className="card-tex card-text">formularios</p>
                         </div>
                         </button></a>
                    </div>
@@ -49,8 +49,8 @@ const Home = () =>{
                    <div className="card1 w-30">
                    <a href='/pedidos'><button href="/Nuevopedidos">
                         <div className="card-body" >
-                            <h5 className="card-title"><i className=" icono fa-solid fa-lemon"></i>Secos</h5>
-                            <p className="card-text">formularios</p>
+                            <h5 className="card-title"><i className="icono fa-sharp fa-solid fa-lemon"></i>Secos</h5>
+                            <p className="card-tex card-text">formularios</p>
                         </div>
                         </button></a>
                    </div>
@@ -59,7 +59,7 @@ const Home = () =>{
                    <a href='/pedidos'><button href="/pedidos">
                         <div className="card-body" >
                             <h5 className="card-title"><i className="icono fa-solid fa-phone"></i>Telefono</h5>
-                            <p className="card-text">formularios</p>
+                            <p className="card-tex card-text">formularios</p>
                         </div>
                         </button></a>
                    </div>
@@ -68,7 +68,7 @@ const Home = () =>{
                    <a href='/pedidos'> <button href="/pedidos">
                         <div className="card-body" >
                             <h5 className="card-title"><i className="icono fa-solid fa-clipboard"></i>Informes</h5>
-                            <p className="card-text">formularios</p>
+                            <p className="card-tex card-text">formularios</p>
                         </div>
                         </button></a>
                    </div>

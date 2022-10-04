@@ -17,7 +17,7 @@ body{
 }
 
 .user{
-    margin-right: 70%;
+    margin-right: 60%;
     width: 20px;
     
 }
@@ -45,6 +45,7 @@ body{
     margin-left: 10px;
     font-size: 30px;
     padding-top: 5px;
+    font-size: 30px;
 }
 
 .card-body{
@@ -56,6 +57,7 @@ body{
     text-align: center;
 }
 
-.card-tex{
-
+ .card-tex {
+    font-size: 20px;
+    text-align: left;
 }

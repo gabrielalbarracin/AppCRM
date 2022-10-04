@@ -1,0 +1,61 @@
+/* .reportes{
+    margin-left: 10%;
+    height: 50%;
+    width: 50%;
+} */
+
+body{
+    background-image: url(../img/5444.jpg);
+}
+
+.navbar2{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+    margin-bottom: 30px;
+}
+
+.user{
+    margin-right: 70%;
+    width: 20px;
+    
+}
+
+.card1{
+    border-top: 50px;
+    margin: 20px;
+    margin-bottom: 10px;  
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: center;
+}
+
+.acciones{
+    
+    margin: 50px;
+    border-top: 70px;
+    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card-title{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 30px;
+    padding-top: 5px;
+}
+
+.card-body{
+    width: 300px;
+}
+
+.icono{
+    margin-right: 20px;
+    text-align: center;
+}
+
+.card-tex{
+    
+}

@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
 //import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
 import Button from 'react-bootstrap/Button';
-import './css/style.css'
-import CompCreatePedido from './CreatePedidos'
+//import './css/style.css'
+import PedidoLogistica from './PedidoLogistica';
 const URI = 'http://localhost:9000/pedidos/'
 
-const CompShuwPedidos = () => {
+const Logistica = () => {
     const [pedidos, setPedido] = useState([])
     useEffect( ()=>{
         getPedidos()
@@ -76,9 +76,9 @@ const CompShuwPedidos = () => {
                 </div>
             </div>
         </div> 
-        <CompCreatePedido show={show} handleClose={handleClose}/>
+        <PedidoLogistica show={show} handleClose={handleClose}/>
         </>
     )
 }
 
-export default CompShuwPedidos
+export default Logistica

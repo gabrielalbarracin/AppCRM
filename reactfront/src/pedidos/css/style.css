@@ -1,4 +1,14 @@
-.principal{
+.btn-acciones{
+    float:left;
+    margin-right: 8px;
+    
+}
+ .btn-volver{
+    
+    margin-right: 8px
+}
+
+/* .principal{
     align-items: center;
     display: flex;
     height: 100vh;
@@ -30,4 +40,4 @@
 
 .modal-open{
     display: grid;
-}
+} */

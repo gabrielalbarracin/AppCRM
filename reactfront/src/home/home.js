@@ -20,7 +20,7 @@ const Home = () =>{
             
         <div className='acciones'> 
                     <div className="card1 w-30" >
-                        <a href='/pedidos'> <button >
+                        <a href='/configuracion'> <button >
                         <div className="card-body" >
                             <h5 className="card-title"><i className="icono fa-solid fa-gear"></i>Configuracion</h5>
                             <p className="card-tex card-text">formularios</p>
@@ -29,7 +29,7 @@ const Home = () =>{
                    </div>
                    
                    <div className="card1 w-30">
-                    <a href='/pedidos'>  <button >
+                    <a href='/logistica'>  <button >
                         <div className="card-body" >
                             <h3 className="card-title"><i className="icono fa-solid fa-truck"></i>Logistica</h3>
                             <p className="card-tex card-text">formularios</p>

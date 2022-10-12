@@ -55,12 +55,15 @@ body{
     
     margin: 50px;
     border-top: 70px;
-    display: flex;
-    display: grid;
+    display: block;
+    display:grid;
     grid-template-columns: repeat(2, 1fr);
     
 }
 
+.descripcion{
+    padding-left: 60px;
+}
 
 
 

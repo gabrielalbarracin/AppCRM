@@ -14,11 +14,11 @@ const CompCreatePedido = ({show, handleClose}) => {
     
     return(
         <>
-        <Modal show={show} onHide={handleClose}>
+        <Modal className='modal' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className='titulo'>Pedidos frescos</Modal.Title>
         </Modal.Header>
-        <Modal.Body className='cuerpo'>
+        <Modal.Body className='cuerpo' >
         <select className="categoria form-select" aria-label="Default select example">
                  <option selected>Seleccione categoria</option>
                  <option value="1">Carne</option>

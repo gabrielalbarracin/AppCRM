@@ -3,8 +3,7 @@
 // import {Link} from 'react-router-dom'
 // //import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
 // import Button from 'react-bootstrap/Button';
-  import './css/style.css'
- import CompCreatePedido from './CreatePedidos'
+ 
 // const URI = 'http://localhost:9000/pedidos/'
 
 // const CompShuwPedidos = () => {
@@ -95,6 +94,8 @@ import { RadioButton } from 'primereact/radiobutton';
 import { InputNumber } from 'primereact/inputnumber';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
+import './css/style.css'
+import CompCreatePedido from './CreatePedidos'
 //import './DataTableDemo.css';
 
 const DataTableCrudDemo = () => {
@@ -289,23 +290,23 @@ const DataTableCrudDemo = () => {
      const handleClose = () => setShow(false);
      const handleShow = () => setShow(true);
 
-    const leftToolbarTemplate = () => {
+     const leftToolbarTemplate = () => {
         return (
             <React.Fragment className='hola'>
-                <Button icon="pi pi-plus" className="btnNuevo p-button-success mr-2 btn-sm" onClick={handleShow} />
+               
                 {/* <Button label="Delete" icon="pi pi-trash" className="p-button-danger" onClick={confirmDeleteSelected} disabled={!selectedProducts || !selectedProducts.length} /> */}
             </React.Fragment>
         )
     }
 
-    const rightToolbarTemplate = () => {
-        return (
-            <React.Fragment >
-                {/* <FileUpload mode="basic" name="demo[]" auto url="https://primefaces.org/primereact/showcase/upload.php" accept=".csv" chooseLabel="Import" className="mr-2 inline-block" onUpload={importCSV} />
-                <Button label="Export" icon="pi pi-upload" className="p-button-help" onClick={exportCSV} /> */}
-            </React.Fragment>
-        )
-    }
+    // const rightToolbarTemplate = () => {
+    //     return (
+    //         <React.Fragment className='export'>
+    //             {/* <FileUpload mode="basic" name="demo[]" auto url="https://primefaces.org/primereact/showcase/upload.php" accept=".csv" chooseLabel="Import" className="mr-2 inline-block" onUpload={importCSV} />
+    //             <Button label="Export" icon="pi pi-upload" className="p-button-help" onClick={exportCSV} /> */}
+    //         </React.Fragment>
+    //     )
+    // }
 
     const imageBodyTemplate = (rowData) => {
         return <img src={`images/product/${rowData.image}`} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={rowData.image} className="product-image" />
@@ -320,7 +321,7 @@ const DataTableCrudDemo = () => {
     }
 
     const statusBodyTemplate = (rowData) => {
-        return <span className={`product-badge status-${rowData.inventoryStatus.toLowerCase()}`}>{rowData.inventoryStatus}</span>;
+        return <span className={` product-badge status-${rowData.inventoryStatus.toLowerCase()}`}>{rowData.inventoryStatus}</span>;
     }
 
     const actionBodyTemplate = (rowData) => {
@@ -334,13 +335,18 @@ const DataTableCrudDemo = () => {
 
     const header = (
         <div className="tabla table-header">
-            <h5 className="mx-0 my-1">Productos frescos</h5>
-            <span className="p-input-icon-left">
+            {/* ----botn para crearnuevo pedido */}
+            <Button icon="pi pi-plus" className="btnNuevo p-button-success mr-2 btn-sm" onClick={handleShow} />
+            {/* <Button className='btn-volver' href='/home'><i className="fa-solid fa-arrow-left"></i></Button> */}
+            <h5 className="productosfres mx-0 my-1">Productos frescos</h5>
+            <span className="p-input-icon-left"> 
                 <i className="pi pi-search" />
-                <InputText type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Search..." />
+                
+                <InputText  type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Search..." />
             </span>
         </div>
     );
+   
     const productDialogFooter = (
         <React.Fragment>
             <Button label="Cancel" icon="pi pi-times" className="p-button-text" onClick={hideDialog} />
@@ -348,13 +354,13 @@ const DataTableCrudDemo = () => {
         </React.Fragment>
     );
     const deleteProductDialogFooter = (
-        <React.Fragment>
+        <React.Fragment >
             <Button label="No" icon="pi pi-times" className="p-button-text" onClick={hideDeleteProductDialog} />
             <Button label="Yes" icon="pi pi-check" className="p-button-text" onClick={deleteProduct} />
         </React.Fragment>
     );
     const deleteProductsDialogFooter = (
-        <React.Fragment>
+        <React.Fragment >
             <Button label="No" icon="pi pi-times" className="p-button-text" onClick={hideDeleteProductsDialog} />
             <Button label="Yes" icon="pi pi-check" className="p-button-text" onClick={deleteSelectedProducts} />
         </React.Fragment>
@@ -364,9 +370,9 @@ const DataTableCrudDemo = () => {
         <div className="datatable-crud-demo">
             <Toast ref={toast} />
 
-            <div className="card">
-                <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
-
+            <div className=" card">
+                <Toolbar className=" mb-4" left={leftToolbarTemplate} ></Toolbar>
+                {/* esto va arribar al lado de left={leftToolbarTemplate} right={rightToolbarTemplate} */}
                 <DataTable ref={dt} value={products} selection={selectedProducts} onSelectionChange={(e) => setSelectedProducts(e.value)}
                     dataKey="id" paginator rows={10} rowsPerPageOptions={[5, 10, 25]}
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
@@ -386,6 +392,12 @@ const DataTableCrudDemo = () => {
                 </DataTable>
             </div>
 
+            <CompCreatePedido show={show} handleClose={handleClose}/>
+        </div> 
+    );
+}
+
+export default DataTableCrudDemo
             {/* <Dialog visible={productDialog} style={{ width: '450px' }} header="Product Details" modal className="p-fluid" footer={productDialogFooter} onHide={hideDialog}>
                 {product.image && <img src={`images/product/${product.image}`} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={product.image} className="product-image block m-auto pb-3" />}
                 <div className="field">
@@ -445,12 +457,7 @@ const DataTableCrudDemo = () => {
                     {product && <span>Are you sure you want to delete the selected products?</span>}
                 </div>
             </Dialog>*/}
-             <CompCreatePedido show={show} handleClose={handleClose}/>
-        </div> 
-    );
-}
-
-export default DataTableCrudDemo
+          
 
 
 

@@ -10,6 +10,12 @@
 body{
     background-color: aliceblue;
 }
+
+.menu2{
+    width: 100px;
+}
+
+
 .navbar{
     display: flex;
     flex-wrap: wrap;

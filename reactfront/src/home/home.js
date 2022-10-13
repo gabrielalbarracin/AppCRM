@@ -13,6 +13,8 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { PanelMenu } from 'primereact/panelmenu';
 import { PrimeIcons } from 'primereact/api';
 import 'primeicons/primeicons.css';
+
+
 const Home = () =>{
 
 
@@ -20,18 +22,54 @@ const Home = () =>{
     return(
         
     <div className='reportes'>
-        {/* <div className='navbar2' >
-            <nav className="navbar bg-light">
-                <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
-                    <img src={san} alt="Logo" width="30" height="24" className="d-inline-block align-text-top"/>
-                    </a>
-                    <a><i className="user fa-solid fa-user"></i></a>
-                </div>
-            </nav>
-        </div>    */}
 
-<PanelMenu  style={{width:'300px'}}/>
+
+
+
+    <>
+      {[false].map((expand) => (
+        <Navbar key={expand} bg="light" expand={expand} className="menu mb-3">
+          <Container fluid>
+            {/* <Navbar.Brand href="#" className='titulomenu'>Navbar Offcanvas</Navbar.Brand> */}
+            <Navbar.Toggle className='menu' aria-controls={`offcanvasNavbar-expand-${expand}`} />
+            <Navbar.Offcanvas className='menu2'
+              id={`offcanvasNavbar-expand-${expand}`}
+              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+              position='left'
+             
+            >
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title  id={`offcanvasNavbarLabel-expand-${expand}`}>
+                  Offcanvas
+                </Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body >
+                <Nav className="justify-content-end flex-grow-1 pe-3">
+                  <Nav.Link href="/configuracion"><i className=" fa-solid fa-gear"></i>Configuracion</Nav.Link>
+                  <Nav.Link href="/informes"><i className=" fa-solid fa-clipboard"></i>Informes</Nav.Link>
+                  <NavDropdown
+                    title="Reportes"
+                    id={`offcanvasNavbarDropdown-expand-${expand}`} >
+                   
+                    <NavDropdown.Item href="/pedidos">Frescos</NavDropdown.Item>
+                    <NavDropdown.Item href="/PedidosSecos">Secos</NavDropdown.Item>
+                    <NavDropdown.Item href="/logistica">Logistica</NavDropdown.Item>
+                    <NavDropdown.Item href="/telefono">Telefono</NavDropdown.Item>
+
+
+                  </NavDropdown>
+                </Nav>
+                
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+      ))}
+    </>
+
+      
+
+{/* <PanelMenu  style={{width:'300px'}}/>
 
       {[false,].map((expand) => (
         <Navbar key={expand} bg="light" expand={expand} className="mb-3">
@@ -49,50 +87,15 @@ const Home = () =>{
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-{/* <div>
-              const items = [
-    {
-       label='File',
-       icon='pi pi-fw pi-file',
-       items=[
-          {
-             label='New',
-             icon='pi pi-fw pi-plus',
-             items:[
-                {
-                   label='Bookmark',
-                   icon='pi pi-fw pi-bookmark'
-                },
-                {
-                   label='Video',
-                   icon='pi pi-fw pi-video'
-                }
-             ]
-          },
-          {
-             label='Delete',
-             icon='pi pi-fw pi-trash'
-          },
-          {
-             label='Export',
-             icon='pi pi-fw pi-external-link'
-          }
-       ]
-    },
 
-      ]
-      </div> */}
+   
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
+          </Container>
+        </Navbar>
+      ))} */}
 
-              <li className="nav-item dropdown">
-          <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">Action</a></li>
-            <li><a className="dropdown-item" href="#">Another action</a></li>
-            <li><a className="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+        
               {/* <NavDropdown
                    
                     title="Formularios"
@@ -133,11 +136,7 @@ const Home = () =>{
                   />
                   
                 </Form> */}
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-      ))}
+        
 
 
             

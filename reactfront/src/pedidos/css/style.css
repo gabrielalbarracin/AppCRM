@@ -4,8 +4,9 @@
         
 }
  .btn-volver{
-    
-    margin-right: 8px
+    margin-right: 750px;
+    height: 30px;
+    width: 50px;
 }
 
 .btnNuevo{
@@ -13,10 +14,11 @@
     
 }
 
-.tabla{
-    /* height: 60px; */
-    
+.p-toolbar{
+    display: none;
 }
+
+
 
 /* DataTableDemo.css */
 

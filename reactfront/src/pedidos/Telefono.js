@@ -14,10 +14,10 @@ import { InputNumber } from 'primereact/inputnumber';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import './css/style.css'
-import CompCreatePedidoSecos from './CreatePedidosSecos'
+import CompCreatetelefono from './CreateTelefono'
 //import './DataTableDemo.css';
 
-const PedidoSecos = () => {
+const Telefono = () => {
 
     let emptyProduct = {
         id: null,
@@ -209,23 +209,23 @@ const PedidoSecos = () => {
      const handleClose = () => setShow(false);
      const handleShow = () => setShow(true);
 
-    const leftToolbarTemplate = () => {
+     const leftToolbarTemplate = () => {
         return (
-            <React.Fragment>
+            <React.Fragment className='hola'>
                
                 {/* <Button label="Delete" icon="pi pi-trash" className="p-button-danger" onClick={confirmDeleteSelected} disabled={!selectedProducts || !selectedProducts.length} /> */}
             </React.Fragment>
         )
     }
 
-    const rightToolbarTemplate = () => {
-        return (
-            <React.Fragment>
-                {/* <FileUpload mode="basic" name="demo[]" auto url="https://primefaces.org/primereact/showcase/upload.php" accept=".csv" chooseLabel="Import" className="mr-2 inline-block" onUpload={importCSV} />
-                <Button label="Export" icon="pi pi-upload" className="p-button-help" onClick={exportCSV} /> */}
-            </React.Fragment>
-        )
-    }
+    // const rightToolbarTemplate = () => {
+    //     return (
+    //         <React.Fragment className='export'>
+    //             {/* <FileUpload mode="basic" name="demo[]" auto url="https://primefaces.org/primereact/showcase/upload.php" accept=".csv" chooseLabel="Import" className="mr-2 inline-block" onUpload={importCSV} />
+    //             <Button label="Export" icon="pi pi-upload" className="p-button-help" onClick={exportCSV} /> */}
+    //         </React.Fragment>
+    //     )
+    // }
 
     const imageBodyTemplate = (rowData) => {
         return <img src={`images/product/${rowData.image}`} onError={(e) => e.target.src='https://www.primefaces.org/wp-content/uploads/2020/05/placeholder.png'} alt={rowData.image} className="product-image" />
@@ -253,16 +253,19 @@ const PedidoSecos = () => {
     }
 
     const header = (
-        <div className="table-header">
-            <Button icon="pi pi-plus" className="btnNuevo p-button-success mr-2" onClick={handleShow} />
-            <h5 className="mx-0 my-1">Productos secos</h5>
-            
-            <span className="p-input-icon-left">
+        <div className="tabla table-header">
+            {/* ----botn para crearnuevo pedido */}
+            <Button icon="pi pi-plus" className="btnNuevo p-button-success mr-2 btn-sm" onClick={handleShow} />
+            {/* <Button className='btn-volver' href='/home'><i className="fa-solid fa-arrow-left"></i></Button> */}
+            <h5 className="productosfres mx-0 my-1">Regargas telefonicas</h5>
+            <span className="p-input-icon-left"> 
                 <i className="pi pi-search" />
+                
                 <InputText type="search" onInput={(e) => setGlobalFilter(e.target.value)} placeholder="Search..." />
             </span>
         </div>
     );
+   
     const productDialogFooter = (
         <React.Fragment>
             <Button label="Cancel" icon="pi pi-times" className="p-button-text" onClick={hideDialog} />
@@ -287,8 +290,8 @@ const PedidoSecos = () => {
             <Toast ref={toast} />
 
             <div className="card">
-                <Toolbar className="mb-4" left={leftToolbarTemplate} right={rightToolbarTemplate}></Toolbar>
-
+                <Toolbar className="mb-4" left={leftToolbarTemplate} ></Toolbar>
+                {/* esto va arribar al lado de left={leftToolbarTemplate} right={rightToolbarTemplate} */}
                 <DataTable ref={dt} value={products} selection={selectedProducts} onSelectionChange={(e) => setSelectedProducts(e.value)}
                     dataKey="id" paginator rows={10} rowsPerPageOptions={[5, 10, 25]}
                     paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
@@ -308,9 +311,9 @@ const PedidoSecos = () => {
                 </DataTable>
             </div>
 
-            <CompCreatePedidoSecos show={show} handleClose={handleClose}/>
+            <CompCreatetelefono show={show} handleClose={handleClose}/>
         </div> 
     );
 }
 
-export default PedidoSecos
+export default Telefono

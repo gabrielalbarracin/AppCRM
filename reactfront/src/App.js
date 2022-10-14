@@ -5,7 +5,7 @@ import CompCreatePedido from './pedidos/CreatePedidos'
 import Login from './login/auth';
 import Home from './home/home';
 import Configuracion from './configuracion/config'
-import Logistica from './logistica/logistica'
+import Logistica from './pedidos/Logistica'
 import PedidoSecos from './pedidos/Secos';
 import Telefono from './pedidos/Telefono'
 function App() {

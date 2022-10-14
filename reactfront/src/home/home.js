@@ -17,56 +17,105 @@ import 'primeicons/primeicons.css';
 
 const Home = () =>{
 
-
-      
-    return(
+  return(
         
     <div className='reportes'>
+            <>
+              {[false].map((expand) => (
+                <Navbar key={expand} bg="light" expand={expand} className="menu mb-3">
+                  <Container fluid>
+                    {/* <Navbar.Brand href="#" className='titulomenu'>Navbar Offcanvas</Navbar.Brand> */}
+                    <Navbar.Toggle  aria-controls={`offcanvasNavbar-expand-${expand}`} />
+                    <Navbar.Offcanvas className='menu2'
+                      id={`offcanvasNavbar-expand-${expand}`}
+                      aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+                      position='left'
+                    >
+                      <Offcanvas.Header closeButton className='menu2'>
+                        <Offcanvas.Title  id={`offcanvasNavbarLabel-expand-${expand}`}>
+                          Offcanvas
+                        </Offcanvas.Title>
+                      </Offcanvas.Header>
+                      <Offcanvas.Body  >
+                        <Nav className="justify-content-end flex-grow-1 pe-3">
+                          <Nav.Link href="/configuracion"><i className=" fa-solid fa-gear"></i>Configuracion</Nav.Link>
+                          <Nav.Link href="/informes"><i className=" fa-solid fa-clipboard"></i>Informes</Nav.Link>
+                          <NavDropdown
+                            title="Reportes"
+                            id={`offcanvasNavbarDropdown-expand-${expand}`} >
+                          
+                            <NavDropdown.Item href="/pedidos">Frescos</NavDropdown.Item>
+                            <NavDropdown.Item href="/PedidosSecos">Secos</NavDropdown.Item>
+                            <NavDropdown.Item href="/logistica">Logistica</NavDropdown.Item>
+                            <NavDropdown.Item href="/telefono">Telefono</NavDropdown.Item>
 
 
-
-
-    <>
-      {[false].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="menu mb-3">
-          <Container fluid>
-            {/* <Navbar.Brand href="#" className='titulomenu'>Navbar Offcanvas</Navbar.Brand> */}
-            <Navbar.Toggle className='menu' aria-controls={`offcanvasNavbar-expand-${expand}`} />
-            <Navbar.Offcanvas className='menu2'
-              id={`offcanvasNavbar-expand-${expand}`}
-              aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-              position='left'
-             
-            >
-              <Offcanvas.Header closeButton>
-                <Offcanvas.Title  id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
-                </Offcanvas.Title>
-              </Offcanvas.Header>
-              <Offcanvas.Body >
-                <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="/configuracion"><i className=" fa-solid fa-gear"></i>Configuracion</Nav.Link>
-                  <Nav.Link href="/informes"><i className=" fa-solid fa-clipboard"></i>Informes</Nav.Link>
-                  <NavDropdown
-                    title="Reportes"
-                    id={`offcanvasNavbarDropdown-expand-${expand}`} >
-                   
-                    <NavDropdown.Item href="/pedidos">Frescos</NavDropdown.Item>
-                    <NavDropdown.Item href="/PedidosSecos">Secos</NavDropdown.Item>
-                    <NavDropdown.Item href="/logistica">Logistica</NavDropdown.Item>
-                    <NavDropdown.Item href="/telefono">Telefono</NavDropdown.Item>
-
-
-                  </NavDropdown>
-                </Nav>
+                          </NavDropdown>
+                        </Nav>
+                        
+                      </Offcanvas.Body>
+                    </Navbar.Offcanvas>
+                  </Container>
+                </Navbar>
                 
-              </Offcanvas.Body>
-            </Navbar.Offcanvas>
-          </Container>
-        </Navbar>
-      ))}
-    </>
+              ))}
+        </>
+       
+        <div className='orden'> 
+          <div className=" col-12 lg:col-6 xl:col-3">
+                <div className="orden card mb-0">
+                    <div className="flex justify-content-between mb-3">
+                        <div>
+                            <span className="block text-500 font-medium mb-3">Pedidos frescos</span>
+                            <div className="text-900 font-medium text-xl">152</div>
+                        </div>
+                        <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{width: '2.5rem', height: '2.5rem'}}>
+                            <i className="pi pi-shopping-cart text-blue-500 text-xl"/>
+                        </div>
+                    </div>
+                    <span className="text-green-500 font-medium">24 new </span>
+                    <span className="text-500">since last visit</span>
+              </div>
+          </div>
+        
+          <div className=" col-12 lg:col-6 xl:col-3">
+                <div className="orden card mb-0">
+                    <div className="flex justify-content-between mb-3">
+                        <div>
+                            <span className="block text-500 font-medium mb-3">Pedidos secos</span>
+                            <div className="text-900 font-medium text-xl">152</div>
+                        </div>
+                        <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{width: '2.5rem', height: '2.5rem'}}>
+                            <i className="pi pi-shopping-cart text-blue-500 text-xl"/>
+                        </div>
+                    </div>
+                    <span className="text-green-500 font-medium">24 new </span>
+                    <span className="text-500">since last visit</span>
+              </div>
+          </div>
 
+          <div className=" col-12 lg:col-6 xl:col-3">
+                <div className="orden card mb-0">
+                    <div className="flex justify-content-between mb-3">
+                        <div>
+                            <span className="block text-500 font-medium mb-3">Pedidos logistica</span>
+                            <div className="text-900 font-medium text-xl">152</div>
+                        </div>
+                        <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{width: '2.5rem', height: '2.5rem'}}>
+                            <i className="pi pi-shopping-cart text-blue-500 text-xl"/>
+                        </div>
+                    </div>
+                    <span className="text-green-500 font-medium">24 new </span>
+                    <span className="text-500">since last visit</span>
+              </div>
+          </div>
+
+        </div>
+  </div>        
+  )
+}
+
+export default Home
       
 
 {/* <PanelMenu  style={{width:'300px'}}/>
@@ -140,7 +189,7 @@ const Home = () =>{
 
 
             
-        <div className='acciones'> 
+        {/* <div className='acciones'> 
                     <div className="card1 w-30" >
                         <a href='/configuracion'> <button >
                         <div className="card-body" >
@@ -194,10 +243,6 @@ const Home = () =>{
                         </div>
                         </button></a>
                    </div>
-               </div>
+               </div> */}
             
-        </div>       
-    )
-}
-
-export default Home
+      

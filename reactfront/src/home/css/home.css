@@ -11,10 +11,21 @@ body{
     background-color: aliceblue;
 }
 
+@media screen and (max-width:500px) {
 .menu2{
-    width: 100px;
+    width: 200px;
+}
 }
 
+.orden{
+    width: 300px;
+    margin: 40px;
+    margin-top: 10px;
+    display: block;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+
+}
 
 .navbar{
     display: flex;

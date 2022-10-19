@@ -2,46 +2,124 @@ import './css/home.css'
 import { Button } from 'reactstrap'
 import san from './img/san.png'
 
+import {Nav,NavDropdown, expand } from 'react-bootstrap';
+import { SplitButton } from 'primereact/splitbutton';
 
-//import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import Offcanvas from 'react-bootstrap/Offcanvas';
-import { PanelMenu } from 'primereact/panelmenu';
-import { PrimeIcons } from 'primereact/api';
 import 'primeicons/primeicons.css';
 
+import React, { useState } from 'react';
+import {
+    FaTh,
+    FaBars,
+    FaRegChartBar,
+    FaCommentAlt,
+    FaShoppingBag,
+    FaThList
+}from "react-icons/fa";
+import {FiSettings} from 'react-icons/fi'
 
+import { HiOutlineDeviceTablet } from 'react-icons/hi'
+import { NavLink } from 'react-router-dom';
 const Home = () =>{
+    
 
-  return(
-        
-    <div className='reportes'>
-            <>
-              {[false].map((expand) => (
+      const[isOpen ,setIsOpen] = useState(false);
+      const toggle = () => setIsOpen (!isOpen);
+      const menuItem=[
+  
+          {
+              path:"/",
+              name:"Dashboard",
+              icon:<FaTh/>,
+          },
+          {
+              path:"/configuracion",
+              name:"Configuracion",
+              icon:<FiSettings/>
+          },
+          {
+              path:"/pedidos",
+              name:"Frescos",
+              icon:<FaRegChartBar/>
+          },
+             
+          {
+              path:"/PedidosSecos",
+              name:"Secos",
+              icon:<FaShoppingBag/>
+          },
+          {
+              path:"/logistica",
+              name:"Logistica",
+              icon:<FaThList/>
+          },
+          {
+            path:"/telefono",
+            name:"Telefono",
+            icon:<FaThList/>
+        },
+        {
+          path:"/transporte",
+          name:"Transporte",
+          icon:<FaThList/>
+      },
+
+      ]
+
+     
+      return (
+          <>
+             <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
+                 <div className="top_section">
+                     <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
+                     <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
+                         <FaBars onClick={toggle}/>
+                     </div>
+                 </div>
+                 {
+                     menuItem.map((item, index)=>(
+                         <NavLink to={item.path} key={index} className="link" activeclassName="active">
+                             <div className="icon">{item.icon}</div>
+                             <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
+                         </NavLink>
+                
+                     ))
+                    
+                 }
+             </div>
+             {/* <main>{children}</main> */}
+             </>
+      );
+  };
+  
+  
+
+
+            {/* <div className='nav'>
+              {[false,].map((expand) => (
                 <Navbar key={expand} bg="light" expand={expand} className="menu mb-3">
-                  <Container fluid>
-                    {/* <Navbar.Brand href="#" className='titulomenu'>Navbar Offcanvas</Navbar.Brand> */}
-                    <Navbar.Toggle  aria-controls={`offcanvasNavbar-expand-${expand}`} />
+                  <div className='menu3'>
+                  <Container fluid>  
+                   
+                      <Navbar.Toggle  aria-controls={`offcanvasNavbar-expand-${expand}`} />
                     <Navbar.Offcanvas className='menu2'
                       id={`offcanvasNavbar-expand-${expand}`}
                       aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
                       position='left'
                     >
+                      
                       <Offcanvas.Header closeButton className='menu2'>
-                        <Offcanvas.Title  id={`offcanvasNavbarLabel-expand-${expand}`}>
-                          Offcanvas
-                        </Offcanvas.Title>
+                        <Offcanvas.Title  id={`offcanvasNavbarLabel-expand-${expand}`}>  
+                         
+                          </Offcanvas.Title>
                       </Offcanvas.Header>
-                      <Offcanvas.Body  >
+                      <Offcanvas.Body className='menu3' >
                         <Nav className="justify-content-end flex-grow-1 pe-3">
-                          <Nav.Link href="/configuracion"><i className=" fa-solid fa-gear"></i>Configuracion</Nav.Link>
-                          <Nav.Link href="/informes"><i className=" fa-solid fa-clipboard"></i>Informes</Nav.Link>
-                          <NavDropdown
-                            title="Reportes"
+                          <Nav.Link href="/configuracion">Configuracion<i className="iconhome fa-solid fa-gear"></i></Nav.Link>
+                          <Nav.Link href="/informes">Informes<i className="iconhome fa-solid fa-clipboard"></i></Nav.Link>  
+                         
+                           <NavDropdown 
+                            title="Reportes" after
                             id={`offcanvasNavbarDropdown-expand-${expand}`} >
                           
                             <NavDropdown.Item href="/pedidos">Frescos</NavDropdown.Item>
@@ -54,66 +132,68 @@ const Home = () =>{
                         </Nav>
                         
                       </Offcanvas.Body>
+                      
                     </Navbar.Offcanvas>
                   </Container>
+                  </div>
                 </Navbar>
                 
               ))}
-        </>
+        </div>   */}
        
-        <div className='orden'> 
-          <div className=" col-12 lg:col-6 xl:col-3">
-                <div className="orden card mb-0">
-                    <div className="flex justify-content-between mb-3">
-                        <div>
-                            <span className="block text-500 font-medium mb-3">Pedidos frescos</span>
-                            <div className="text-900 font-medium text-xl">152</div>
-                        </div>
-                        <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{width: '2.5rem', height: '2.5rem'}}>
-                            <i className="pi pi-shopping-cart text-blue-500 text-xl"/>
-                        </div>
-                    </div>
-                    <span className="text-green-500 font-medium">24 new </span>
-                    <span className="text-500">since last visit</span>
-              </div>
-          </div>
+        // <div className='tarjetas'> 
+        //   <div className=" col-12 lg:col-6 xl:col-3">
+        //         <div className=" card mb-0">
+        //             <div className=" flex justify-content-between mb-3">
+        //                 <div>
+        //                     <span className="block text-500 font-medium mb-3">Pedidos frescos</span>
+        //                     <div className="text-900 font-medium text-xl">152</div>
+        //                 </div>
+        //                 <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{width: '2.5rem', height: '2.5rem'}}>
+        //                     <i className="pi pi-shopping-cart text-blue-500 text-xl"/>
+        //                 </div>
+        //             </div>
+        //             <span className="text-green-500 font-medium">24 new </span>
+        //             <span className="text-500">since last visit</span>
+        //       </div>
+        //   </div>
         
-          <div className=" col-12 lg:col-6 xl:col-3">
-                <div className="orden card mb-0">
-                    <div className="flex justify-content-between mb-3">
-                        <div>
-                            <span className="block text-500 font-medium mb-3">Pedidos secos</span>
-                            <div className="text-900 font-medium text-xl">152</div>
-                        </div>
-                        <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{width: '2.5rem', height: '2.5rem'}}>
-                            <i className="pi pi-shopping-cart text-blue-500 text-xl"/>
-                        </div>
-                    </div>
-                    <span className="text-green-500 font-medium">24 new </span>
-                    <span className="text-500">since last visit</span>
-              </div>
-          </div>
+        //   <div className=" col-12 lg:col-6 xl:col-3">
+        //         <div className=" card mb-0">
+        //             <div className="flex justify-content-between mb-3">
+        //                 <div>
+        //                     <span className="block text-500 font-medium mb-3">Pedidos secos</span>
+        //                     <div className="text-900 font-medium text-xl">152</div>
+        //                 </div>
+        //                 <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{width: '2.5rem', height: '2.5rem'}}>
+        //                     <i className="pi pi-shopping-cart text-blue-500 text-xl"/>
+        //                 </div>
+        //             </div>
+        //             <span className="text-green-500 font-medium">24 new </span>
+        //             <span className="text-500">since last visit</span>
+        //       </div>
+        //   </div>
 
-          <div className=" col-12 lg:col-6 xl:col-3">
-                <div className="orden card mb-0">
-                    <div className="flex justify-content-between mb-3">
-                        <div>
-                            <span className="block text-500 font-medium mb-3">Pedidos logistica</span>
-                            <div className="text-900 font-medium text-xl">152</div>
-                        </div>
-                        <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{width: '2.5rem', height: '2.5rem'}}>
-                            <i className="pi pi-shopping-cart text-blue-500 text-xl"/>
-                        </div>
-                    </div>
-                    <span className="text-green-500 font-medium">24 new </span>
-                    <span className="text-500">since last visit</span>
-              </div>
-          </div>
+        //   <div className=" col-12 lg:col-6 xl:col-3">
+        //         <div className=" card mb-0">
+        //             <div className="flex justify-content-between mb-3">
+        //                 <div>
+        //                     <span className="block text-500 font-medium mb-3">Pedidos logistica</span>
+        //                     <div className="text-900 font-medium text-xl">152</div>
+        //                 </div>
+        //                 <div className="flex align-items-center justify-content-center bg-blue-100 border-round" style={{width: '2.5rem', height: '2.5rem'}}>
+        //                     <i className="pi pi-shopping-cart text-blue-500 text-xl"/>
+        //                 </div>
+        //             </div>
+        //             <span className="text-green-500 font-medium">24 new </span>
+        //             <span className="text-500">since last visit</span>
+        //       </div>
+        //   </div>
 
-        </div>
-  </div>        
-  )
-}
+        // </div>
+          
+  
+
 
 export default Home
       

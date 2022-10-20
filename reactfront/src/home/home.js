@@ -63,6 +63,11 @@ const Home = () =>{
           name:"Transporte",
           icon:<FaThList/>
       },
+      {
+        path:"/combustible",
+        name:"Combustible",
+        icon:<FaThList/>
+    },
 
       ]
 

@@ -15,7 +15,7 @@ import { InputNumber } from 'primereact/inputnumber';
 import { Dialog } from 'primereact/dialog';
 import { InputText } from 'primereact/inputtext';
 import './css/style.css'
-import CompCreatePedidoTransporte from './CreatePedidoTransporte'
+import CompCreatePedidoCombustible from './CreatePedidoCombustible'
 //import './DataTableDemo.css';
 
 const DataTableCrudDemo = () => {
@@ -258,7 +258,7 @@ const DataTableCrudDemo = () => {
             {/* ----botn para crearnuevo pedido */}
             <Button icon="pi pi-plus" className="btnNuevo p-button-success mr-2 btn-sm" onClick={handleShow} />
             {/* <Button className='btn-volver' href='/home'><i className="fa-solid fa-arrow-left"></i></Button> */}
-            <h5 className="productosfres mx-0 my-1">Transporte</h5>
+            <h5 className="productosfres mx-0 my-1">Combustible</h5>
             <span className="p-input-icon-left"> 
                 <i className="pi pi-search" />
                 
@@ -299,20 +299,20 @@ const DataTableCrudDemo = () => {
                     currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
                     globalFilter={globalFilter} header={header} responsiveLayout="scroll">
                     <Column selectionMode="multiple" headerStyle={{ width: '3rem' }} exportable={false}></Column>
-                    <Column field="code" header="Cod" sortable style={{ minWidth: '12rem' }}></Column>
-                    <Column field="name" header="Descripcion" sortable style={{ minWidth: '16rem' }}></Column>
-                    <Column field="name" header="vehículo" sortable style={{ minWidth: '16rem' }}></Column>
-                    <Column field="name" header="Patente" sortable style={{ minWidth: '16rem' }}></Column>
+                    <Column field="code" header="Id" sortable style={{ minWidth: '12rem' }}></Column>
+                    <Column field="name" header="Nombre" sortable style={{ minWidth: '16rem' }}></Column>
+                    <Column field="name" header="Cantidad" sortable style={{ minWidth: '16rem' }}></Column>
+                    <Column field="name" header="Fecha" sortable style={{ minWidth: '16rem' }}></Column>
                     {/* <Column field="image" header="Image" body={imageBodyTemplate}></Column> */}
                      {/* <Column field="price" header="Price" body={priceBodyTemplate} sortable style={{ minWidth: '8rem' }}></Column>  */}
-                    {/* <Column field="category" header="Descripcion" sortable style={{ minWidth: '10rem' }}></Column> */}
+                    <Column field="category" header="Descripcion" sortable style={{ minWidth: '10rem' }}></Column>
                     {/* <Column field="rating" header="Reviews" body={ratingBodyTemplate} sortable style={{ minWidth: '12rem' }}></Column>
                     <Column field="inventoryStatus" header="Status" body={statusBodyTemplate} sortable style={{ minWidth: '12rem' }}></Column> */}
                     <Column body={actionBodyTemplate} exportable={false} style={{ minWidth: '8rem' }}></Column>
                 </DataTable>
             </div>
 
-            <CompCreatePedidoTransporte show={show} handleClose={handleClose}/>
+            <CompCreatePedidoCombustible show={show} handleClose={handleClose}/>
         </div> 
     );
 }

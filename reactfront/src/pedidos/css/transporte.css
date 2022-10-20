@@ -1,0 +1,94 @@
+.modal-content{
+    height: 500px;
+}
+
+@media screen and (max-width:500px) {
+    .modal-content{
+        display: flex;
+        height: 600px;
+    }
+}
+
+.primercampo{
+       display: grid;
+       margin-right: 185px;
+       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.primercampo .codigo1{
+    width:130px;
+    height: 30px;
+}
+.codigo{
+    height: 30px;
+    
+}
+
+.segundocampo h5 {
+    margin-top: 10px;
+    font-size: 15px;
+   
+}
+
+.segundocampo hr{
+    margin-top: 1px;
+}
+
+
+.segundoinput{
+        height: 30px;
+        display: block;
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.segundoinput .calendario{
+    height: 40px;
+    width: 170px;
+    margin-top: 5px ;
+}
+
+@media screen and (max-width:500px) {
+    .segundoinput{
+       display: grid;
+       grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+   }
+}
+.tercercampo h5{
+    font-size: 15px;
+}
+
+.tercercampo hr{
+    margin-top: 1px;
+}
+
+.tercerinput{
+    height: 30px;
+    display: block;
+    display: grid;
+   grid-template-columns: 180px 180px;
+}
+
+.tercerinput .calendario{
+    height: 40px;
+    width: 170px;
+    
+}
+
+.tercerinput h5{
+    font-size: 15px;
+
+}
+@media screen and (max-width:500px) {
+    .tercercampo h5{
+        margin-top:75px ;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .tercerinput .calendario{
+       display: grid;
+       
+       grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+   }
+}

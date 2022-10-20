@@ -9,12 +9,14 @@ import Logistica from './pedidos/Logistica'
 import PedidoSecos from './pedidos/Secos';
 import Telefono from './pedidos/Telefono'
 import Transporte from './pedidos/Transporte'
+import Combustible from './pedidos/Combustible'
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
             <Route path='/telefono' element={ <Telefono/>} />
+            <Route path='/combustible' element={ <Combustible/>} />
             <Route path='/transporte' element={ <Transporte/>} />
             <Route path='/pedidos' element={ <DataTableCrudDemo/>} />
             <Route path='/configuracion' element={ <Configuracion/>} />

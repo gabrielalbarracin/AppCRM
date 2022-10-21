@@ -36,9 +36,8 @@ const CompCreatePedidoTransporte = ({show, handleClose}) => {
                     <input className="form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Modelo'></input>
                     <input className="form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Patente'></input>
                     <input className="form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Patente acoplado'></input>
-                    <input className="form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder=''></input>
-                    <input  type='date' className="calendario form-control" id="formGroupExampleInput2"/>
-                    <input  type='date' className="calendario form-control" id="formGroupExampleInput2"/>
+                    <input className="form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Carga maxima'></input>
+                   
                     <Form.Check required  label="Refrigerado"  feedback="You must agree before submitting."  feedbackType="invalid"/>
                 </div>
                 <br/>
@@ -50,9 +49,14 @@ const CompCreatePedidoTransporte = ({show, handleClose}) => {
                 </div>
 
                 <div className='tercerinput'>
-                  <h5>ven seguro</h5> <h5>ven patente</h5>
+                <h5>Vencimiento seguro</h5> <h5>Vencimiento patente</h5>
                 <input  type='date' className="calendario form-control" id="formGroupExampleInput2"/>
                 <input  type='date' className="calendario form-control" id="formGroupExampleInput2"/>
+                
+                  <h5>Vencimiento armat</h5> <h5>Vencimiento VTV</h5>
+                  <input  type='date' className="calendario form-control" id="formGroupExampleInput2"/>
+                <input  type='date' className="calendario form-control" id="formGroupExampleInput2"/>
+               
                 </div>
                 </Modal.Body>
                 <Modal.Footer className='barrainferior'>

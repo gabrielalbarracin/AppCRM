@@ -1,5 +1,5 @@
 import './css/home.css'
-import { Button } from 'reactstrap'
+import { Navbar, Container, Offcanvas } from 'reactstrap'
 import san from './img/san.png'
 
 import {Nav,NavDropdown, expand } from 'react-bootstrap';
@@ -17,8 +17,11 @@ import {
     FaThList
 }from "react-icons/fa";
 import {FiSettings} from 'react-icons/fi'
+import {TbMeat, TbGasStation, } from 'react-icons/tb'
+import {MdOutlineEmojiFoodBeverage} from 'react-icons/md'
+import {BsTelephone, BsTruck} from 'react-icons/bs'
+import {AiOutlineUser} from 'react-icons/ai'
 
-import { HiOutlineDeviceTablet } from 'react-icons/hi'
 import { NavLink } from 'react-router-dom';
 const Home = () =>{
     
@@ -29,8 +32,8 @@ const Home = () =>{
   
           {
               path:"/",
-              name:"Dashboard",
-              icon:<FaTh/>,
+              name:"Usuarios",
+              icon:<AiOutlineUser/>,
           },
           {
               path:"/configuracion",
@@ -40,13 +43,13 @@ const Home = () =>{
           {
               path:"/pedidos",
               name:"Frescos",
-              icon:<FaRegChartBar/>
+              icon:<TbMeat/>
           },
              
           {
               path:"/PedidosSecos",
               name:"Secos",
-              icon:<FaShoppingBag/>
+              icon:<MdOutlineEmojiFoodBeverage/>
           },
           {
               path:"/logistica",
@@ -56,24 +59,27 @@ const Home = () =>{
           {
             path:"/telefono",
             name:"Telefono",
-            icon:<FaThList/>
+            icon:<BsTelephone/>
         },
         {
           path:"/transporte",
           name:"Transporte",
-          icon:<FaThList/>
+          icon:<BsTruck/>
       },
       {
         path:"/combustible",
         name:"Combustible",
-        icon:<FaThList/>
+        icon:<TbGasStation/>
     },
 
       ]
 
      
       return (
-          <>
+          <div className='home'>
+
+ 
+
              <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
                  <div className="top_section">
                      <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
@@ -93,59 +99,66 @@ const Home = () =>{
                  }
              </div>
              {/* <main>{children}</main> */}
-             </>
+
+             </div>
       );
   };
   
   
 
 
-            {/* <div className='nav'>
-              {[false,].map((expand) => (
-                <Navbar key={expand} bg="light" expand={expand} className="menu mb-3">
-                  <div className='menu3'>
-                  <Container fluid>  
+        //      <div className='nav'>
+        //       {[false,].map((expand) => (
+        //         <Navbar key={expand} bg="light" expand={expand} className="menu mb-3">
+        //           <div className='menu3'>
+        //           <Container fluid>  
                    
-                      <Navbar.Toggle  aria-controls={`offcanvasNavbar-expand-${expand}`} />
-                    <Navbar.Offcanvas className='menu2'
-                      id={`offcanvasNavbar-expand-${expand}`}
-                      aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-                      position='left'
-                    >
+        //               <Navbar.Toggle  aria-controls={`offcanvasNavbar-expand-${expand}`} />
+        //             <Navbar.Offcanvas className='menu2'
+        //               id={`offcanvasNavbar-expand-${expand}`}
+        //               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
+        //               position='left'
+        //             >
                       
-                      <Offcanvas.Header closeButton className='menu2'>
-                        <Offcanvas.Title  id={`offcanvasNavbarLabel-expand-${expand}`}>  
+        //               <Offcanvas.Header closeButton className='menu2'>
+        //                 <Offcanvas.Title  id={`offcanvasNavbarLabel-expand-${expand}`}>  
                          
-                          </Offcanvas.Title>
-                      </Offcanvas.Header>
-                      <Offcanvas.Body className='menu3' >
-                        <Nav className="justify-content-end flex-grow-1 pe-3">
-                          <Nav.Link href="/configuracion">Configuracion<i className="iconhome fa-solid fa-gear"></i></Nav.Link>
-                          <Nav.Link href="/informes">Informes<i className="iconhome fa-solid fa-clipboard"></i></Nav.Link>  
+        //                   </Offcanvas.Title>
+        //               </Offcanvas.Header>
+        //               <Offcanvas.Body className='menu3' >
+        //                 <Nav className="justify-content-end flex-grow-1 pe-3">
+        //                   <Nav.Link href="/configuracion">Configuracion<i className="iconhome fa-solid fa-gear"></i></Nav.Link>
+        //                   <Nav.Link href="/informes">Informes<i className="iconhome fa-solid fa-clipboard"></i></Nav.Link>  
                          
-                           <NavDropdown 
-                            title="Reportes" after
-                            id={`offcanvasNavbarDropdown-expand-${expand}`} >
+        //                    <NavDropdown 
+        //                     title="Reportes" after
+        //                     id={`offcanvasNavbarDropdown-expand-${expand}`} >
                           
-                            <NavDropdown.Item href="/pedidos">Frescos</NavDropdown.Item>
-                            <NavDropdown.Item href="/PedidosSecos">Secos</NavDropdown.Item>
-                            <NavDropdown.Item href="/logistica">Logistica</NavDropdown.Item>
-                            <NavDropdown.Item href="/telefono">Telefono</NavDropdown.Item>
+        //                     <NavDropdown.Item href="/pedidos">Frescos</NavDropdown.Item>
+        //                     <NavDropdown.Item href="/PedidosSecos">Secos</NavDropdown.Item>
+        //                     <NavDropdown.Item href="/logistica">Logistica</NavDropdown.Item>
+        //                     <NavDropdown.Item href="/telefono">Telefono</NavDropdown.Item>
 
 
-                          </NavDropdown>
-                        </Nav>
+        //                   </NavDropdown>
+        //                 </Nav>
                         
-                      </Offcanvas.Body>
+        //               </Offcanvas.Body>
                       
-                    </Navbar.Offcanvas>
-                  </Container>
-                  </div>
-                </Navbar>
+        //             </Navbar.Offcanvas>
+        //           </Container>
+        //           </div>
+        //         </Navbar>
                 
-              ))}
-        </div>   */}
+        //       ))}
+        // </div>   
        
+
+
+
+
+
+
         // <div className='tarjetas'> 
         //   <div className=" col-12 lg:col-6 xl:col-3">
         //         <div className=" card mb-0">

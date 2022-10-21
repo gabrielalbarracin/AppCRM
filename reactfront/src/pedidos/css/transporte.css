@@ -1,11 +1,11 @@
 .modal-content{
-    height: 500px;
+    height: 550px;
 }
 
 @media screen and (max-width:500px) {
     .modal-content{
         display: flex;
-        height: 600px;
+        height: 650px;
     }
 }
 

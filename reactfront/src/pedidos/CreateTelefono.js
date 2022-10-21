@@ -38,17 +38,7 @@ const CompCreatetelefono = ({show, handleClose}) => {
                  <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>
                  <input  type='date' className="calendario form-control" id="formGroupExampleInput2"/>
              </div> */}
-             <Button className='boton1 btn-sm' variant="success">Listo</Button>
-        <div>
-             <table className='table'>
-        <thead>
-        <tr>
-          <th>Id</th>
-          <th>articulo</th>
-          <th>cantidad</th>
-          <th>fecha de entrega</th>
-        </tr>
-      </thead>
+            
       {/* <tbody>
         {pedidos.map ((pedido) =>(
             <tr key={pedido.id}>
@@ -59,8 +49,7 @@ const CompCreatetelefono = ({show, handleClose}) => {
             </tr>
             ))}
         </tbody> */}
-      </table>
-      </div>
+  
         </Modal.Body>
         <Modal.Footer className='barrainferior'>
           <Button className='boton btn-sm' variant="danger" onClick={handleClose}>

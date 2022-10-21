@@ -12,13 +12,13 @@ const CompCreatePedidoCombustible = ({show, handleClose}) => {
     
     return(
         <>
-        <Modal className='modal modal-dialog-scrollable' show={show} onHide={handleClose}>
+        <Modal className='modal' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className='titulo'>Carga de combustible</Modal.Title>
         </Modal.Header>
         <Modal.Body className='cuerpo' >
         <select className="categoria form-select" aria-label="Default select example">
-                 <option selected>vehículo</option>
+                 <option selected>Vehículo</option>
                  <option value="1">Renault Kangoo Dominio:GOA563</option>
                  <option value="2">Renault Kangoo Dominio:PCB159</option>
                  <option value="3">Otros</option>
@@ -49,89 +49,26 @@ const CompCreatePedidoCombustible = ({show, handleClose}) => {
         <div>
             <h6>Se paga o se debe</h6>
             <fieldset>
-    <Form.Group as={Row}>
-      <Col sm={10}>
-        <Form.Check
-          type="radio"
-          label="Se paga"
-          name="formHorizontalRadios"
-          id="formHorizontalRadios1"
-        />
-        <Form.Check
-          type="radio"
-          label="Se anoto en cuenta"
-          name="formHorizontalRadios"
-          id="formHorizontalRadios2"
-        />
-      </Col>
-    </Form.Group>
-  </fieldset>
-
-
-
-            {/* <Form>
-             {['checkbox'].map((type) => (
-                <div key={`inline-${type}`} className="mb-3">
-            <Form.Check
-                inline
-                label="Se pago"
-                name="group1"
-                type={type}
-                id={`inline-${type}-1`}
-            />
-            </div>
-           ))}
-          </Form>
-
-          <Form>
-             {['checkbox'].map((type) => (
-                <div key={`inline-${type}`} className="mb-3">
-            <Form.Check
-                inline
-                label="Se anoto en cuenta"
-                name="group1"
-                type={type}
-                id={`inline-${type}-1`}
-            />
-            </div>
-           ))}
-          </Form> */}
+                <Form.Group as={Row}>
+                <Col sm={10}>
+                    <Form.Check
+                    type="radio"
+                    label="Se paga"
+                    name="formHorizontalRadios"
+                    id="formHorizontalRadios1"
+                    />
+                    <Form.Check
+                    type="radio"
+                    label="Se anoto en cuenta"
+                    name="formHorizontalRadios"
+                    id="formHorizontalRadios2"
+                    />
+                </Col>
+                </Form.Group>
+            </fieldset>
         </div>
-         
-
-
-             <Button className='boton1 btn-sm' variant="success">Listo</Button>
-        <div>
-             <table className='table'>
-        <thead>
-        <tr>
-          <th>Id</th>
-          <th>articulo</th>
-          <th>cantidad</th>
-          <th>fecha de entrega</th>
-        </tr>
-      </thead>
-      {/* <tbody>
-        {pedidos.map ((pedido) =>(
-            <tr key={pedido.id}>
-            <td>{pedido.id}</td>
-            <td>{pedido.articulo}</td>
-            <td>{pedido.cantidad}</td>
-            <td>{pedido.fecha}</td>
-            </tr>
-            ))}
-        </tbody> */}
-      </table>
-      </div>
         </Modal.Body>
-        <Modal.Footer className='barrainferior'>
-          <Button className='boton btn-sm' variant="danger" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button className='boton btn-sm' variant="primary" onClick={handleClose}>
-            Guardar
-          </Button>
-        </Modal.Footer>
+      
       </Modal>
       </>
     )

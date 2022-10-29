@@ -1,9 +1,9 @@
- *{
+ /* *{
    
     margin:0;
     padding:0;
     text-decoration: none;
-} 
+}  */
 /* .container{
     background-color: rgb(240, 10, 10);
     margin-left: 0px;
@@ -17,6 +17,13 @@ main{
     padding: 20px;
 } */
 
+.homebarra{
+    position:absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 0px;
+    height: 0px;
+}
 
 
 .sidebar{

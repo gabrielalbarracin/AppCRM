@@ -10,11 +10,17 @@ import PedidoSecos from './pedidos/Secos';
 import Telefono from './pedidos/Telefono'
 import Transporte from './pedidos/Transporte'
 import Combustible from './pedidos/Combustible'
+import Prueba from './pedidos/Transporte/Prueba'
+import CompCreatePedidoPrueba2 from './pedidos/Transporte/CreatePrueba2'
+import CompEditStock from './pedidos/Transporte/EditPrueba'
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+        <Route path='/Editprueba/:id' element={ <CompEditStock/>} />  
+        <Route path='/Createprueba' element={ <CompCreatePedidoPrueba2/>} />
+        <Route path='/prueba' element={ <Prueba/>} />
             <Route path='/telefono' element={ <Telefono/>} />
             <Route path='/combustible' element={ <Combustible/>} />
             <Route path='/transporte' element={ <Transporte/>} />

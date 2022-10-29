@@ -1,4 +1,4 @@
-.btn-acciones{
+/* .btn-acciones{
     float:left;
     margin-right: 8px;
         
@@ -16,13 +16,13 @@
 
 .p-toolbar{
     display: none;
-}
+} */
 
 
 
 /* DataTableDemo.css */
 
-.datatable-crud-demo .table-header {
+/* .datatable-crud-demo .table-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -59,8 +59,13 @@
     .datatable-crud-demo .table-header .p-input-icon-left, .datatable-crud-demo .table-header input {
         width: 100%;
     }
-}
-                 
+} */
+   
+
+
+
+
+
 
 /* .principal{
     align-items: center;

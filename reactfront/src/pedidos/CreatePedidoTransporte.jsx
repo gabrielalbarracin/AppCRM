@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
+import {useForm} from 'react-hook-form'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'
-import './css/transporte.css'
-const URI = 'http://localhost:9000/pedidos/'
+//import './css/transporte.css'
+
+
+
 
 
 const CompCreatePedidoTransporte = ({show, handleClose}) => {
-    
+  const {register, handleSubmit} = useForm();
+
+  const onSubmit = (data) =>{
+    console.log(data)
+  }
     return(
         
             <>
@@ -21,6 +28,7 @@ const CompCreatePedidoTransporte = ({show, handleClose}) => {
                   </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='primercampo'>
                     <input className="codigo1 form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Cod'></input>
                     <input className="codigo form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Descripción'></input>
@@ -58,12 +66,13 @@ const CompCreatePedidoTransporte = ({show, handleClose}) => {
                 <input  type='date' className="calendario form-control" id="formGroupExampleInput2"/>
                
                 </div>
+          </form>
                 </Modal.Body>
                 <Modal.Footer className='barrainferior'>
                     <Button className='boton btn-sm' variant="danger" onClick={handleClose}>
                       Cerrar
                     </Button>
-                    <Button className='boton btn-sm' variant="primary" onClick={handleClose}>
+                    <Button type='submit' className='boton btn-sm' variant="primary">
                       Guardar
                     </Button>
                 </Modal.Footer>

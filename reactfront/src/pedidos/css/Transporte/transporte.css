@@ -1,13 +1,36 @@
-.modal-content{
-    height: 550px;
+.transporte{
+    
+    
+    display: flex;
+    flex-wrap: wrap;
 }
 
-@media screen and (max-width:500px) {
-    .modal-content{
-        display: flex;
-        height: 650px;
-    }
+.containertabla{
+    width: 100%;
+    margin-left: 70px;
 }
+
+.cabezeratransporte{
+    margin-left: 70px;
+   margin-bottom: 1px;
+}
+
+.cabezeratransporte h5{
+    float: right;
+    margin-left: 10px;
+}
+
+.botonesacciones {
+    margin-left: 5px;
+    
+}
+
+.botonesacciones i{
+    width: 10px;
+    height: 5px;
+    margin-left: 1px;
+}
+
 
 .primercampo{
        display: grid;

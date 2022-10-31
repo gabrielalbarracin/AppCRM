@@ -1,13 +1,13 @@
 import express from 'express'
 import cors from 'cors'
 import db from './database/db.js'
-import pedidosRoutes from './routes/routes.js'
+import transporteRoutes from './routes/routes.js'
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
-app.use('/pedidos', pedidosRoutes)
+app.use('/transporte', transporteRoutes)
 try{
     await db.authenticate()
     console.log('conexion exitosa a la db')

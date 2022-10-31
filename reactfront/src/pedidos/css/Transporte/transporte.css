@@ -6,11 +6,49 @@
 .containertabla{
     width: 100%;
     margin-left: 70px;
+    margin-right: 15px;
+}
+.acciones{
+    text-align: center;
+    width: 100%;
+    margin-right: 25px;
+    height: 5px;
 }
 
+.acciones2{
+    text-align: center;
+    width: 100%;
+    margin-right: 25px;
+    height: 5px;
+}
+
+.tabla{
+    width: 100%;
+    
+}
+
+.table-primary .tr{
+   margin: 50px;
+}
 .cabezeratransporte{
     margin-left: 70px;
    margin-bottom: 1px;
+   margin-top: 15px;
+}
+
+.btnexportar{
+    
+    margin-left: 900px;
+    margin-top: 15px;
+    
+    
+}
+
+.btnexportar .expo{
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+  
 }
 
 .cabezeratransporte h5{
@@ -18,31 +56,30 @@
     margin-left: 10px;
 }
 
-.botonesacciones {
+.botonesacciones .btn {
+    margin-bottom:12px ;
     margin-left: 5px;
-    
+    margin: 0px;
 }
-
-.botonesacciones i{
-    width: 10px;
+.btnacciones {
+    margin: 0px;
     height: 5px;
+}
+.botonesacciones i{
+   margin-top: 0px;
+   margin-bottom: 0px;
+    margin: 0px;
     margin-left: 1px;
-}
-
-
-.primercampo{
-       display: grid;
-       margin-right: 185px;
-       grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-}
-
-.primercampo .codigo1{
-    width:130px;
-    height: 30px;
-}
-.codigo{
-    height: 30px;
     
+}
+
+
+
+
+
+.primercampo .codigo{
+    height: 30px;
+    width: 230px;
 }
 
 
@@ -62,11 +99,12 @@
 }
 
 
+
 .segundoinput{
-        height: 30px;
-        display: block;
-       display: grid;
-       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    height: 30px;
+    display: block;
+    display: grid;
+    grid-template-columns: 180px 180px 180px;
 }
 
 .segundoinput .calendario{
@@ -78,7 +116,7 @@
 @media screen and (max-width:500px) {
     .segundoinput{
        display: grid;
-       grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
    }
 }
 .tercercampo h5{
@@ -130,3 +168,17 @@
            grid-template-columns: 280px 280px;
        }
     }
+
+/* edit prueba */
+
+.editprueba{
+    grid-template-columns: 180px 180px;
+}
+
+@media screen and (min-width:500px) {
+    .editprueba{
+       display: grid;
+       
+       grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+   }
+}

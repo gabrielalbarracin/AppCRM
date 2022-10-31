@@ -7,11 +7,12 @@ import '../css/Transporte/transporte.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Home from '../../home/home'
-import swal from 'sweetalert2';
+import Table from 'react-bootstrap/Table'
 const URI = 'http://localhost:9000/transporte/'
 
 const DataTableCrudDemo = () => {
 
+        
          const [transportes, setTransporte] = useState([])
          useEffect(()=>{
             getTransportes()
@@ -33,7 +34,8 @@ const DataTableCrudDemo = () => {
             getTransportes()
         }
 
-
+        
+       
         // const {register, handleSubmit} = useForm();
 
         // const onSubmit = (data) =>{
@@ -58,23 +60,26 @@ const DataTableCrudDemo = () => {
           <Link to='/Createprueba' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link>
           <h5>Maestro de vehiculos</h5>
         </div>
+        <div className='btnexportar'>
+        <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
+        <button className='expo'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
+        </div>
         {/* <Button className="btnNuevo btn btn-success mr-2 btn-sm" type='submit' onClicks={handleShow} />  */}
          <div className='containertabla'>
            <div className='row'>
             <div className='col'>
-                <table className='table'>
-                    <thead className='table-primary'>
-                        <tr>
-                            <th>id</th>
-                            <th>descripcion</th>
-                            <th>marca</th>
-                            <th>modelo</th>
-                            <th>patente</th>
-                            
-                            <th>acciones</th>
+                <Table striped bordered hover className='tabla'>
+                    <thead >
+                        <tr className='acciones'>
+                            <th>Id</th>
+                            <th>Descripcion</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Patente</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='acciones2'>
                         {transportes.map ( (transporte) => (
                             <tr key={transporte.id}>
                                 <td>{transporte.id}</td>
@@ -82,19 +87,18 @@ const DataTableCrudDemo = () => {
                                 <td>{transporte.marca}</td>
                                 <td>{transporte.modelo}</td>
                                 <td>{transporte.patente}</td>
-                               
-                                <td>
-                                    <div className='botonesacciones'>
-                                        <Link to={`/Verprueba/${transporte.id}`} className='botonesacciones btn btn-danger'><i className="fa-solid fa-magnifying-glass"></i></Link>
-                                        <Link to={`/Editprueba/${transporte.id}`} className='botonesacciones btn btn-info'><i className="fa-solid fa-pen-to-square"></i></Link>
-                                        <Button onClick=  {() =>deleteTransporte(transporte.id)} className='botonesacciones btn btn-danger'><i className="fa-solid fa-trash"></i></Button>
+                                <td className=''>
+                                    <div className='btnacciones'>
+                                        <Link to={`/Verprueba/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
+                                        <Link to={`/Editprueba/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
+                                        <button onClick={() =>deleteTransporte(transporte.id)} className='botonesacciones btn'><i className="fa-solid fa-trash"></i></button>
 
                                     </div>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
-                </table>
+                </Table>
             </div>
         </div>
 

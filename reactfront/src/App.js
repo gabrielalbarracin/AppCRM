@@ -13,11 +13,13 @@ import Combustible from './pedidos/Combustible'
 import Prueba from './pedidos/Transporte/Prueba'
 import CompCreatePedidoPrueba2 from './pedidos/Transporte/CreatePrueba2'
 import CompEditStock from './pedidos/Transporte/EditPrueba'
+import CompVerPrueba from './pedidos/Transporte/VerPrueba';
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+        <Route path='/Verprueba/:id' element={ <CompVerPrueba/>} /> 
         <Route path='/Editprueba/:id' element={ <CompEditStock/>} />  
         <Route path='/Createprueba' element={ <CompCreatePedidoPrueba2/>} />
         <Route path='/prueba' element={ <Prueba/>} />

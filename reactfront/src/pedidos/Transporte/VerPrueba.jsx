@@ -5,7 +5,7 @@ import { useNavigate, useParams, } from "react-router-dom";
 
 const URI = 'http://localhost:9000/transporte/'
 
-const CompEditStock = () =>{
+const CompVerPrueba = () =>{
    // const[id, setId] = useState('')
     const [descripcion, setDescripcion] = useState('')
     const [marca, setMarca] = useState('')
@@ -44,11 +44,12 @@ const CompEditStock = () =>{
         setModelo(res.data.modelo)
         setPatente(res.data.patente)
         setVenSeguro(res.data.patente)
+        setVenSeguro(res.data.ven_seguro)
     }
     return(
         <div>
-            <h1>Editar</h1>
-            <form onSubmit={update}>
+            <h1>Ver</h1>
+            <form onSubmit={update} className="verprueba">
                 <div className="mb-3">
                     <label className="form-label">descripcion</label>
                     <input
@@ -90,10 +91,9 @@ const CompEditStock = () =>{
                             className="form-control"/>
 
                 </div>
-                <button type="submit" className="btn btn-primary">guardar</button>
             </form>
         </div>
     )
 }
 
-export default CompEditStock
+export default CompVerPrueba

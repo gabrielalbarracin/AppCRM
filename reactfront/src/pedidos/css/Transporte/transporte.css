@@ -1,6 +1,4 @@
-.transporte{
-    
-    
+.transporte{    
     display: flex;
     flex-wrap: wrap;
 }
@@ -47,6 +45,12 @@
     
 }
 
+
+/* formulario para crear */
+
+.crearprueba{
+    grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+}
 .segundocampo h5 {
     margin-top: 10px;
     font-size: 15px;
@@ -115,3 +119,14 @@
        grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
    }
 }
+
+/* ver prueba */
+
+
+    @media screen and (min-width:500px) {
+        .verprueba{
+           display: grid;
+           
+           grid-template-columns: 280px 280px;
+       }
+    }

@@ -70,7 +70,7 @@ const DataTableCrudDemo = () => {
                             <th>marca</th>
                             <th>modelo</th>
                             <th>patente</th>
-                            <th>ven seguro</th>
+                            
                             <th>acciones</th>
                         </tr>
                     </thead>
@@ -82,10 +82,10 @@ const DataTableCrudDemo = () => {
                                 <td>{transporte.marca}</td>
                                 <td>{transporte.modelo}</td>
                                 <td>{transporte.patente}</td>
-                                <td>{transporte.ven_seguro}</td>
+                               
                                 <td>
                                     <div className='botonesacciones'>
-                                        <Link href='/Editprueba' className='botonesacciones btn btn-danger'><i className="fa-solid fa-magnifying-glass"></i></Link>
+                                        <Link to={`/Verprueba/${transporte.id}`} className='botonesacciones btn btn-danger'><i className="fa-solid fa-magnifying-glass"></i></Link>
                                         <Link to={`/Editprueba/${transporte.id}`} className='botonesacciones btn btn-info'><i className="fa-solid fa-pen-to-square"></i></Link>
                                         <Button onClick=  {() =>deleteTransporte(transporte.id)} className='botonesacciones btn btn-danger'><i className="fa-solid fa-trash"></i></Button>
 

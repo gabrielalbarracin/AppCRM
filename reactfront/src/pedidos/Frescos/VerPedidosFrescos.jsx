@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import './css/PedidoLogistica.css'
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 const URI = 'http://localhost:9000/pedidos/'
 
 
-const PedidoLogistica = ({show, handleClose}) => {
-    
+const CompVerPedidoFrescos = () => {
+  const navigate = useNavigate()
+  const {id} = useParams()
+  //procedimiento guardar
+  const store = async (e) =>{
+  e.preventDefault()
+  await axios.post(URI, {   })
+  navigate('/Frescos')
+
+  }
     return(
         <>
-        <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title className='titulo'>Pedidos Logistica</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className='cuerpo'>
+        <div className='crearprueba'>
+         <form >
+                <div className='primercampo'></div>
         <select className="categoria form-select" aria-label="Default select example">
                  <option selected>Seleccione categoria</option>
                  <option value="1">Carne</option>
@@ -59,18 +66,13 @@ const PedidoLogistica = ({show, handleClose}) => {
         </tbody> */}
       </table>
       </div>
-        </Modal.Body>
-        <Modal.Footer className='barrainferior'>
-          <Button className='boton btn-sm' variant="danger" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button className='boton btn-sm' variant="primary" onClick={handleClose}>
-            Guardar
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <Button type='submit' className='boton btn-sm' variant="primary">
+                      Guardar
+                    </Button> 
+        </form>
+    </div>
       </>
     )
 }
 
-export default PedidoLogistica
+export default CompVerPedidoFrescos

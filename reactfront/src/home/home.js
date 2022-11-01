@@ -41,7 +41,7 @@ const Home = () =>{
               icon:<FiSettings/>
           },
           {
-              path:"/pedidos",
+              path:"/Frescos",
               name:"Frescos",
               icon:<TbMeat/>
           },

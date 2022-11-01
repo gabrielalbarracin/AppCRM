@@ -1,30 +1,59 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import './css/CreatePedidos.css'
+import './Telefono.css'
+
+
+
+
+import {useForm} from 'react-hook-form'
+
+import Form from 'react-bootstrap/Form'
+//import './css/Transporte/transporte.css'
+
+import axios from "axios";
+
+import { useNavigate } from "react-router-dom";
+
 const URI = 'http://localhost:9000/pedidos/'
 
-
-const CompCreatetelefono = ({show, handleClose}) => {
+const CompCreatetelefono = () => {
     
+
+
+
+     
+  const navigate = useNavigate()
+  //procedimiento guardar
+  const store = async (e) =>{
+  e.preventDefault()
+  await axios.post(URI, {  })
+  navigate('/telefono')
+
+  }
+
+
     return(
         <>
-        <Modal className='modal modal-dialog-scrollable' show={show} onHide={handleClose}>
+        {/* <Modal className='modal modal-dialog-scrollable' show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title className='titulo'>Regargas telefonicas</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className='cuerpo' >
+        </Modal.Header> */}
+
+<div className='creartelefono'>
+         <form onSubmit={store}>
+        {/* <Modal.Body className='cuerpo' > */}
         
                 <div className="mb-1">
                  <label className="cantidad form-label">Ingrese cliente</label>
                  {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
-                 <input className="cantidad2 form-control form-control-sm" type="text" aria-label=".form-control-sm example"placeholder='Nombre y apellido' ></input>
+                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example"placeholder='Nombre y apellido' ></input>
                  <label className="cantidad form-label">Empresa telefonica</label>
-                 <input className="cantidad2 form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
+                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
                  <label className="cantidad form-label">Numero de linea</label>
-                 <input className="cantidad2 form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
+                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
                  <label className="cantidad form-label">importe de la carga</label>
-                 <input className="cantidad2 form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
+                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
                  <select className="categoria form-select" aria-label="Default select example">
                  <option selected>Pago del consumo</option>
                  <option value="1">PAGO AL INTENDENTE</option>
@@ -50,16 +79,12 @@ const CompCreatetelefono = ({show, handleClose}) => {
             ))}
         </tbody> */}
   
-        </Modal.Body>
-        <Modal.Footer className='barrainferior'>
-          <Button className='boton btn-sm' variant="danger" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button className='boton btn-sm' variant="primary" onClick={handleClose}>
-            Guardar
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        
+                    <Button type='submit' className='btnguardartel btn-sm' variant="primary">
+                      Guardar
+                    </Button> 
+        </form>
+    </div>
       </>
     )
 }

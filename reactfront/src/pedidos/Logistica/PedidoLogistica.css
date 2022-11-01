@@ -1,3 +1,47 @@
+.titulologistica{
+    padding: 10px;
+}
+.categorialogistica {
+    width: 100px;
+    margin: 10px;
+}
+.categoria {
+    width: 10px;
+    margin: 10px;
+
+}
+
+.cantidadlogistica{
+    margin-left: 10px;
+    width: 200px;
+    height: 30px;
+}
+
+.calendariologistica{
+    width: 100px;
+    margin-left: 10px;
+}
+
+.crearlogistica{
+    padding: auto;
+}
+
+.btnlistologistica{
+    margin: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .texto1{
     height: 10px;
     margin:50px;

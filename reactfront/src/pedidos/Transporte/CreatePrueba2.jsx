@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form'
 //import './css/Transporte/transporte.css'
-import '../css/Transporte/transporte.css'
+import './transporte.css'
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";

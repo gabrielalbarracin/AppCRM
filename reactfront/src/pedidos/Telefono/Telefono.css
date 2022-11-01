@@ -1,0 +1,17 @@
+.cantidad{
+    margin: 10px;
+}
+.inputtelefono {
+    width: 100px;
+    height: 40px;
+    
+}
+
+.creartelefono{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btnguardartel{
+    margin: 10px;
+}

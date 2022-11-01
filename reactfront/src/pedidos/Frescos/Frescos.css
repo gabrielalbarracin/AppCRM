@@ -1,0 +1,35 @@
+.crearfrescos{
+       
+}
+
+
+.titulo {
+    margin: 10px;
+}
+
+.cantidadfrescos{
+    margin-left: 10px;
+    width: 200px;
+    height: 30px;
+    
+}
+.categoriafrescos{
+    
+    margin: 10px;
+    
+}
+
+.calendariofrescos{
+    width: 100px;
+    margin-left: 10px;
+}
+
+.btnlistofrescos{
+    margin: 10px;
+}
+
+.tablafrescos{
+    width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}

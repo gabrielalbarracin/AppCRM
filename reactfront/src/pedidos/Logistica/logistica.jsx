@@ -1,55 +1,35 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { Button } from 'primereact/button';
-//import CompCreatePedidoPrueb from './CreatePrueba'
-//import {useForm} from 'react-hook-form'
-import './transporte.css'
 import axios from 'axios'
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react'
+import {Link} from 'react-router-dom'
+//import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
+import Button from 'react-bootstrap/Button';
+//import './css/style.css'
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
-const URI = 'http://localhost:9000/transporte/'
+//import PedidoLogistica from './PedidoLogistica';
+const URI = 'http://localhost:9000/pedidos/'
 
-const DataTableCrudDemo = () => {
+const Logistica = () => {
+    const [transportes, setPedido] = useState([])
+    useEffect( ()=>{
+        getPedidos()
+    },[])
+    
+    //procedimiento para mostrar todos los pedidos
+    const getPedidos = async () => {
+        const res = await axios.get(URI)
+        setPedido(res.data)
+    }
 
-        
-         const [transportes, setTransporte] = useState([])
-         useEffect(()=>{
-            getTransportes()
-         },[])
-
-        //mostrar todos los transportes
-        const getTransportes = async () =>{
-            const res = await axios.get(URI)
-            setTransporte(res.data)
-        }
-
-
-        
-
-        //procedimiento para eliminar un transporte
-        const deleteTransporte = async (id) =>{
-          
-            await axios.delete(`${URI}${id}`)
-            getTransportes()
-        }
-
-        
-       
-        // const {register, handleSubmit} = useForm();
-
-        // const onSubmit = (data) =>{
-        //   console.log(data)
-        // }
-
-        //  const [show, setShow] = useState(false);
-
-        //  const handleClose = () => setShow(false);
-        //  const handleShow = () => setShow(true);
+    //procedimiento para eliminar un pedido
+    const deleteTransporte = async (id) => {
+       await axios.delete(`${URI}${id}`)
+        getPedidos()
+    }
 
 
- return(
-    <>
+    return(
+        <>
         <div>
         <Home/> 
         </div>
@@ -57,8 +37,8 @@ const DataTableCrudDemo = () => {
     <div className="transporte">
         
         <div className='cabezeratransporte'>
-          <Link to='/Createprueba' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link>
-          <h5>Maestro de vehiculos</h5>
+          <Link to='/CreatePedidoLogistica' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link>
+          <h5>Maestro de logistica</h5>
         </div>
         <div className='btnexportar'>
             <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
@@ -90,7 +70,7 @@ const DataTableCrudDemo = () => {
                                 <td className=''>
                                     <div className='btnacciones'>
                                         <Link to={`/Verprueba/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
-                                        <Link to={`/Editprueba/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
+                                        <Link to={`/EditPedidosFrescos/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
                                         <button onClick={() =>deleteTransporte(transporte.id)} className='botonesacciones btn'><i className="fa-solid fa-trash"></i></button>
 
                                     </div>
@@ -104,25 +84,7 @@ const DataTableCrudDemo = () => {
      </div>
 </div>
 </>
-)
+    )
 }
-export default DataTableCrudDemo
 
-
- {/* <div>
-    <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-            <label>nombre</label>
-            <input type='text'{...register('nombre')}></input>
-        </div>
-        <div>
-            <label>direccion</label>
-            <input type='text'{...register('direccion')}></input>
-        </div>
-        <div>
-            <label>edad</label>
-            <input type='text'{...register('edad')}></input>
-        </div>
-        <input type='submit' value='enviar'></input>
-    </form>
-    </div> */}
+export default Logistica

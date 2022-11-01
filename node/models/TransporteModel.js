@@ -13,7 +13,8 @@ const TransporteModel = db.define('transportes',{
     ven_seguro:{type: DataTypes.NUMBER},
     ven_armat:{type: DataTypes.NUMBER},
     ven_vtv:{type: DataTypes.NUMBER},
-    carga_max:{type: DataTypes.NUMBER}
+    carga_max:{type: DataTypes.NUMBER},
+    //anular:{type: DataTypes.BOOLEAN}
 })
 
 export default TransporteModel

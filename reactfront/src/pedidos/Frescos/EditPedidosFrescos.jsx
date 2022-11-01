@@ -1,30 +1,36 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import './css/CreatePedidos.css'
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const URI = 'http://localhost:9000/pedidos/'
 
 
-const CompCreatePedidoLogistica = ({show, handleClose}) => {
-    
+const CompEditPedidoFrescos = () => {
+  const navigate = useNavigate()
+  //procedimiento guardar
+  const store = async (e) =>{
+  e.preventDefault()
+  await axios.post(URI, {   })
+  navigate('/Frescos')
+
+  }
     return(
         <>
-        <Modal className='modal' show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title className='titulo'>Pedidos logistica</Modal.Title>
-        </Modal.Header>
-        <Modal.Body className='cuerpo' >
+        <div className='crearprueba'>
+         <form >
+                <div className='primercampo'></div>
         <select className="categoria form-select" aria-label="Default select example">
                  <option selected>Seleccione categoria</option>
-                 <option value="1">Cosas de cama</option>
-                 <option value="2">Cosas de cocina</option>
-                 <option value="3">Otros</option>
+                 <option value="1">Carne</option>
+                 <option value="2">Verdura</option>
+                 <option value="3"></option>
              </select>
              <select className="form-select" aria-label="Default select example">
                  <option selected>Seleccione articulo</option>
-                 <option value="1">Platos</option>
-                 <option value="2">Cuchillos</option>
-                 <option value="3">Vasos</option>
+                 <option value="1">Carne vaca</option>
+                 <option value="2">pollo</option>
+                 <option value="3">chancho</option>
              </select>
                 <div className="mb-1">
                  <label className="cantidad form-label">Ingrese cantidad</label>
@@ -59,18 +65,13 @@ const CompCreatePedidoLogistica = ({show, handleClose}) => {
         </tbody> */}
       </table>
       </div>
-        </Modal.Body>
-        <Modal.Footer className='barrainferior'>
-          <Button className='boton btn-sm' variant="danger" onClick={handleClose}>
-            Cerrar
-          </Button>
-          <Button className='boton btn-sm' variant="primary" onClick={handleClose}>
-            Guardar
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <Button type='submit' className='boton btn-sm' variant="primary">
+                      Guardar
+                    </Button> 
+        </form>
+    </div>
       </>
     )
 }
 
-export default CompCreatePedidoLogistica
+export default CompEditPedidoFrescos

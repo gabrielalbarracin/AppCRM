@@ -1,15 +1,35 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import DataTableCrudDemo from './pedidos/ShowPedidos'
-import CompCreatePedido from './pedidos/CreatePedidos'
+//import DataTableCrudDemo from './pedidos/ShowPedidos'
+import CompCreatePedido from './pedidos/Frescos/CreatePedidosFrescos'
 import Login from './login/auth';
 import Home from './home/home';
 import Configuracion from './configuracion/config'
-import Logistica from './pedidos/Logistica'
-import PedidoSecos from './pedidos/Secos';
-import Telefono from './pedidos/Telefono'
-import Transporte from './pedidos/Transporte'
-import Combustible from './pedidos/Combustible'
+
+import PedidoSecos from './pedidos/Secos/Secos';
+import CompCreatePedidoSecos from './pedidos/Secos/CreatePedidosSecos'
+import ComVerPedidoSecos from './pedidos/Secos/VerSecos'
+
+import Logistica from './pedidos/Logistica/logistica'
+import CompCreatePedidoLogistica from './pedidos/Logistica/CreatePedidoLogistica'
+import EditPedidoLogistica from './pedidos/Logistica/EditLogistica'
+import CompVerPedidoLogistica from './pedidos/Logistica/VerLogistica'
+
+import Telefono from './pedidos/Telefono/Telefono'
+import CompCreatetelefono from './pedidos/Telefono/CreateTelefono'
+import ComEdittelefono from './pedidos/Telefono/EditTelefono'
+import CompVertelefono from './pedidos/Telefono/VerTelefono'
+
+import CompVerCombustible from './pedidos/combustible/VerCombustible'
+import Combustible from './pedidos/combustible/Combustible'
+import CompCreatePedidoCombustible from './pedidos/combustible/CreatePedidoCombustible'
+import CompEditCombustible from './pedidos/combustible/EditCombustible'
+
+import Frescos from './pedidos/Frescos/Frescos'
+import CompCreatePedidoFrescos from './pedidos/Frescos/CreatePedidosFrescos'
+import CompEditPedidoFrescos from './pedidos/Frescos/EditPedidosFrescos'
+import CompVerPedidoFrescos from './pedidos/Frescos/VerPedidosFrescos'
+
 import Prueba from './pedidos/Transporte/Prueba'
 import CompCreatePedidoPrueba2 from './pedidos/Transporte/CreatePrueba2'
 import CompEditStock from './pedidos/Transporte/EditPrueba'
@@ -23,13 +43,36 @@ function App() {
         <Route path='/Editprueba/:id' element={ <CompEditStock/>} />  
         <Route path='/Createprueba' element={ <CompCreatePedidoPrueba2/>} />
         <Route path='/prueba' element={ <Prueba/>} />
+            
+            <Route path='/Vertelefono/:id' element={ <CompVertelefono/>} />
+            <Route path='/Edittelefono/:id' element={ <ComEdittelefono/>} />
             <Route path='/telefono' element={ <Telefono/>} />
+            <Route path='/Creartelefono' element={ <CompCreatetelefono/>} />
+
+
+            <Route path='/Vercombustible/:id' element={ <CompVerCombustible/>} />
+            <Route path='/Editcombustible/:id' element={ <CompEditCombustible/>} />
+            <Route path='/pedidocombustible' element={ <CompCreatePedidoCombustible/>} />
             <Route path='/combustible' element={ <Combustible/>} />
-            <Route path='/transporte' element={ <Transporte/>} />
-            <Route path='/pedidos' element={ <DataTableCrudDemo/>} />
-            <Route path='/configuracion' element={ <Configuracion/>} />
+
             <Route path='/PedidosSecos' element={ <PedidoSecos/>} />
+            <Route path='/Createsecos' element={ <CompCreatePedidoSecos/>} />
+            <Route path='/VerPedidosSecos/:id' element={ <ComVerPedidoSecos/>} />
+            <Route path='/EditPedidosSecos/:id' element={ <PedidoSecos/>} />
+
+            <Route path='/Frescos' element={ <Frescos/>} />
+            <Route path='/CreatePedidosFrescos' element={ <CompCreatePedidoFrescos/>} />
+            <Route path='/EditPedidosFrescos/:id' element={ <CompEditPedidoFrescos/>} />
+            <Route path='/VerPedidosFrescos/:id' element={ <CompVerPedidoFrescos/>} />
+
             <Route path='/logistica' element={ <Logistica/>} />
+            <Route path='/CreatePedidologistica' element={ <CompCreatePedidoLogistica/>} />
+            <Route path='/EditPedidologistica/:id' element={ <EditPedidoLogistica/>} />
+            <Route path='/VerPedidologistica/:id' element={ <CompVerPedidoLogistica/>} />
+
+            {/* <Route path='/pedidos' element={ <DataTableCrudDemo/>} /> */}
+            <Route path='/configuracion' element={ <Configuracion/>} />
+            
             <Route path='/' element={<Login/>}/>
             <Route path='/home' element={<Home/>}/>
         </Routes>

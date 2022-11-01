@@ -3,14 +3,14 @@ import { useState, useEffect } from 'react';
 import { Button } from 'primereact/button';
 //import CompCreatePedidoPrueb from './CreatePrueba'
 //import {useForm} from 'react-hook-form'
-import './transporte.css'
+
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
 const URI = 'http://localhost:9000/transporte/'
 
-const DataTableCrudDemo = () => {
+const Frescos = () => {
 
         
          const [transportes, setTransporte] = useState([])
@@ -57,8 +57,8 @@ const DataTableCrudDemo = () => {
     <div className="transporte">
         
         <div className='cabezeratransporte'>
-          <Link to='/Createprueba' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link>
-          <h5>Maestro de vehiculos</h5>
+          <Link to='/CreatePedidosFrescos' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link>
+          <h5>Maestro de frescos</h5>
         </div>
         <div className='btnexportar'>
             <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
@@ -90,7 +90,7 @@ const DataTableCrudDemo = () => {
                                 <td className=''>
                                     <div className='btnacciones'>
                                         <Link to={`/Verprueba/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
-                                        <Link to={`/Editprueba/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
+                                        <Link to={`/EditPedidosFrescos/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
                                         <button onClick={() =>deleteTransporte(transporte.id)} className='botonesacciones btn'><i className="fa-solid fa-trash"></i></button>
 
                                     </div>
@@ -106,7 +106,7 @@ const DataTableCrudDemo = () => {
 </>
 )
 }
-export default DataTableCrudDemo
+export default Frescos
 
 
  {/* <div>

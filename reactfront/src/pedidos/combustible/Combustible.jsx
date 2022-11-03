@@ -94,10 +94,10 @@ const Combustible = () => {
                     <thead >
                         <tr className='acciones'>
                             <th>Id</th>
-                            <th>Descripcion</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Patente</th>
+                            <th>Vehículo</th>
+                            <th>Tipo combus</th>
+                            <th>Cantidad</th>
+                            <th>Importe</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>

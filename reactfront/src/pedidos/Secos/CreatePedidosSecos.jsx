@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table'
-
+import './Secos.css'
 //import './css/CreatePedidos.css'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -43,29 +43,34 @@ const CompCreatePedidoSecos = () => {
         <div className='crearsecos'>
          <form onSubmit={store}>
           <h5 className='titulosecos'>Pedidos secos</h5>
-                  <select className="categoriasecos form-select" aria-label="Default select example">
+        
+          <div className='secos'>
+           
+                  <select className="categoriasecos form-select"  value={categoria} onChange={(e)=> setCategoria(e.target.value)} >
                           <option selected>Seleccione categoria</option>
-                          <option value="1">Enlatado</option>
-                          <option value="2">Liquidos</option>
-                          <option value="3">Otros</option>
+                          <option>Enlatado</option>
+                          <option>Liquidos</option>
+                          <option>Otros</option>
                       </select>
-                      <select className="articulosecos form-select" aria-label="Default select example">
+                      <select className="categoriasecos form-select"  value={articulo} onChange={(e)=> setArticulo(e.target.value)} >
                           <option selected>Seleccione articulo</option>
-                          <option value="1">leche</option>
-                          <option value="2">Aceite</option>
-                          <option value="3">vinagre</option>
+                          <option>leche</option>
+                          <option>Aceite</option>
+                          <option>vinagre</option>
                       </select>
                           <div className="cantidadsecos mb-1">
-                          <label className="cantidadsecos form-label">Ingrese cantidad</label>
+                          <label className=" form-label">Ingrese cantidad</label>
                           {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
-                          <input className="cantidadsecos form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
+                          <input className="cantidad form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
                       </div>
                       <br/>
                       <br/>
+                      
                       <div className="calendariosecos mb-1">
                           <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>
                           <input  type='date' className=" form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
                       </div>
+            </div>
                       <Button type='submit' className='btnlistoseco btn-sm' variant="success">Listo</Button>
           {/* <div className='conteinertablasecos'>
            <div className='row'>

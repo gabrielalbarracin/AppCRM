@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState, } from "react";
 import { useNavigate, useParams, } from "react-router-dom";
 import Form from 'react-bootstrap/Form'
+import './Telefono.css'
 const URI = 'http://localhost:9000/transporte/'
 
 const CompVertetelefono = () =>{
@@ -41,11 +42,11 @@ return(
       <Modal.Title className='titulo'>Regargas telefonicas</Modal.Title>
     </Modal.Header> */}
 
-<div className='crearprueba'>
+<div className='verprueba'>
      <form >
     {/* <Modal.Body className='cuerpo' > */}
-    
-            <div className="mb-1">
+    <h5 className='recargas'>Recargas telefonicas</h5>
+            <div className="tel">
              <label className="cantidad form-label">Ingrese cliente</label>
              {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
              <input className="cantidad2 form-control form-control-sm" type="text" aria-label=".form-control-sm example"placeholder='Nombre y apellido' ></input>
@@ -62,6 +63,9 @@ return(
              <option value="3">REEMBOLSABLE</option>
              <option value="3">DEBE AL INTENDENTE</option>
          </select>
+         <button type='submit' className='btnguardartel btn-sm' variant="primary">
+                  Guardar
+                </button> 
          </div>
         
          {/* <div className="mb-1">
@@ -81,9 +85,7 @@ return(
     </tbody> */}
 
     
-                <button type='submit' className='boton btn-sm' variant="primary">
-                  Guardar
-                </button> 
+                
     </form>
 </div>
   </>

@@ -39,6 +39,7 @@ const CompCreatePedidoPrueba2 =  ( ) => {
 return(
     <div className='crearprueba'>
          <form onSubmit={store}>
+            <h5>Alta de transporte</h5>
                 <div className='primercampo'>
                 {/* value={id} onChange={(e)=> setId(e.target.value)} */}
                     {/* <input className="codigo1 form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Cod' value={id} onChange={(e)=> setId(e.target.value)} ></input> */}

@@ -1,9 +1,30 @@
-.crearfrescos{
-       
+.fres{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    margin-left: 10px;
+    margin: 10px;
 }
 
-
+.btnlistofrescos{
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
 .titulo {
+    margin-left: 10px;
+}
+.categoriafrescos{
+    
+    margin-top: 10px;
+    
+}
+.cantidadfrescos{
+    margin-top: 5px;
+    width: 200px;
+    height: 30px;
+    
+}
+/* .titulo {
     margin: 10px;
 }
 
@@ -26,10 +47,47 @@
 
 .btnlistofrescos{
     margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+.tabla{
+    width: 100%;
+    height: 100%;
+    
+    
+    
 }
 
-.tablafrescos{
-    width: 100%;
-    margin-left: 10px;
-    margin-right: 10px;
+@media screen and (max-width:500px) {
+    .tablafrescos {
+        display: flex;
+        flex-wrap: wrap;
+       
+    }
+}
+
+@media screen and (max-width:500px) {
+    .tabla {
+        display: flex;
+        flex-wrap: wrap;
+       
+    }
+}
+
+@media screen and (max-width:500px) {
+    .accionesfrescos {
+        display: flex;
+        flex-wrap: wrap;
+       
+    }
+}
+
+@media screen and (max-width:500px) {
+    .btnguardarfrescos {
+        display: flex;
+        flex-wrap: wrap;
+       height: 30px;
+       width: 30px;
+    }
 }

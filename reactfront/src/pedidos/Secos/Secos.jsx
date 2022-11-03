@@ -58,10 +58,10 @@ return(
                 <thead >
                     <tr className='acciones'>
                         <th>Id</th>
-                        <th>Descripcion</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Patente</th>
+                        <th>Categoria</th>
+                        <th>Articulo</th>
+                        <th>cantidad</th>
+                        <th>Fecha entrega</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>

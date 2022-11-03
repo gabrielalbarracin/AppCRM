@@ -2,17 +2,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import './Telefono.css'
-
-
-
-
-import {useForm} from 'react-hook-form'
-
-import Form from 'react-bootstrap/Form'
-//import './css/Transporte/transporte.css'
-
 import axios from "axios";
-
 import { useNavigate } from "react-router-dom";
 
 const URI = 'http://localhost:9000/pedidos/'
@@ -41,10 +31,10 @@ const CompCreatetelefono = () => {
         </Modal.Header> */}
 
 <div className='creartelefono'>
-         <form onSubmit={store}>
+         <form onSubmit={store} className='formtelefono'>
         {/* <Modal.Body className='cuerpo' > */}
-        
-                <div className="mb-1">
+        <h5 className='recargas'>Recargas telefonicas</h5>
+                <div className='tel'>
                  <label className="cantidad form-label">Ingrese cliente</label>
                  {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
                  <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example"placeholder='Nombre y apellido' ></input>
@@ -55,13 +45,16 @@ const CompCreatetelefono = () => {
                  <label className="cantidad form-label">importe de la carga</label>
                  <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
                  <select className="categoria form-select" aria-label="Default select example">
-                 <option selected>Pago del consumo</option>
+                 <option selected className="categoria">Pago del consumo</option>
                  <option value="1">PAGO AL INTENDENTE</option>
                  <option value="2">DESCONTAR A EMPRESA CONTRATADORA</option>
                  <option value="3">REEMBOLSABLE</option>
                  <option value="3">DEBE AL INTENDENTE</option>
-             </select>
-             </div>
+                  </select>
+                  <Button type='submit' className='btnguardartel btn-sm' variant="primary">
+                      Guardar
+                    </Button> 
+                  </div>
             
              {/* <div className="mb-1">
                  <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>
@@ -80,9 +73,6 @@ const CompCreatetelefono = () => {
         </tbody> */}
   
         
-                    <Button type='submit' className='btnguardartel btn-sm' variant="primary">
-                      Guardar
-                    </Button> 
         </form>
     </div>
       </>

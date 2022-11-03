@@ -1,31 +1,30 @@
-.crearsecos{
-    
+.secos{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    margin-left: 10px;
 }
+
 
 .titulosecos{
     padding: 10px;
 }
 
 .categoriasecos{
-    margin: 10px;
-    width: 200px;
+    margin-top: 10px;
 }
 
-.articulosecos{
-    margin: 10px;
-    width: 200px;
-}
 
 .cantidadsecos{
-    margin-left: 10px;
-    height: 30px;
-    width: 230px;
+    margin-top: 5px;
+    
 }
 
-.calendariosecos{
-    margin-left: 10px;
-    width: 180px;
+.cantidad{
+    height: 10px;
+    
 }
+
 
 .btnlistoseco{
     margin: 10px;

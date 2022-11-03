@@ -2,6 +2,7 @@ import { useEffect, useState, } from "react";
 import { useNavigate, useParams, } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import './Secos.css'
 //import './css/CreatePedidos.css'
 import axios from "axios";
 
@@ -43,13 +44,15 @@ const getTransporteById = async () =>{
         <>
         <div className='crearprueba'>
          <form onSubmit={update} >
-                  <select className="categoria form-select" aria-label="Default select example">
+         <h5 className='titulosecos'>Editar pedidos secos</h5>
+         <div className='secos'>
+                  <select className="categoriasecos form-select" aria-label="Default select example">
                           <option selected>Seleccione categoria</option>
                           <option value="1">Enlatado</option>
                           <option value="2">Liquidos</option>
                           <option value="3">Otros</option>
                       </select>
-                      <select className="form-select" aria-label="Default select example">
+                      <select className=" categoriasecos form-select" aria-label="Default select example">
                           <option selected>Seleccione articulo</option>
                           <option value="1">leche</option>
                           <option value="2">Aceite</option>
@@ -65,7 +68,8 @@ const getTransporteById = async () =>{
                           <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>
                           <input  type='date' className="calendario form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
                       </div>
-                      <Button type="submit" className='boton1 btn-sm' variant="success">Listo</Button>
+            </div>
+                      <Button type="submit" className='btnlistoseco btn-sm' variant="success">Listo</Button>
                   {/* <div>
               <table className='table'>
                   <thead>

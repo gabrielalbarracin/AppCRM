@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
+//import './App.css';
 //import DataTableCrudDemo from './pedidos/ShowPedidos'
 import CompCreatePedido from './pedidos/Frescos/CreatePedidosFrescos'
 import Login from './login/auth';

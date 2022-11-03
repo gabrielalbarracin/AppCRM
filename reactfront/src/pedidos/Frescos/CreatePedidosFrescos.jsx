@@ -15,22 +15,11 @@ const URI = 'http://localhost:9000/frescos/'
 
 const CompCreatePedidoFrescos = () => {
 
-    const [transportes, setTransporte] = useState([])
-    useEffect(()=>{
-       getTransportes()
-    },[])
-    const getTransportes = async () =>{
-        const res = await axios.get(URI)
-        setTransporte(res.data)
-    }
-
     const [categoria, setCategoria] = useState('')
     const [articulo, setArticulo] = useState('')
     const [cantidad, setCantidad] = useState('')
     const [fecha_entrega, setFechaEntrega] = useState('')
-
-
-//     const [transportes, setTransporte] = useState([])
+//   const [transportes, setTransporte] = useState([])
 //   useEffect(()=>{
 //      getTransportes()
 //   },[])
@@ -38,14 +27,17 @@ const CompCreatePedidoFrescos = () => {
 //     const res = await axios.get(URI)
 //     setTransporte(res.data)
 // }
+   //const [id, setId] = useState('')
+
+  //const [anular, setAnular] = useState('')
   const navigate = useNavigate()
   //procedimiento guardar
   const store = async (e) =>{
   e.preventDefault()
-  await axios.post(URI, { categoria:categoria, articulo:articulo, cantidad:cantidad, fecha_entrega:fecha_entrega,  })
+  await axios.post(URI, { categoria:categoria, articulo:articulo, cantidad:cantidad, fecha_entrega:fecha_entrega  })
   navigate('/Frescos')
 
-  }
+  }  
     return(
         
         <div className='crearfrescos'>
@@ -53,46 +45,52 @@ const CompCreatePedidoFrescos = () => {
                 <div className='titulo'>
                   <h5>Pedidos frescos</h5>
                 </div>
-        <select className="categoriafrescos form-select" aria-label="Default select example">
-                 <option selected>Seleccione categoria</option>
-                 <option value="1">Carne</option>
-                 <option value="2">Verdura</option>
-                 <option value="3"></option>
-             </select>
-             <select className=" categoriafrescos form-select" aria-label="Default select example">
-                 <option selected>Seleccione articulo</option>
-                 <option value="1">Carne vaca</option>
-                 <option value="2">pollo</option>
-                 <option value="3">chancho</option>
-             </select>
-                <div className="cantidadfrescos mb-1">
-                 {/* <label className="cantidad form-label">Ingrese cantidad</label> */}
-                 {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
-                 <label for="formGroupExampleInput2" className="cantidadfrescos form-label">Ingrese cantidad</label>
-                 <input className="cantidadfrescos form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
-             </div>
-            <br/>
-            <br/>
-             <div className="mb-1">
-                 <label for="formGroupExampleInput2" className="calendariofrescos form-label">Ingrese fecha de entrega</label>
-                 <input  type='date' className="calendariofrescos form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
-             </div>
-             <Button type='submit' className='btnlistofrescos btn-sm' variant="success">Listo</Button>
-         <div className='tablafrescos'>
+        <div className='fres'>
+                <select className="categoriafrescos form-select" aria-label="Default select example" value={categoria} onChange={(e)=> setCategoria(e.target.value)}>
+                        <option selected>Seleccione categoria</option>
+                        <option>Carne</option>
+                        <option>Verdura</option>
+                        <option></option>
+                </select>
+                    <select className=" categoriafrescos form-select" value={articulo} onChange={(e)=> setArticulo(e.target.value)}>
+                        <option selected>Seleccione articulo</option>
+                        <option>Carne vaca</option>
+                        <option>pollo</option>
+                        <option>chancho</option>
+                    </select>
+                        <div className="cantidadfrescos mb-1">
+                        {/* <label className="cantidad form-label">Ingrese cantidad</label> */}
+                        {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
+                        <label for="formGroupExampleInput2" className="cantidadfrescos form-label">Ingrese cantidad</label>
+                        <input className="cantidadfrescos form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div className="mb-1">
+                        <label for="formGroupExampleInput2" className="calendariofrescos form-label">Ingrese fecha de entrega</label>
+                        <input  type='date' className="calendariofrescos form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
+                    </div>
+                    <br/>
+                    <br/>
+        </div>  
+        <Button type='submit' className='btnlistofrescos btn-sm' variant="success">Listo</Button>
+         {/* <div className='tabla'>
            <div className='row'>
             <div className='col'>
-                <Table striped bordered hover className='tabla'>
+                <Table striped bordered hover className=''>
                     <thead >
-                        <tr className='accionesfrescos'>
+                        <tr >
                             <th>Id</th>
                             <th>Categoria</th>
                             <th>Articulo</th>
                             <th>Cantidad</th>
                             <th>fecha entrega</th>
-                            
+                            <th>acciones</th>
                         </tr>
                     </thead>
-                    <tbody className='accionesfrescos'>
+                    <tbody >
                         {transportes.map ( (transporte) => (
                             <tr key={transporte.id}>
                                 <td>{transporte.id}</td>
@@ -103,10 +101,10 @@ const CompCreatePedidoFrescos = () => {
                                 <td className=''>
                                     <div className='btnguardarfrescos'>
                                     <button type='submit' className='btnguardarfrescos btn-sm' variant="primary">
-                                        Guardar
+                                    <i class="fa-solid fa-check"></i>
                                     </button>
                                     <button type='submit' className='btnguardarfrescos btn-sm' variant="primary">
-                                        Cancelar
+                                    <i className="fa-solid fa-xmark"></i>
                                     </button> 
                                     </div>
                                   </td>
@@ -115,9 +113,9 @@ const CompCreatePedidoFrescos = () => {
                     </tbody>
                 </Table>
                 </div>
-                </div>
-                </div> 
-                   
+            </div>
+         </div>  */}
+               
         </form>
     </div>
      

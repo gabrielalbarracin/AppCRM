@@ -1,19 +1,16 @@
 import './css/home.css'
-import { Navbar, Container, Offcanvas } from 'reactstrap'
-import san from './img/san.png'
+// import { Navbar, Container, Offcanvas } from 'reactstrap'
+// import san from './img/san.png'
 
-import {Nav,NavDropdown, expand } from 'react-bootstrap';
-import { SplitButton } from 'primereact/splitbutton';
+// import {Nav,NavDropdown, expand } from 'react-bootstrap';
+// import { SplitButton } from 'primereact/splitbutton';
 
 import 'primeicons/primeicons.css';
 
 import React, { useState } from 'react';
 import {
-    FaTh,
+    
     FaBars,
-    FaRegChartBar,
-    FaCommentAlt,
-    FaShoppingBag,
     FaThList
 }from "react-icons/fa";
 import {FiSettings} from 'react-icons/fi'

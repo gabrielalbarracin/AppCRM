@@ -7,16 +7,16 @@ const URI = 'http://localhost:9000/transporte/'
 
 const CompEditStock = () =>{
    // const[id, setId] = useState('')
-    const [descripcion, setDescripcion] = useState('')
-    const [marca, setMarca] = useState('')
-    const [modelo, setModelo] = useState('')
-    const [patente, setPatente] = useState('')
-    const [patente_acop, setPatenteAcop] = useState ('')
-    const [ven_seguro, setVenSeguro] = useState ('')
-    const [ven_armat, setVenArmat] = useState ('')
-    const [ven_vtv, setVenVtv] = useState ('')
-    const [carga_max, setCargaMax] = useState ('')
-    const [ven_patente, setVenPatente] = useState ('')
+   const [descripcion, setDescripcion] = useState('')
+   const [marca, setMarca] = useState('')
+   const [modelo, setModelo] = useState('')
+   const [patente, setPatente] = useState('')
+   const [patente_acop, setPatenteAcop] = useState ('')
+   const [carga_max, setCargaMax] = useState ('')
+   const [ven_seguro, setVenSeguro] = useState ('')
+   const [ven_patente, setVenPatente] = useState ('')
+   const [ven_armat, setVenArmat] = useState ('')
+   const [ven_vtv, setVenVtv] = useState ('')
     const navigate = useNavigate()
     const {id} = useParams()
 
@@ -31,12 +31,12 @@ const CompEditStock = () =>{
             marca:marca,
             modelo:modelo,
             patente:patente,
+            patente_acop:patente_acop,
+            carga_max:carga_max,
             ven_seguro:ven_seguro,
+            ven_patente:ven_patente,
             ven_armat:ven_armat,
             ven_vtv:ven_vtv,
-            carga_max:carga_max,
-            ven_patente:ven_patente
-
         })
         navigate('/transporte')
     }
@@ -52,11 +52,12 @@ const CompEditStock = () =>{
         setMarca(res.data.marca)
         setModelo(res.data.modelo)
         setPatente(res.data.patente)
+        setPatenteAcop(res.data.patente_acop)
+        setCargaMax(res.data.carga_max)
         setVenSeguro(res.data.ven_seguro)
+        setVenPatente(res.date.ven_patente)
         setVenArmat(res.data.ven_armat)
         setVenVtv(res.data.ven_vtv)
-        setCargaMax(res.data.carga_max)
-        setVenPatente(res.date.ven_patente)
     }
     return(
         <div className='crearprueba'>

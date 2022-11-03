@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
+
 import CompCreatetelefono from './CreateTelefono'
 //import './DataTableDemo.css';
 const URI = 'http://localhost:9000/transporte/'
@@ -51,10 +52,10 @@ return(
                 <thead >
                     <tr className='acciones'>
                         <th>Id</th>
-                        <th>Descripcion</th>
-                        <th>Marca</th>
-                        <th>Modelo</th>
-                        <th>Patente</th>
+                        <th>Nombre</th>
+                        <th>Empresa tel</th>
+                        <th>Numero</th>
+                        <th>Importe</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>

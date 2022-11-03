@@ -15,6 +15,13 @@ const TransporteModel = db.define('transportes',{
     ven_vtv:{type: DataTypes.NUMBER},
     carga_max:{type: DataTypes.NUMBER},
     //anular:{type: DataTypes.BOOLEAN}
+
+    //frescos
+
+    // categoria:{type: DataTypes.STRING},
+    // articulos:{type: DataTypes.STRING},
+    // cantidad:{type:DataTypes.NUMBER},
+    // fecha_entrega:{type:DataTypes.DATE},
 })
 
 export default TransporteModel

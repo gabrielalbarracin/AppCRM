@@ -1,34 +1,34 @@
 //importo el modelo
-import PedidoModel from "../models/PedidoModel.js";
+import LogisticaModel from "../models/LogisticaModel.js";
 
 //metodos del crud
 
-//mostrar todos los articulos
-export const getAllArticulos = async (req, res) =>{
+//mostrar todos los transporte
+export const getAllLogisticas = async (req, res) =>{
     try{
-        const pedidos = await ArticuloModel.findAll()
-        res.json(pedidos)
+        const logistica = await LogisticaModel.findAll()
+        res.json(logistica)
     } catch (error){
         res.json({message: error.message})
     }
 }
 
 //mostrar un articulo
-export const getArticulo = async (req, res) =>{
+export const getLogistica = async (req, res) =>{
     try{
-        const pedido = await PedidosModel.findAll({
+        const logistica = await LogisticaModel.findAll({
             where:{ id:req.params.id }
         })
-        res.json(pedido[0])
+        res.json(logistica[0])
     } catch (error){
         res.json({message: error.message})
     }
 }
 
 //crear un pedido
-export const crearPedido = async (req, res) => {
+export const crearLogistica = async (req, res) => {
     try{
-        await PedidoModel.create(req.body)
+        await LogisticaModel.create(req.body)
         res.json({"message":"Pedido creado correctamente"})
     } catch(error){
         res.json({message: error.message})
@@ -36,9 +36,9 @@ export const crearPedido = async (req, res) => {
 }
 
 //actualizar un pedido
-export const updatePedido = async (req, res) =>{
+export const updateLogistica = async (req, res) =>{
     try{
-        await PedidoModel.update(req.body, {
+        await LogisticaModel.update(req.body, {
             where: {id:req.params.id}
         })
         res.json({"message":"PEdido actualizado correctamente"})
@@ -48,9 +48,9 @@ export const updatePedido = async (req, res) =>{
 }
 
 //eliminar un pedido
-export const deletePedido = async (req, res) =>{
+export const deleteLogistica  = async (req, res) =>{
     try{
-        await ArticuloModel.destroy({
+        await LogisticaModel.destroy({
             where:{id: req.params.id}
         })
         res.json({"message":"Pedido eliminado correctamente"})

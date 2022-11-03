@@ -1,34 +1,34 @@
 //importo el modelo
-import ArticuloModel from "../models/ArticuloModel.js";
+import SecoModel from "../models/SecoModel.js";
 
 //metodos del crud
 
 //mostrar todos los articulos
-export const getAllArticulos = async (req, res) =>{
+export const getAllSecos = async (req, res) =>{
     try{
-        const articulos = await ArticuloModel.findAll()
-        res.json(articulos)
+        const secos = await SecoModel.findAll()
+        res.json(secos)
     } catch (error){
         res.json({message: error.message})
     }
 }
 
 //mostrar un articulo
-export const getArticulo = async (req, res) =>{
+export const getSeco = async (req, res) =>{
     try{
-        const articulo = await ArticuloModel.findAll({
+        const seco = await SecoModel.findAll({
             where:{ id:req.params.id }
         })
-        res.json(articulo[0])
+        res.json(seco[0])
     } catch (error){
         res.json({message: error.message})
     }
 }
 
 //crear un pedido
-export const crearPedido = async (req, res) => {
+export const crearSeco = async (req, res) => {
     try{
-        await ArticuloModel.create(req.body)
+        await SecoModel.create(req.body)
         res.json({"message":"Pedido creado correctamente"})
     } catch(error){
         res.json({message: error.message})
@@ -36,9 +36,9 @@ export const crearPedido = async (req, res) => {
 }
 
 //actualizar un pedido
-export const updatePedido = async (req, res) =>{
+export const updateSeco = async (req, res) =>{
     try{
-        await ArticuloModel.update(req.body, {
+        await SecoModel.update(req.body, {
             where: {id:req.params.id}
         })
         res.json({"message":"PEdido actualizado correctamente"})
@@ -48,9 +48,9 @@ export const updatePedido = async (req, res) =>{
 }
 
 //eliminar un pedido
-export const deletePedido = async (req, res) =>{
+export const deleteSeco = async (req, res) =>{
     try{
-        await ArticuloModel.destroy({
+        await SecoModel.destroy({
             where:{id: req.params.id}
         })
         res.json({"message":"Pedido eliminado correctamente"})

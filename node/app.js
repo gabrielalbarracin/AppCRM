@@ -2,12 +2,21 @@ import express from 'express'
 import cors from 'cors'
 import db from './database/db.js'
 import transporteRoutes from './routes/routes.js'
-
+import frescosrouter from './routes/FrescosRoutes.js'
+import secosrouter from './routes/SecosRoutes.js'
+import telefonorouter from './routes/TelefonoRoutes.js'
+import logisticarouter from './routes/LogisticaRoute.js'
+import combustiblerouter from './routes/CombustibleRoute.js'
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 app.use('/transporte', transporteRoutes)
+app.use('/frescos',  frescosrouter )
+app.use('/secos', secosrouter )
+app.use('/logistica', logisticarouter)
+app.use('/telefono', telefonorouter)
+app.use('/combustible', combustiblerouter)
 try{
     await db.authenticate()
     console.log('conexion exitosa a la db')

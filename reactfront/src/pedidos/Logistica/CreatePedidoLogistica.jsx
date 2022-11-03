@@ -5,25 +5,33 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Table from 'react-bootstrap/Table'
 import './PedidoLogistica.css'
-const URI = 'http://localhost:9000/pedidos/'
+const URI = 'http://localhost:9000/logistica/'
 
 
 const CompCreatePedidoLogistica = () => {
 
-  const [transportes, setTransporte] = useState([])
-  useEffect(()=>{
-     getTransportes()
-  },[])
-  const getTransportes = async () =>{
-    const res = await axios.get(URI)
-    setTransporte(res.data)
-}
+    const [transportes, setTransporte] = useState([])
+    useEffect(()=>{
+       getTransportes()
+    },[])
+    const getTransportes = async () =>{
+        const res = await axios.get(URI)
+        setTransporte(res.data)
+    }
+
+    const [categoria, setCategoria] = useState('')
+    const [articulo, setArticulo] = useState('')
+    const [cantidad, setCantidad] = useState('')
+    const [fecha_entrega, setFechaEntrega] = useState('')
+
+
+
   const navigate = useNavigate()
   //procedimiento guardar
   const store = async (e) =>{
   e.preventDefault()
-  await axios.post(URI, {   })
-  navigate('/Frescos')
+  await axios.post(URI, { categoria:categoria, articulo:articulo, cantidad:cantidad, fecha_entrega:fecha_entrega })
+  navigate('/Logistica')
 
   }
     return(
@@ -49,13 +57,13 @@ const CompCreatePedidoLogistica = () => {
                         <div className="cantidadlogistica mb-1">
                          <label className="cantidadlogistica form-label">Ingrese cantidad</label> 
                         {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
-                        <input className="cantidadlogistica form-control form-control-sm" type="text" aria-label=".form-control-sm example"></input>
+                        <input className="cantidadlogistica form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
                     </div>
                     <br/>
                     <br/>
                     <div className="mb-1">
                         <label for="formGroupExampleInput2" className="calendariologistica form-label">Ingrese fecha de entrega</label>
-                        <input  type='date' className="calendariologistica form-control" id="formGroupExampleInput2"/>
+                        <input  type='date' className="calendariologistica form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
                     </div>
                     <Button className='btnlistologistica btn-sm' variant="success">Listo</Button>
                     <div className='tablafrescos'>

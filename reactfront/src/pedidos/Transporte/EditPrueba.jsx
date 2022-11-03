@@ -38,7 +38,7 @@ const CompEditStock = () =>{
             ven_patente:ven_patente
 
         })
-        navigate('/prueba')
+        navigate('/transporte')
     }
 
     useEffect( () => {

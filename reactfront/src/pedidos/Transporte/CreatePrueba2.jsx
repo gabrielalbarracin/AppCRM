@@ -31,7 +31,7 @@ const CompCreatePedidoPrueba2 =  ( ) => {
   const store = async (e) =>{
   e.preventDefault()
   await axios.post(URI, { descripcion:descripcion, marca:marca, modelo:modelo, patente:patente, patente_acop:patente_acop, ven_seguro:ven_seguro, ven_armat:ven_armat, ven_vtv:ven_vtv, carga_max:carga_max, ven_patente:ven_patente,  })
-  navigate('/prueba')
+  navigate('/transporte')
 
   }
 

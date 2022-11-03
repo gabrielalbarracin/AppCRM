@@ -7,20 +7,23 @@ import Table from 'react-bootstrap/Table'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const URI = 'http://localhost:9000/pedidos/'
+const URI = 'http://localhost:9000/secos/'
 
  
 
 const CompCreatePedidoSecos = () => {
-
-  const [transportes, setTransporte] = useState([])
-  useEffect(()=>{
-     getTransportes()
-  },[])
-  const getTransportes = async () =>{
-    const res = await axios.get(URI)
-    setTransporte(res.data)
-}
+    const [categoria, setCategoria] = useState('')
+    const [articulo, setArticulo] = useState('')
+    const [cantidad, setCantidad] = useState('')
+    const [fecha_entrega, setFechaEntrega] = useState('')
+//   const [transportes, setTransporte] = useState([])
+//   useEffect(()=>{
+//      getTransportes()
+//   },[])
+//   const getTransportes = async () =>{
+//     const res = await axios.get(URI)
+//     setTransporte(res.data)
+// }
    //const [id, setId] = useState('')
 
   //const [anular, setAnular] = useState('')
@@ -28,8 +31,8 @@ const CompCreatePedidoSecos = () => {
   //procedimiento guardar
   const store = async (e) =>{
   e.preventDefault()
-  await axios.post(URI, {   })
-  navigate('/secos')
+  await axios.post(URI, { categoria:categoria, articulo:articulo, cantidad:cantidad, fecha_entrega:fecha_entrega,  })
+  navigate('/PedidosSecos')
 
   }  
 
@@ -55,16 +58,16 @@ const CompCreatePedidoSecos = () => {
                           <div className="cantidadsecos mb-1">
                           <label className="cantidadsecos form-label">Ingrese cantidad</label>
                           {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
-                          <input className="cantidadsecos form-control form-control-sm" type="text" aria-label=".form-control-sm example"></input>
+                          <input className="cantidadsecos form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
                       </div>
                       <br/>
                       <br/>
                       <div className="calendariosecos mb-1">
                           <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>
-                          <input  type='date' className=" form-control" id="formGroupExampleInput2"/>
+                          <input  type='date' className=" form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
                       </div>
-                      <Button className='btnlistoseco btn-sm' variant="success">Listo</Button>
-          <div className='conteinertablasecos'>
+                      <Button type='submit' className='btnlistoseco btn-sm' variant="success">Listo</Button>
+          {/* <div className='conteinertablasecos'>
            <div className='row'>
             <div className='col'>
                 <Table striped bordered hover className='tablasecos'>
@@ -102,7 +105,7 @@ const CompCreatePedidoSecos = () => {
                 </Table>
               </div>
             </div>
-          </div>
+          </div> */}
         </form>
      </div>
       </>

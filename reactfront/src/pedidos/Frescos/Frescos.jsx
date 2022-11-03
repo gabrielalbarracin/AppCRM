@@ -8,7 +8,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
-const URI = 'http://localhost:9000/transporte/'
+const URI = 'http://localhost:9000/frescos/'
 
 const Frescos = () => {
 
@@ -72,10 +72,10 @@ const Frescos = () => {
                     <thead >
                         <tr className='acciones'>
                             <th>Id</th>
-                            <th>Descripcion</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Patente</th>
+                            <th>Categoria</th>
+                            <th>Articulos</th>
+                            <th>Cantidad</th>
+                            <th>Fech entrega</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -83,13 +83,13 @@ const Frescos = () => {
                         {transportes.map ( (transporte) => (
                             <tr key={transporte.id}>
                                 <td>{transporte.id}</td>
-                                <td>{transporte.descripcion}</td>
-                                <td>{transporte.marca}</td>
-                                <td>{transporte.modelo}</td>
-                                <td>{transporte.patente}</td>
+                                <td>{transporte.categoria}</td>
+                                <td>{transporte.articulos}</td>
+                                <td>{transporte.cantidad}</td>
+                                <td>{transporte.fecha_entrega}</td>
                                 <td className=''>
                                     <div className='btnacciones'>
-                                        <Link to={`/Verprueba/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
+                                        <Link to={`/VerPedidosFrescos/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
                                         <Link to={`/EditPedidosFrescos/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
                                         <button onClick={() =>deleteTransporte(transporte.id)} className='botonesacciones btn'><i className="fa-solid fa-trash"></i></button>
 

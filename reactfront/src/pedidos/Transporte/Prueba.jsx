@@ -57,8 +57,8 @@ const DataTableCrudDemo = () => {
     <div className="transporte">
         
         <div className='cabezeratransporte'>
-          <Link to='/Createprueba' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link>
-          <h5>Maestro de vehiculos</h5>
+          <Link to='/Createtransporte' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link>
+          <h5>Maestro de vehículo</h5>
         </div>
         <div className='btnexportar'>
             <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
@@ -89,8 +89,8 @@ const DataTableCrudDemo = () => {
                                 <td>{transporte.patente}</td>
                                 <td className=''>
                                     <div className='btnacciones'>
-                                        <Link to={`/Verprueba/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
-                                        <Link to={`/Editprueba/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
+                                        <Link to={`/Vertransporte/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
+                                        <Link to={`/Edittransporte/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
                                         <button onClick={() =>deleteTransporte(transporte.id)} className='botonesacciones btn'><i className="fa-solid fa-trash"></i></button>
 
                                     </div>

@@ -10,23 +10,39 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Table from 'react-bootstrap/Table'
 import './Frescos.css'
-const URI = 'http://localhost:9000/pedidos/'
+const URI = 'http://localhost:9000/frescos/'
 
 
 const CompCreatePedidoFrescos = () => {
-  const [transportes, setTransporte] = useState([])
-  useEffect(()=>{
-     getTransportes()
-  },[])
-  const getTransportes = async () =>{
-    const res = await axios.get(URI)
-    setTransporte(res.data)
-}
+
+    const [transportes, setTransporte] = useState([])
+    useEffect(()=>{
+       getTransportes()
+    },[])
+    const getTransportes = async () =>{
+        const res = await axios.get(URI)
+        setTransporte(res.data)
+    }
+
+    const [categoria, setCategoria] = useState('')
+    const [articulo, setArticulo] = useState('')
+    const [cantidad, setCantidad] = useState('')
+    const [fecha_entrega, setFechaEntrega] = useState('')
+
+
+//     const [transportes, setTransporte] = useState([])
+//   useEffect(()=>{
+//      getTransportes()
+//   },[])
+//   const getTransportes = async () =>{
+//     const res = await axios.get(URI)
+//     setTransporte(res.data)
+// }
   const navigate = useNavigate()
   //procedimiento guardar
   const store = async (e) =>{
   e.preventDefault()
-  await axios.post(URI, {   })
+  await axios.post(URI, { categoria:categoria, articulo:articulo, cantidad:cantidad, fecha_entrega:fecha_entrega,  })
   navigate('/Frescos')
 
   }
@@ -53,26 +69,26 @@ const CompCreatePedidoFrescos = () => {
                  {/* <label className="cantidad form-label">Ingrese cantidad</label> */}
                  {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
                  <label for="formGroupExampleInput2" className="cantidadfrescos form-label">Ingrese cantidad</label>
-                 <input className="cantidadfrescos form-control form-control-sm" type="text" aria-label=".form-control-sm example"></input>
+                 <input className="cantidadfrescos form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
              </div>
             <br/>
             <br/>
              <div className="mb-1">
                  <label for="formGroupExampleInput2" className="calendariofrescos form-label">Ingrese fecha de entrega</label>
-                 <input  type='date' className="calendariofrescos form-control" id="formGroupExampleInput2"/>
+                 <input  type='date' className="calendariofrescos form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
              </div>
-             <Button className='btnlistofrescos btn-sm' variant="success">Listo</Button>
-        <div className='tablafrescos'>
+             <Button type='submit' className='btnlistofrescos btn-sm' variant="success">Listo</Button>
+         <div className='tablafrescos'>
            <div className='row'>
             <div className='col'>
                 <Table striped bordered hover className='tabla'>
                     <thead >
                         <tr className='accionesfrescos'>
                             <th>Id</th>
-                            <th>Descripcion</th>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Patente</th>
+                            <th>Categoria</th>
+                            <th>Articulo</th>
+                            <th>Cantidad</th>
+                            <th>fecha entrega</th>
                             
                         </tr>
                     </thead>
@@ -80,10 +96,10 @@ const CompCreatePedidoFrescos = () => {
                         {transportes.map ( (transporte) => (
                             <tr key={transporte.id}>
                                 <td>{transporte.id}</td>
-                                <td>{transporte.descripcion}</td>
-                                <td>{transporte.marca}</td>
-                                <td>{transporte.modelo}</td>
-                                <td>{transporte.patente}</td>
+                                <td>{transporte.categoria}</td>
+                                <td>{transporte.articulo}</td>
+                                <td>{transporte.cantidad}</td>
+                                <td>{transporte.fecha_entrega}</td>
                                 <td className=''>
                                     <div className='btnguardarfrescos'>
                                     <button type='submit' className='btnguardarfrescos btn-sm' variant="primary">
@@ -100,7 +116,7 @@ const CompCreatePedidoFrescos = () => {
                 </Table>
                 </div>
                 </div>
-                </div>
+                </div> 
                    
         </form>
     </div>

@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
 //import PedidoLogistica from './PedidoLogistica';
-const URI = 'http://localhost:9000/pedidos/'
+const URI = 'http://localhost:9000/logistica/'
 
 const Logistica = () => {
     const [transportes, setPedido] = useState([])

@@ -29,7 +29,7 @@ const CompVerPrueba = () =>{
             ven_seguro:ven_seguro
 
         })
-        navigate('/prueba')
+        navigate('/transporte')
     }
 
     useEffect( () => {

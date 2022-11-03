@@ -9,6 +9,7 @@ import Configuracion from './configuracion/config'
 import PedidoSecos from './pedidos/Secos/Secos';
 import CompCreatePedidoSecos from './pedidos/Secos/CreatePedidosSecos'
 import ComVerPedidoSecos from './pedidos/Secos/VerSecos'
+import CompEditPedidoSecos from './pedidos/Secos/EditSecos'
 
 import Logistica from './pedidos/Logistica/logistica'
 import CompCreatePedidoLogistica from './pedidos/Logistica/CreatePedidoLogistica'
@@ -39,10 +40,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-        <Route path='/Verprueba/:id' element={ <CompVerPrueba/>} /> 
-        <Route path='/Editprueba/:id' element={ <CompEditStock/>} />  
-        <Route path='/Createprueba' element={ <CompCreatePedidoPrueba2/>} />
-        <Route path='/prueba' element={ <Prueba/>} />
+        <Route path='/Vertransporte/:id' element={ <CompVerPrueba/>} /> 
+        <Route path='/Edittransporte/:id' element={ <CompEditStock/>} />  
+        <Route path='/Createtransporte' element={ <CompCreatePedidoPrueba2/>} />
+        <Route path='/transporte' element={ <Prueba/>} />
             
             <Route path='/Vertelefono/:id' element={ <CompVertelefono/>} />
             <Route path='/Edittelefono/:id' element={ <ComEdittelefono/>} />
@@ -58,7 +59,7 @@ function App() {
             <Route path='/PedidosSecos' element={ <PedidoSecos/>} />
             <Route path='/Createsecos' element={ <CompCreatePedidoSecos/>} />
             <Route path='/VerPedidosSecos/:id' element={ <ComVerPedidoSecos/>} />
-            <Route path='/EditPedidosSecos/:id' element={ <PedidoSecos/>} />
+            <Route path='/EditPedidosSecos/:id' element={ <CompEditPedidoSecos/>} />
 
             <Route path='/Frescos' element={ <Frescos/>} />
             <Route path='/CreatePedidosFrescos' element={ <CompCreatePedidoFrescos/>} />
@@ -72,7 +73,6 @@ function App() {
 
             {/* <Route path='/pedidos' element={ <DataTableCrudDemo/>} /> */}
             <Route path='/configuracion' element={ <Configuracion/>} />
-            
             <Route path='/' element={<Login/>}/>
             <Route path='/home' element={<Home/>}/>
         </Routes>

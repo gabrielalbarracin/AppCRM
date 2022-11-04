@@ -16,7 +16,7 @@ const CompEditPedidoFrescos = () => {
 
     //procedimiento para editar
     const update = async (e) =>{
-      e.preventDeFault()
+      e.preventDefault()
       await axios.put(URI+id,{
           categoria:categoria,
           articulo:articulo,

@@ -1,4 +1,32 @@
-.transporte{    
+.combus{
+        display: flex;
+        flex-wrap: wrap;
+        width: 300px;
+        margin-left: 10px;
+        margin: 10px;
+}
+@media screen and (max-width:500px) {
+    .categoriacom {
+        display: flex;
+       flex-wrap: wrap;
+       width: 100px; 
+    }
+}
+.titulocom{
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+.categoriacom{
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.categoriapago{
+    margin-top: 10px;
+    height: 45px;
+}
+ .transporte{    
     display: flex;
     flex-wrap: wrap;
 }
@@ -43,7 +71,7 @@
 }
 .btnexportar{
     
-    
+    margin-left: 900px;
     margin-top: 15px;
     
 }
@@ -87,7 +115,6 @@
 }
 
 
-/* formulario para crear */
 
 .crearprueba{
     grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
@@ -162,7 +189,7 @@
    }
 }
 
-/* ver prueba */
+
 
 
     @media screen and (min-width:500px) {
@@ -173,7 +200,6 @@
        }
     }
 
-/* edit prueba */
 
 .editprueba{
     grid-template-columns: 180px 180px;
@@ -185,4 +211,4 @@
        
        grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
    }
-}
+} 

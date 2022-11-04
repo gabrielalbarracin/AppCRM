@@ -17,8 +17,6 @@ const CompVerPrueba = () =>{
     const [ven_patente, setVenPatente] = useState ('')
     const [ven_armat, setVenArmat] = useState ('')
     const [ven_vtv, setVenVtv] = useState ('')
-    
-    
     const navigate = useNavigate()
     const {id} = useParams()
 

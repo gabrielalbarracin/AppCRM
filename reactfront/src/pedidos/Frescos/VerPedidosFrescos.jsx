@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import './Frescos.css'
 const URI = 'http://localhost:9000/pedidos/'
 
 
@@ -16,7 +17,7 @@ const CompVerPedidoFrescos = () => {
  
  
     const update = async (e) =>{
-      e.preventDeFault()
+      e.preventDefault()
       await axios.put(URI+id,{
          
           categoria:categoria,
@@ -47,14 +48,17 @@ const getTransporteById = async () =>{
         <>
         <div className='crearprueba'>
          <form onSubmit={update}>
-                <div className='primercampo'></div>
-        <select className="categoria form-select" aria-label="Default select example">
+         <div className='fres'>
+         <div className='titulo'>
+                  <h5>Pedidos frescos</h5>
+                </div>
+        <select className="categoriafrescos form-select" aria-label="Default select example">
                  <option selected>Seleccione categoria</option>
                  <option value="1">Carne</option>
                  <option value="2">Verdura</option>
                  <option value="3"></option>
              </select>
-             <select className="form-select" aria-label="Default select example">
+             <select className="categoriafrescos form-select" aria-label="Default select example">
                  <option selected>Seleccione articulo</option>
                  <option value="1">Carne vaca</option>
                  <option value="2">pollo</option>
@@ -96,6 +100,7 @@ const getTransporteById = async () =>{
       <Button type='submit' className='boton btn-sm' variant="primary">
                       Guardar
                     </Button>  */}
+                    </div>
         </form>
     </div>
       </>

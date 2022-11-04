@@ -1,35 +1,11 @@
-
-// import React, { useState, useEffect, useRef } from 'react';
-// import { classNames } from 'primereact/utils';
-// import { DataTable } from 'primereact/datatable';
-// import { Column } from 'primereact/column';
-// //import { ProductService } from './ProductService';
-// import { Toast } from 'primereact/toast';
-// import { Button } from 'primereact/button';
-// import { FileUpload } from 'primereact/fileupload';
-// import { Rating } from 'primereact/rating';
-// import { Toolbar } from 'primereact/toolbar';
-// import { InputTextarea } from 'primereact/inputtextarea';
-// import { RadioButton } from 'primereact/radiobutton';
-// import { InputNumber } from 'primereact/inputnumber';
-// import { Dialog } from 'primereact/dialog';
-// import { InputText } from 'primereact/inputtext';
-// //import './css/style.css'
-// import CompCreatePedidoCombustible from './CreatePedidoCombustible'
-// //import './DataTableDemo.css';
-
-
-
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Button } from 'primereact/button';
-//import CompCreatePedidoPrueb from './CreatePrueba'
-//import {useForm} from 'react-hook-form'
-import './Combustible.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
+import './Combustible.css'
+
 const URI = 'http://localhost:9000/transporte/'
 
 const Combustible = () => {
@@ -111,7 +87,7 @@ const Combustible = () => {
                                 <td>{transporte.patente}</td>
                                 <td className=''>
                                     <div className='btnacciones'>
-                                        <Link to={`/Vercombustible /${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
+                                        <Link to={`/Vercombustible/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
                                         <Link to={`/Editcombustible/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
                                         <button onClick={() =>deleteTransporte(transporte.id)} className='botonesacciones btn'><i className="fa-solid fa-trash"></i></button>
 

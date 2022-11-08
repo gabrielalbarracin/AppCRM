@@ -42,13 +42,17 @@ const CompCreatePedidoLogistica = () => {
           <div className='titulologistica'>
           <h5>Pedidos logistica</h5>
           </div>
-                <select className="categorialogistica form-select" aria-label="Default select example">
+                    <div className="mb-1">
+                        <label for="formGroupExampleInput2" className="calendariologistica form-label">Ingrese fecha de entrega</label>
+                        <input  type='date' className="calendariologistica form-control" id="formGroupExampleInput2" required={true} value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
+                    </div>
+                <select className="categorialogistica form-select" aria-label="Default select example" required={true}>
                         <option selected>Seleccione categoria</option>
                         <option value="1">Cosas de cama</option>
                         <option value="2">Cosas de cocina</option>
                         <option value="3">Otros</option>
                     </select>
-                    <select className="categorialogistica form-select" aria-label="Default select example">
+                    <select className="categorialogistica form-select" aria-label="Default select example" required={true}>
                         <option selected>Seleccione articulo</option>
                         <option value="1">Platos</option>
                         <option value="2">Cuchillos</option>
@@ -57,14 +61,11 @@ const CompCreatePedidoLogistica = () => {
                         <div className="cantidadlogistica mb-1">
                          <label className="cantidadlogistica form-label">Ingrese cantidad</label> 
                         {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
-                        <input className="cantidadlogistica form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
+                        <input className="cantidadlogistica form-control form-control-sm" type="text" aria-label=".form-control-sm example" required={true} value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
                     </div>
                     <br/>
                     <br/>
-                    <div className="mb-1">
-                        <label for="formGroupExampleInput2" className="calendariologistica form-label">Ingrese fecha de entrega</label>
-                        <input  type='date' className="calendariologistica form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
-                    </div>
+                   
                     <Button className='btnlistologistica btn-sm' variant="success">Listo</Button>
                     <div className='tablafrescos'>
            <div className='row'>

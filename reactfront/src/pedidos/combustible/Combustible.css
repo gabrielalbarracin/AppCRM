@@ -39,25 +39,19 @@
 .acciones{
     text-align: center;
     width: 100%;
-    margin-right: 25px;
-    height: 5px;
-}
+    margin-right: 25px;}
 
 .acciones2{
     text-align: center;
-    width: 100%;
-    margin-right: 25px;
-    height: 5px;
+    margin-top: 1px;
 }
 
 .tabla{
     width: 100%;
-    
+   
 }
 
-.table-primary .tr{
-   margin: 50px;
-}
+
 .cabezeratransporte{
     margin-left: 70px;
    margin-bottom: 1px;
@@ -97,13 +91,16 @@
     margin: 0px;
     height: 5px;
 }
-.botonesacciones i{
-   margin-top: 0px;
-   margin-bottom: 0px;
-    margin: 0px;
-    margin-left: 1px;
-    
+
+.botonac{
+    height: 30px;
+    width: 40px;
+    margin-top: 1px;
+    margin-bottom: 0px;
 }
+
+  
+
 
 
 

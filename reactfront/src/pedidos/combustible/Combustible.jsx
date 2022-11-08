@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom';
@@ -6,34 +6,43 @@ import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
 import './Combustible.css'
 
-const URI = 'http://localhost:9000/transporte/'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import { MdImportExport } from 'react-icons/md';
+const URI = 'http://localhost:9000/combustible/'
 
-const Combustible = () => {
-
-        
-         const [transportes, setTransporte] = useState([])
-         useEffect(()=>{
-            getTransportes()
-         },[])
-
-        //mostrar todos los transportes
-        const getTransportes = async () =>{
-            const res = await axios.get(URI)
-            setTransporte(res.data)
+class Combustible extends Component {
+    state={
+        data:[],
+        modalInsertar: false,
+        modalEliminar: false,
+        form:{
+            id:'',
+            vehiculo:'',
+            tipo_combustible:'',
+            cantidad:'',
+            comprobante:'',
+            importe:'',
+            tipo_pago:'',
+            tipoModal: ''
         }
-
-
-        
-
-        //procedimiento para eliminar un transporte
-        const deleteTransporte = async (id) =>{
+    }
+        //  const [transportes, setTransporte] = useState([])
+        //  useEffect(()=>{
+        //     getTransportes()
+        //  },[])
+        // //mostrar todos los transportes
+        // const getTransportes = async () =>{
+        //     const res = await axios.get(URI)
+        //     setTransporte(res.data)
+        // }
+        // //procedimiento para eliminar un transporte
+        // const deleteTransporte = async (id) =>{
           
-            await axios.delete(`${URI}${id}`)
-            getTransportes()
-        }
-
-        
-       
+        //     await axios.delete(`${URI}${id}`)
+        //     getTransportes()
+        // }
         // const {register, handleSubmit} = useForm();
 
         // const onSubmit = (data) =>{
@@ -44,8 +53,74 @@ const Combustible = () => {
 
         //  const handleClose = () => setShow(false);
         //  const handleShow = () => setShow(true);
+        peticionGet=()=>{
+            axios.get(URI).then(response=>{
+              this.setState({data: response.data});
+            }).catch(error=>{
+              console.log(error.message);
+            })
+        }
 
+        peticionPost=async()=>{
+            delete this.state.form.id;
+           await axios.post(URI,this.state.form).then(response=>{
+              this.modalInsertar();
+              this.peticionGet();
+            }).catch(error=>{
+              console.log(error.message);
+            })
+        }
+          
+          peticionPut=()=>{
+            axios.put(URI+this.state.form.id, this.state.form).then(response=>{
+              this.modalInsertar();
+              this.peticionGet();
+            })
+        }
+          
+          peticionDelete=()=>{
+            axios.delete(URI+this.state.form.id).then(response=>{
+              this.setState({modalEliminar: false});
+              this.peticionGet();
+            })
+        }
 
+        modalInsertar=()=>{
+            this.setState({modalInsertar: !this.state.modalInsertar});
+          }
+          
+          seleccionarEmpresa=(transporte)=>{
+            this.setState({
+              tipoModal: 'actualizar',
+              form: {
+                id: transporte.id,
+                vehiculo: transporte.vehiculo,
+                tipo_combustible: transporte.tipo_combustible,
+                cantidad: transporte.cantidad,
+                comprobante: transporte.comprobante,
+                importe: transporte.importe,
+                tipo_pago: transporte.tipo_pago
+              }
+            })
+          }
+
+          handleChange=async e=>{
+            e.persist();
+            await this.setState({
+              form:{
+                ...this.state.form,
+                [e.target.name]: e.target.value
+              }
+            });
+            console.log(this.state.form);
+            }
+        
+            componentDidMount() {
+            this.peticionGet();
+        }
+
+render(){
+    const {form}=this.state;     
  return(
     <>
         <div>
@@ -55,7 +130,8 @@ const Combustible = () => {
     <div className="transporte">
         
         <div className='cabezeratransporte'>
-          <Link to='/pedidocombustible' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link>
+          {/* <Link to='/pedidocombustible' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link> */}
+          <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
           <h5>Maestro de combustible</h5>
         </div>
         <div className='btnexportar'>
@@ -66,7 +142,8 @@ const Combustible = () => {
          <div className='containertabla'>
            <div className='row'>
             <div className='col'>
-                <Table striped bordered hover className='tabla'>
+               
+                <Table striped bordered hover className='tabla' size="sm">
                     <thead >
                         <tr className='acciones'>
                             <th>Id</th>
@@ -77,7 +154,24 @@ const Combustible = () => {
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody className='acciones2'>
+                    <tbody>
+                    {this.state.data.map(transporte=>{
+                    return(
+                        <tr className='acciones2 '>
+                            <td >{transporte.id}</td>
+                            <td>{transporte.vehiculo}</td>
+                            <td>{transporte.tipo_combustible}</td>
+                            <td>{transporte.cantidad}</td>
+                            <td>{transporte.importe}</td>
+                            <td>
+                                <button className="botonac btn btn-primary" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                {"   "}
+                                <button className="botonac btn btn-danger" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                            </td>
+                        </tr>
+                    )
+                    })}
+                    {/* <tbody className='acciones2'>
                         {transportes.map ( (transporte) => (
                             <tr key={transporte.id}>
                                 <td>{transporte.id}</td>
@@ -95,14 +189,78 @@ const Combustible = () => {
                                 </td>
                             </tr>
                         ))}
+                    </tbody> */}
                     </tbody>
                 </Table>
+                <Modal isOpen={this.state.modalInsertar}>
+                <ModalHeader style={{display: 'block'}}>
+                  <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}>x</span>
+                </ModalHeader>
+                <ModalBody>
+                  <div className="form-group">
+                    <label htmlFor="id">ID</label>
+                    <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id: this.state.data.length+1}/>
+                    <br />
+                    <select className="categoriacom form-select" aria-label="Default select example" required={true} name="vehiculo" id="vehiculo" onChange={this.handleChange} value={form?form.vehiculo: ''}>
+                        <option selected>Vehículo</option>
+                        <option>Renault Kangoo Dominio:GOA563</option>
+                        <option>Renault Kangoo Dominio:PCB159</option>
+                        <option>Otros</option>
+                    </select>
+                    <br />
+                    <select className="categoriacom form-select" aria-label="Default select example" required={true} name="tipo_combustible" id="tipo_combustible" onChange={this.handleChange} value={form?form.tipo_combustible: ''}>
+                        <option selected>Tipo de combustible</option>
+                        <option>Gasoil</option>
+                        <option>Nafta</option>
+                        <option>GNC</option>
+                        <option>Gas envasado</option>
+                    </select>
+                    <br />
+                    <label htmlFor="capital_bursatil">Ingrese cantidad</label>
+                    <input className="form-control" type="text" name="cantidad" id="cantidad" onChange={this.handleChange} value={form?form.cantidad:''}/>
+                    <br/>
+                    <label htmlFor="capital_bursatil">Comprobante de referencia</label>
+                    <input className="form-control" type="text" name="comprobante" id="comprobante" onChange={this.handleChange} value={form?form.comprobante:''}/>
+                    <br/>
+                    <label htmlFor="capital_bursatil">Total a pagar</label>
+                    <input className="form-control" type="text" name="importe" id="importe" onChange={this.handleChange} value={form?form.importe:''}/>
+                    <br/>
+                    <select className="form-select" aria-label="Default select example" required={true} name="tipo_pago" id="tipo_pago" onChange={this.handleChange} value={form?form.tipo_pago:''}>
+                        <option selected>Se paga o se debe</option>
+                        <option>Se paga</option>
+                        <option>Se anota en cuenta</option>
+                </select>
+                  </div>
+                </ModalBody>
+
+                <ModalFooter>
+                  {this.state.tipoModal=='insertar'?
+                    <button className="btn btn-success" onClick={()=>this.peticionPost()}>
+                    Insertar
+                  </button>: <button className="btn btn-primary" onClick={()=>this.peticionPut()}>
+                    Actualizar
+                  </button>
+  }
+                    <button className="btn btn-danger" onClick={()=>this.modalInsertar()}>Cancelar</button>
+                </ModalFooter>
+          </Modal>
+
+          <Modal isOpen={this.state.modalEliminar}>
+            <ModalBody>
+               Estás seguro que deseas eliminar a la pedido: {form && form.id}
+            </ModalBody>
+            <ModalFooter>
+              <button className="btn btn-danger" onClick={()=>this.peticionDelete()}>Sí</button>
+              <button className="btn btn-secundary" onClick={()=>this.setState({modalEliminar: false})}>No</button>
+            </ModalFooter>
+          </Modal>
             </div>
         </div>
      </div>
 </div>
 </>
 )
+}
 }
 export default Combustible
 

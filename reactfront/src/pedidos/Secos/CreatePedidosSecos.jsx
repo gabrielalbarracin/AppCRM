@@ -46,13 +46,13 @@ const CompCreatePedidoSecos = () => {
         
           <div className='secos'>
            
-                  <select className="categoriasecos form-select"  value={categoria} onChange={(e)=> setCategoria(e.target.value)} >
+                  <select className="categoriasecos form-select" required={true} value={categoria} onChange={(e)=> setCategoria(e.target.value)} >
                           <option selected>Seleccione categoria</option>
                           <option>Enlatado</option>
                           <option>Liquidos</option>
                           <option>Otros</option>
                       </select>
-                      <select className="categoriasecos form-select"  value={articulo} onChange={(e)=> setArticulo(e.target.value)} >
+                      <select className="categoriasecos form-select" required={true} value={articulo} onChange={(e)=> setArticulo(e.target.value)} >
                           <option selected>Seleccione articulo</option>
                           <option>leche</option>
                           <option>Aceite</option>
@@ -61,14 +61,14 @@ const CompCreatePedidoSecos = () => {
                           <div className="cantidadsecos mb-1">
                           <label className=" form-label">Ingrese cantidad</label>
                           {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
-                          <input className="cantidad form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
+                          <input className="cantidad form-control form-control-sm" type="text" aria-label=".form-control-sm example" required={true} value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
                       </div>
                       <br/>
                       <br/>
                       
                       <div className="calendariosecos mb-1">
                           <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>
-                          <input  type='date' className=" form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
+                          <input  type='date' className=" form-control" id="formGroupExampleInput2" required={true} value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
                       </div>
             </div>
                       <Button type='submit' className='btnlistoseco btn-sm' variant="success">Listo</Button>

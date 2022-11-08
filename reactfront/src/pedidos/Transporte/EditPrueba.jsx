@@ -97,7 +97,7 @@ const CompEditStock = () =>{
                 
                   <h5>Vencimiento armat</h5> <h5>Vencimiento VTV</h5>
                   <input  type='date' className="calendario form-control" id="formGroupExampleInput2" value={ven_armat} onChange={(e)=> setVenArmat(e.target.value)}/>
-                <input  type='date' className="calendario form-control" id="formGroupExampleInput2" value={ven_vtv} onChange={(e)=> setVenVtv(e.target.value)}/>
+                  <input  type='date' className="calendario form-control" id="formGroupExampleInput2" value={ven_vtv} onChange={(e)=> setVenVtv(e.target.value)}/>
                </div>
                <br/>
                <br/>

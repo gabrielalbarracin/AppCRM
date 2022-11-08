@@ -46,15 +46,19 @@ const CompCreatePedidoFrescos = () => {
                   <h5>Pedidos frescos</h5>
                 </div>
         <div className='fres'>
-                <select className="categoriafrescos form-select" aria-label="Default select example" value={categoria} onChange={(e)=> setCategoria(e.target.value)}>
-                        <option selected>Seleccione categoria</option>
+                    <div className="mb-1">
+                        <label for="formGroupExampleInput2" className="calendariofrescos form-label">Ingrese fecha de entrega</label>
+                        <input  type='date' className="calendariofrescos form-control" id="formGroupExampleInput2" required={true} value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
+                    </div>
+                <select className="categoriafrescos form-select"  required={true} value={categoria} onChange={(e)=> setCategoria(e.target.value)}>
+                        <option selected>Seleccione categori</option>
                         <option>Carne</option>
                         <option>Verdura</option>
                         <option></option>
                 </select>
-                    <select className=" categoriafrescos form-select" value={articulo} onChange={(e)=> setArticulo(e.target.value)}>
-                        <option selected>Seleccione articulo</option>
-                        <option>Carne vaca</option>
+                    <select className=" categoriafrescos form-select" required={true} value={articulo} onChange={(e)=> setArticulo(e.target.value)}>
+                        <option selected >Seleccione articulo</option>
+                        <option >Carne vaca</option>
                         <option>pollo</option>
                         <option>chancho</option>
                     </select>
@@ -62,18 +66,14 @@ const CompCreatePedidoFrescos = () => {
                         {/* <label className="cantidad form-label">Ingrese cantidad</label> */}
                         {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
                         <label for="formGroupExampleInput2" className="cantidadfrescos form-label">Ingrese cantidad</label>
-                        <input className="cantidadfrescos form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
+                        <input className="cantidadfrescos form-control form-control-sm" type="text" aria-label=".form-control-sm example" required={true} value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
                     </div>
                     <br/>
                     <br/>
                     <br/>
                     <br/>
-                    <div className="mb-1">
-                        <label for="formGroupExampleInput2" className="calendariofrescos form-label">Ingrese fecha de entrega</label>
-                        <input  type='date' className="calendariofrescos form-control" id="formGroupExampleInput2" value={fecha_entrega} onChange={(e)=> setFechaEntrega(e.target.value)}/>
-                    </div>
-                    <br/>
-                    <br/>
+                    
+                    
         </div>  
         <Button type='submit' className='btnlistofrescos btn-sm' variant="success">Listo</Button>
          {/* <div className='tabla'>

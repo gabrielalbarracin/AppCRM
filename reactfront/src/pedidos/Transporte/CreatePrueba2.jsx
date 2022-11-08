@@ -44,7 +44,7 @@ return(
                 {/* value={id} onChange={(e)=> setId(e.target.value)} */}
                     {/* <input className="codigo1 form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Cod' value={id} onChange={(e)=> setId(e.target.value)} ></input> */}
                     {/* value={descripcion} onChange={(e)=> setDescripcion(e.target.value)} */}
-                    <input className="codigo form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Descripción' value={descripcion} onChange={(e)=> setDescripcion(e.target.value)}  ></input>
+                    <input className="codigo form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Descripción' required={true} value={descripcion} onChange={(e)=> setDescripcion(e.target.value)} ></input>
                     {/* <input  type='checkbox' label="Anular" value={anular} onChange={(e)=> setAnular(e.target.value)}></input> */}
                     {/* <Form.Check required type='checkbox' label="Anular"  feedback="You must agree before submitting."  feedbackType="invalid"/> */}
                 </div>
@@ -55,9 +55,9 @@ return(
                 </div>
                 <div className='segundoinput'>
                 {/* value={marca} onChange={(e)=> setMarca(e.target.value)} */}
-                    <input className="form-control form-control-sm"  type="text" aria-label=".form-control-sm example" placeholder='Marca' value={marca} onChange={(e)=> setMarca(e.target.value)} ></input> 
+                    <input className="form-control form-control-sm"  type="text" aria-label=".form-control-sm example" placeholder='Marca' required={true} value={marca} onChange={(e)=> setMarca(e.target.value)} ></input> 
                     {/* value={modelo} onChange={(e)=> setModelo(e.target.value)} */}
-                    <input className="form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Modelo' value={modelo} onChange={(e)=> setModelo(e.target.value)} ></input>
+                    <input className="form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Modelo' required={true} value={modelo} onChange={(e)=> setModelo(e.target.value)} ></input>
                     {/* value={patente} onChange={(e)=> setPatente(e.target.value)} */}
                     <input className="form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Patente' value={patente} onChange={(e)=> setPatente(e.target.value)} ></input>
                     <input className="form-control form-control-sm" type="text" aria-label=".form-control-sm example" placeholder='Patente acoplado' value={patente_acop} onChange={(e)=> setPatenteAcop(e.target.value)}></input>
@@ -75,7 +75,7 @@ return(
                 <div className='tercerinput'>
                 <h5>Vencimiento seguro</h5> <h5>Vencimiento patente</h5>
                 <input  type='date' className="calendario form-control" id="formGroupExampleInput2" value={ven_seguro} onChange={(e)=> setVenSeguro(e.target.value)}/>
-                <input  type='date' className="calendario form-control" id="formGroupExampleInput2" value={ven_patente} onChange={(e)=> setVenPatente(e.target.value)}/>
+                <input  type='date' className="calendario form-control" id="formGroupExampleInput2" required={true} value={ven_patente} onChange={(e)=> setVenPatente(e.target.value)} />
             
                 <h5>Vencimiento armat</h5> <h5>Vencimiento VTV</h5>
                 <input  type='date' className="calendario form-control" id="formGroupExampleInput2" value={ven_armat} onChange={(e)=> setVenArmat(e.target.value)}/>

@@ -5,7 +5,7 @@ import './Telefono.css'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const URI = 'http://localhost:9000/pedidos/'
+const URI = 'http://localhost:9000/telefono/'
 
 const CompCreatetelefono = () => {
     
@@ -30,22 +30,22 @@ const CompCreatetelefono = () => {
           <Modal.Title className='titulo'>Regargas telefonicas</Modal.Title>
         </Modal.Header> */}
 
-<div className='creartelefono'>
+     <div className='creartelefono'>
          <form onSubmit={store} className='formtelefono'>
         {/* <Modal.Body className='cuerpo' > */}
         <h5 className='recargas'>Recargas telefonicas</h5>
                 <div className='tel'>
                  <label className="cantidad form-label">Ingrese cliente</label>
                  {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
-                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example"placeholder='Nombre y apellido' ></input>
+                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" required={true} placeholder='Nombre y apellido' ></input>
                  <label className="cantidad form-label">Empresa telefonica</label>
-                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
+                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" required={true}></input>
                  <label className="cantidad form-label">Numero de linea</label>
-                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
+                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" required={true} ></input>
                  <label className="cantidad form-label">importe de la carga</label>
-                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" ></input>
+                 <input className="inputtelefono form-control form-control-sm" type="text" aria-label=".form-control-sm example" required={true} ></input>
                  <select className="categoria form-select" aria-label="Default select example">
-                 <option selected className="categoria">Pago del consumo</option>
+                 <option selected className="categoria" required={true}>Pago del consumo</option>
                  <option value="1">PAGO AL INTENDENTE</option>
                  <option value="2">DESCONTAR A EMPRESA CONTRATADORA</option>
                  <option value="3">REEMBOLSABLE</option>
@@ -54,7 +54,7 @@ const CompCreatetelefono = () => {
                   <Button type='submit' className='btnguardartel btn-sm' variant="primary">
                       Guardar
                     </Button> 
-                  </div>
+        </div>
             
              {/* <div className="mb-1">
                  <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>

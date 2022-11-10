@@ -3,7 +3,7 @@ import db from '../database/db.js'
 //importo sequelize
 import { DataTypes } from 'sequelize'
 
-const LogisticaModel = db.define('logistica',{
+const LogisticaModel = db.define('logisticas',{
 
     categoria:{type: DataTypes.STRING},
     articulos:{type: DataTypes.STRING},

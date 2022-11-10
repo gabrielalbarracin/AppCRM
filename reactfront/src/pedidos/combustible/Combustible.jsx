@@ -122,23 +122,22 @@ class Combustible extends Component {
 render(){
     const {form}=this.state;     
  return(
-    <>
-        <div>
+  <div className="combustible">
+    
+         <div className='homecombus'>
         <Home/> 
         </div>
 
-    <div className="transporte">
+    
         
-        <div className='cabezeratransporte'>
-          {/* <Link to='/pedidocombustible' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link> */}
-          <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
-          <h5>Maestro de combustible</h5>
+        <div >
+          <button className="agregarcombus btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
+          <h5 className='titulocombus'>Maestro de combustible</h5>
         </div>
-        <div className='btnexportar'>
             <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
             <button className='expo'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
-        </div>
-        {/* <Button className="btnNuevo btn btn-success mr-2 btn-sm" type='submit' onClicks={handleShow} />  */}
+        
+        {/*
          <div className='containertabla'>
            <div className='row'>
             <div className='col'>
@@ -148,9 +147,9 @@ render(){
                         <tr className='acciones'>
                             <th>Id</th>
                             <th>Vehículo</th>
-                            <th>Tipo combus</th>
-                            <th>Cantidad</th>
-                            <th>Importe</th>
+                            <th className='tablacombu'>Tipo combus</th>
+                            <th className='tablacombu'>Cantidad</th>
+                            <th className='tablacombu'>Importe</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -160,40 +159,22 @@ render(){
                         <tr className='acciones2 '>
                             <td >{transporte.id}</td>
                             <td>{transporte.vehiculo}</td>
-                            <td>{transporte.tipo_combustible}</td>
-                            <td>{transporte.cantidad}</td>
-                            <td>{transporte.importe}</td>
+                            <td className='tablacombu'>{transporte.tipo_combustible}</td>
+                            <td className='tablacombu'>{transporte.cantidad}</td>
+                            <td className='tablacombu'>{transporte.importe}</td>
                             <td>
-                                <button className="botonac btn btn-primary" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                <button className="botonac" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
-                                <button className="botonac btn btn-danger" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                <button className="botonac" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                             </td>
                         </tr>
                     )
                     })}
-                    {/* <tbody className='acciones2'>
-                        {transportes.map ( (transporte) => (
-                            <tr key={transporte.id}>
-                                <td>{transporte.id}</td>
-                                <td>{transporte.descripcion}</td>
-                                <td>{transporte.marca}</td>
-                                <td>{transporte.modelo}</td>
-                                <td>{transporte.patente}</td>
-                                <td className=''>
-                                    <div className='btnacciones'>
-                                        <Link to={`/Vercombustible/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-magnifying-glass"></i></Link>
-                                        <Link to={`/Editcombustible/${transporte.id}`} className='botonesacciones btn'><i className="fa-solid fa-pen-to-square"></i></Link>
-                                        <button onClick={() =>deleteTransporte(transporte.id)} className='botonesacciones btn'><i className="fa-solid fa-trash"></i></button>
-
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody> */}
+                    
                     </tbody>
                 </Table>
-                <Modal isOpen={this.state.modalInsertar}>
-                <ModalHeader style={{display: 'block'}}>
+              <Modal isOpen={this.state.modalInsertar} className='modalcombus'>
+                <ModalHeader className='modalheder' style={{display: 'block'}}>
                   <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}>x</span>
                 </ModalHeader>
                 <ModalBody>
@@ -207,7 +188,7 @@ render(){
                         <option>Renault Kangoo Dominio:PCB159</option>
                         <option>Otros</option>
                     </select>
-                    <br />
+                    
                     <select className="categoriacom form-select" aria-label="Default select example" required={true} name="tipo_combustible" id="tipo_combustible" onChange={this.handleChange} value={form?form.tipo_combustible: ''}>
                         <option selected>Tipo de combustible</option>
                         <option>Gasoil</option>
@@ -215,7 +196,7 @@ render(){
                         <option>GNC</option>
                         <option>Gas envasado</option>
                     </select>
-                    <br />
+                    
                     <label htmlFor="capital_bursatil">Ingrese cantidad</label>
                     <input className="form-control" type="text" name="cantidad" id="cantidad" onChange={this.handleChange} value={form?form.cantidad:''}/>
                     <br/>
@@ -256,9 +237,9 @@ render(){
           </Modal>
             </div>
         </div>
-     </div>
+     </div> */}
 </div>
-</>
+
 )
 }
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import './Telefono.css'
 import CompCreatetelefono from './CreateTelefono'
@@ -139,9 +139,9 @@ return(
                     <tr className='acciones'>
                         <th>Id</th>
                         <th>Nombre</th>
-                        <th className='acciones1'>Empresa tel</th>
-                        <th className='acciones1'>Numero</th>
-                        <th className='acciones1'>Importe</th>
+                        <th>Empresa tel</th>
+                        <th>Numero</th>
+                        <th>Importe</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -151,12 +151,11 @@ return(
                         <tr className='acciones2 '>
                             <td >{transporte.id}</td>
                             <td>{transporte.nombre}</td>
-                            <td className='acciones1'>{transporte.empresa_tel}</td>
-                            <td className='acciones1'>{transporte.numero_linea}</td>
-                            <td className='acciones1'>{transporte.importe}</td>
-                            <td className='acciones1'>{transporte.tipo_de_pago}</td>
+                            <td>{transporte.empresa_tel}</td>
+                            <td>{transporte.numero_linea}</td>
+                            <td>{transporte.importe}</td>
                             <td>
-                                <button className="botonac " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                <button className="botonac " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
                                 <button className="botonac " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
                                 <button className="botonac " onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>

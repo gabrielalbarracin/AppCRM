@@ -1,4 +1,45 @@
-.combus{
+.combustible{
+    
+    
+}
+
+@media screen and (max-width:500px) {
+.agregarcombus{
+   display: none;
+    margin: 0px;
+}  
+}
+
+.agregarcombus{
+   
+    margin-right: 20px;
+    
+    margin-left: 60px;
+}
+
+@media screen and (max-width:500px) {
+    .homecombus{
+        display: none;
+    }
+}
+
+.homecombus{
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .combus{
         display: flex;
         flex-wrap: wrap;
         width: 300px;
@@ -12,6 +53,29 @@
        width: 100px; 
     }
 }
+
+@media screen and (max-width:500px) {
+.tablacombu{
+    display: none;
+}
+}
+
+@media screen and (max-width:500px) {
+    .homecombus{
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .tabla{
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 50px;
+        
+    }
+}
+
+
 .titulocom{
     margin-left: 10px;
     margin-top: 0px;
@@ -52,11 +116,6 @@
 }
 
 
-.cabezeratransporte{
-    margin-left: 70px;
-   margin-bottom: 1px;
-   margin-top: 15px;
-}
 @media screen and (max-width:500px) {
     .btnexportar {
         display: flex;
@@ -77,10 +136,7 @@
   
 }
 
-.cabezeratransporte h5{
-    float: right;
-    margin-left: 10px;
-}
+
 
 .botonesacciones .btn {
     margin-bottom:12px ;
@@ -99,13 +155,47 @@
     margin-bottom: 0px;
 }
 
-  
+.form-control{
+    height: 30px;
+} 
 
+.modalheder{
+    height: 40px;
+}
 
+.modalcombus{
+    display: flex;
+    flex-wrap: wrap;
+}
 
+@media screen and (max-width:500px) {
+    .modal-content{
+        display: flex;
+        
+    }
+}
 
+.modal-dialog{
+    display: flex;
+    
+}
+@media screen and (max-width:500px) {
+.form-group{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+ }
+}
 
-
+@media screen and (max-width:500px) {
+.modal-footer{
+    margin-right: 90px;
+}
+}
+.categoriacom{
+    width: 10px;
+    
+}
 .primercampo .codigo{
     height: 30px;
     width: 230px;
@@ -146,66 +236,4 @@
        display: grid;
        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
    }
-}
-.tercercampo h5{
-    font-size: 15px;
-}
-
-.tercercampo hr{
-    margin-top: 1px;
-}
-
-.tercerinput{
-    height: 30px;
-    display: block;
-    display: grid;
-   grid-template-columns: 180px 180px;
-}
-
-.tercerinput .calendario{
-    height: 40px;
-    width: 170px;
-    
-}
-
-.tercerinput h5{
-    font-size: 15px;
-
-}
-@media screen and (max-width:500px) {
-    .tercercampo h5{
-        margin-top:75px ;
-    }
-}
-
-@media screen and (max-width:500px) {
-    .tercerinput .calendario{
-       display: grid;
-       
-       grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
-   }
-}
-
-
-
-
-    @media screen and (min-width:500px) {
-        .verprueba{
-           display: grid;
-           
-           grid-template-columns: 280px 280px;
-       }
-    }
-
-
-.editprueba{
-    grid-template-columns: 180px 180px;
-}
-
-@media screen and (min-width:500px) {
-    .editprueba{
-       display: grid;
-       
-       grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
-   }
-} 
+} */

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { useState, useEffect } from 'react';
 import { Button } from 'primereact/button';
 //import CompCreatePedidoPrueb from './CreatePrueba'
@@ -8,34 +8,47 @@ import axios from 'axios'
 import { Link } from 'react-router-dom';
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 const URI = 'http://localhost:9000/transporte/'
 
-const DataTableCrudDemo = () => {
-
+class DataTableCrudDemo extends Component {
+    state={
+        data:[],
+        modalInsertar: false,
+        modalEliminar: false,
+        form:{
+            id:'',
+            descripcion:'',
+            marca:'',
+            modelo:'' ,
+            patente:'' ,
+            patente_acop:'',
+            carga_max:'', 
+            ven_seguro:'',
+            ven_patente:'',
+            ven_armat:'',
+            ven_vtv:''
+    
+        }   }
         
-         const [transportes, setTransporte] = useState([])
-         useEffect(()=>{
-            getTransportes()
-         },[])
+        //  const [transportes, setTransporte] = useState([])
+        //  useEffect(()=>{
+        //     getTransportes()
+        //  },[])
 
-        //mostrar todos los transportes
-        const getTransportes = async () =>{
-            const res = await axios.get(URI)
-            setTransporte(res.data)
-        }
-
-
-        
-
-        //procedimiento para eliminar un transporte
-        const deleteTransporte = async (id) =>{
+        // //mostrar todos los transportes
+        // const getTransportes = async () =>{
+        //     const res = await axios.get(URI)
+        //     setTransporte(res.data)
+        // }
+        // //procedimiento para eliminar un transporte
+        // const deleteTransporte = async (id) =>{
           
-            await axios.delete(`${URI}${id}`)
-            getTransportes()
-        }
-
-        
-       
+        //     await axios.delete(`${URI}${id}`)
+        //     getTransportes()
+        // }
         // const {register, handleSubmit} = useForm();
 
         // const onSubmit = (data) =>{
@@ -46,6 +59,77 @@ const DataTableCrudDemo = () => {
 
         //  const handleClose = () => setShow(false);
         //  const handleShow = () => setShow(true);
+        peticionGet=()=>{
+            axios.get(URI).then(response=>{
+              this.setState({data: response.data});
+            }).catch(error=>{
+              console.log(error.message);
+            })
+        }
+
+        peticionPost=async()=>{
+            delete this.state.form.id;
+           await axios.post(URI,this.state.form).then(response=>{
+              this.modalInsertar();
+              this.peticionGet();
+            }).catch(error=>{
+              console.log(error.message);
+            })
+        }
+          
+          peticionPut=()=>{
+            axios.put(URI+this.state.form.id, this.state.form).then(response=>{
+              this.modalInsertar();
+              this.peticionGet();
+            })
+        }
+          
+          peticionDelete=()=>{
+            axios.delete(URI+this.state.form.id).then(response=>{
+              this.setState({modalEliminar: false});
+              this.peticionGet();
+            })
+        }
+
+        modalInsertar=()=>{
+            this.setState({modalInsertar: !this.state.modalInsertar});
+          }
+          
+          seleccionarEmpresa=(transporte)=>{
+            this.setState({
+              tipoModal: 'actualizar',
+              form: {
+                id:transporte.id,
+                descripcion:transporte.descripcion,
+                marca:transporte.marca,
+                modelo:transporte.modelo ,
+                patente:transporte.patente ,
+                patente_acop:transporte.patente_acop,
+                carga_max:transporte.carga_max, 
+                ven_seguro:transporte.ven_seguro,
+                ven_patente:transporte.ven_patente,
+                ven_armat:transporte.ven_armat,
+                ven_vtv:transporte.ven_vtv
+              }
+            })
+        }
+        handleChange=async e=>{
+            e.persist();
+            await this.setState({
+              form:{
+                ...this.state.form,
+                [e.target.name]: e.target.value
+              }
+            });
+            console.log(this.state.form);
+            }
+        
+            componentDidMount() {
+            this.peticionGet();
+        }
+
+render(){
+    const {form}=this.state;         
 
 
  return(
@@ -57,7 +141,8 @@ const DataTableCrudDemo = () => {
     <div className="transporte">
         
         <div className='cabezeratransporte'>
-          <Link to='/Createtransporte' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link>
+          {/* <Link to='/Createtransporte' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link> */}
+          <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
           <h5>Maestro de vehículo</h5>
         </div>
         <div className='btnexportar'>
@@ -74,12 +159,27 @@ const DataTableCrudDemo = () => {
                             <th>Id</th>
                             <th>Descripcion</th>
                             <th>Marca</th>
-                            <th>Modelo</th>
                             <th>Patente</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <tbody className='acciones2'>
+                    <tbody>
+                    {this.state.data.map(transporte=>{
+                    return(
+                        <tr className='acciones2 '>
+                            <td >{transporte.id}</td>
+                            <td>{transporte.descripcion}</td>
+                            <td>{transporte.marca}</td>
+                            <td>{transporte.patente}</td>
+                            <td>
+                                <button className="botonac" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                {"   "}
+                                <button className="botonac" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                            </td>
+                        </tr>
+                    )
+                    })}
+                    {/* <tbody className='acciones2'>
                         {transportes.map ( (transporte) => (
                             <tr key={transporte.id}>
                                 <td>{transporte.id}</td>
@@ -97,14 +197,87 @@ const DataTableCrudDemo = () => {
                                 </td>
                             </tr>
                         ))}
+                    </tbody> */}
                     </tbody>
                 </Table>
+
+                <Modal isOpen={this.state.modalInsertar} className='modalcombus'>
+                <ModalHeader className='modalheder' style={{display: 'block'}}>
+                <h5 >Alta de transporte</h5>
+                  <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}></span>
+                </ModalHeader>
+                <ModalBody>
+                  <div className="form-group">
+                  <label htmlFor="id">ID</label>
+                    <div className='primercampo'>
+                    
+                    <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id: this.state.data.length+1}/>
+                    <input className="form-control" type="text" name="descripcion" id="descripcion" placeholder='Descripción' onChange={this.handleChange} value={form?form.descripcion:''}/>
+                    </div>
+                    <br />
+                    <div className='segundocampo'>
+                    <h5>Datos del vehículo</h5>
+                    <hr/>
+                    </div>
+                    <div className='segundoinput'>
+                    <input className="form-control" type="text" name="marca" id="marca" placeholder='Marca' onChange={this.handleChange} value={form?form.marca:''}/>
+                    <input className="form-control" type="text" name="modelo" id="modelo" placeholder='Modelo' onChange={this.handleChange} value={form?form.modelo:''}/>
+                    <input className="form-control" type="text" name="patente" id="patente" placeholder='Patente' onChange={this.handleChange} value={form?form.patente:''}/>
+                    <input className="form-control" type="text" name="patente_acop" id="patente_acop" placeholder='Patente acoplado' onChange={this.handleChange} value={form?form.patente_acop:''}/>
+                    <input className="form-control" type="text" name="carga_max" id="carga_max" placeholder='Carga maxima' onChange={this.handleChange} value={form?form.carga_max:''}/>
+                    </div>
+                    <div className='tercercampo'>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h5>Datos adicionales</h5>
+                    <hr/>
+                    </div>
+                    
+                    <div className='tercerinput'>
+                <h5>Vencimiento seguro</h5> <h5>Vencimiento patente</h5>
+                <input  type='date' className="calendario form-control" name="ven_seguro" id="ven_seguro" placeholder='Carga maxima' onChange={this.handleChange} value={form?form.ven_seguro:''}/>
+                <input  type='date' className="calendario form-control" name="ven_patente" id="ven_patente" placeholder='Carga maxima' onChange={this.handleChange} value={form?form.ven_patente:''} />
+            
+                <h5>Vencimiento armat</h5> <h5>Vencimiento VTV</h5>
+                <input  type='date' className="calendario form-control" name="ven_armat" id="ven_armat" placeholder='Carga maxima' onChange={this.handleChange} value={form?form.ven_armat:''}/>
+                <input  type='date' className="calendario form-control" name="ven_vtv" id="ven_vtv" placeholder='Carga maxima' onChange={this.handleChange} value={form?form.ven_vtv:''}/>
+                </div>
+                  </div>
+                    <br/>
+                    <br/>
+                    <br />
+                    <br/>
+                </ModalBody>
+
+                <ModalFooter>
+                  {this.state.tipoModal=='insertar'?
+                    <button className="btn btn-success" onClick={()=>this.peticionPost()}>
+                    Insertar
+                  </button>: <button className="btn btn-primary" onClick={()=>this.peticionPut()}>
+                    Actualizar
+                  </button>
+  }
+                    <button className="btn btn-danger" onClick={()=>this.modalInsertar()}>Cancelar</button>
+                </ModalFooter>
+          </Modal>
+
+          <Modal isOpen={this.state.modalEliminar}>
+            <ModalBody>
+               Estás seguro que deseas eliminar a la pedido: {form && form.id}
+            </ModalBody>
+            <ModalFooter>
+              <button className="btn btn-danger" onClick={()=>this.peticionDelete()}>Sí</button>
+              <button className="btn btn-secundary" onClick={()=>this.setState({modalEliminar: false})}>No</button>
+            </ModalFooter>
+          </Modal>
             </div>
         </div>
      </div>
 </div>
 </>
 )
+}
 }
 export default DataTableCrudDemo
 

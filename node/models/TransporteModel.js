@@ -9,11 +9,13 @@ const TransporteModel = db.define('transportes',{
     marca:{type:DataTypes.STRING},
     modelo: {type: DataTypes.STRING},
     patente: {type: DataTypes.STRING},
-    patente_acop: {type: DataTypes.NUMBER},
-    ven_seguro:{type: DataTypes.NUMBER},
-    ven_armat:{type: DataTypes.NUMBER},
-    ven_vtv:{type: DataTypes.NUMBER},
-    carga_max:{type: DataTypes.NUMBER},
+    patente_acop:{type: DataTypes.STRING},
+    carga_max:{type: DataTypes.NUMBER}, 
+    ven_seguro:{type: DataTypes.DATE},
+    ven_patente:{type: DataTypes.DATE},
+    ven_armat:{type: DataTypes.DATE},
+    ven_vtv:{type: DataTypes.DATE},
+    
     //anular:{type: DataTypes.BOOLEAN}
 
     //frescos

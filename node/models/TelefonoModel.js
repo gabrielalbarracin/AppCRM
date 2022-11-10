@@ -3,8 +3,8 @@ import db from '../database/db.js'
 //importo sequelize
 import { DataTypes } from 'sequelize'
 
-const TelefonoModel = db.define('telefono',{
-    
+const TelefonoModel = db.define('telefonos',{
+    nombre:{type: DataTypes.STRING},
     empresa_tel :{type: DataTypes.STRING},
     numero_linea :{type: DataTypes.NUMBER},
     importe :{type: DataTypes.NUMBER},

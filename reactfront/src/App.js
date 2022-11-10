@@ -1,6 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 //import './App.css';
 //import DataTableCrudDemo from './pedidos/ShowPedidos'
+
+import Notificaciones from './notificaciones/Notificaciones'
+import Barra from './barra/Barra'
+
 import CompCreatePedido from './pedidos/Frescos/CreatePedidosFrescos'
 import Login from './login/auth';
 import Home from './home/home';
@@ -40,6 +44,10 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+        <Route path='/notificaciones' element={ <Notificaciones/>} />
+        <Route path='/notificaciones' element={ <Notificaciones/>} />
+
+        
         <Route path='/Vertransporte/:id' element={ <CompVerPrueba/>} /> 
         <Route path='/Edittransporte/:id' element={ <CompEditStock/>} />  
         <Route path='/Createtransporte' element={ <CompCreatePedidoPrueba2/>} />

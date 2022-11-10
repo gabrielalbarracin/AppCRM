@@ -66,7 +66,7 @@ const CompCreatePedidoFrescos = () => {
                         {/* <label className="cantidad form-label">Ingrese cantidad</label> */}
                         {/* <input type="text" className="texto1 form-control" id="formGroupExampleInput2"/> */}
                         <label for="formGroupExampleInput2" className="cantidadfrescos form-label">Ingrese cantidad</label>
-                        <input className="cantidadfrescos form-control form-control-sm" type="text" aria-label=".form-control-sm example" required={true} value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
+                        <input className="cantidadfrescos form-control form-control-sm" type="text" aria-label=".form-control-sm example" value={cantidad} onChange={(e)=> setCantidad(e.target.value)}></input>
                     </div>
                     <br/>
                     <br/>

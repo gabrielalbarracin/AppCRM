@@ -206,7 +206,7 @@ return(
                     <option>Otros</option>
                 </select>
                     <br />
-                    <select className="categoriasecos form-select" name='articulos' id='articulos' onChange={this.handleChange} value={form?form.articulo: ''} required={true} >
+                    <select className="categoriasecos form-select" name='articulos' id='articulos' onChange={this.handleChange} value={form?form.articulos: ''} required={true} >
                           <option selected>Seleccione articulo</option>
                           <option>leche</option>
                           <option>Aceite</option>

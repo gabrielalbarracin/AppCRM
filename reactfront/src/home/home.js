@@ -1,12 +1,5 @@
-import './css/home.css'
-// import { Navbar, Container, Offcanvas } from 'reactstrap'
-// import san from './img/san.png'
-
-// import {Nav,NavDropdown, expand } from 'react-bootstrap';
-// import { SplitButton } from 'primereact/splitbutton';
 
 import 'primeicons/primeicons.css';
-
 import React, { useState } from 'react';
 import {
     
@@ -18,65 +11,76 @@ import {TbMeat, TbGasStation, } from 'react-icons/tb'
 import {MdOutlineEmojiFoodBeverage} from 'react-icons/md'
 import {BsTelephone, BsTruck} from 'react-icons/bs'
 import {AiOutlineUser} from 'react-icons/ai'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faBell} from '@fortawesome/free-solid-svg-icons';
+import { NavLink, Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Popover from 'react-bootstrap/Popover';
+import Barra from '../barra/Barra';
 
-import { NavLink } from 'react-router-dom';
 const Home = () =>{
     
 
-      const[isOpen ,setIsOpen] = useState(false);
-      const toggle = () => setIsOpen (!isOpen);
-      const menuItem=[
+    //   const[isOpen ,setIsOpen] = useState(false);
+    //   const toggle = () => setIsOpen (!isOpen);
+    //   const menuItem=[
   
-          {
-              path:"/",
-              name:"Usuarios",
-              icon:<AiOutlineUser/>,
-          },
-          {
-              path:"/configuracion",
-              name:"Configuracion",
-              icon:<FiSettings/>
-          },
-          {
-              path:"/Frescos",
-              name:"Frescos",
-              icon:<TbMeat/>
-          },
+    //       {
+    //           path:"/",
+    //           name:"Usuarios",
+    //           icon:<AiOutlineUser/>,
+    //       },
+    //       {
+    //           path:"/configuracion",
+    //           name:"Configuracion",
+    //           icon:<FiSettings/>
+    //       },
+    //       {
+    //           path:"/Frescos",
+    //           name:"Frescos",
+    //           icon:<TbMeat/>
+    //       },
              
-          {
-              path:"/PedidosSecos",
-              name:"Secos",
-              icon:<MdOutlineEmojiFoodBeverage/>
-          },
-          {
-              path:"/logistica",
-              name:"Logistica",
-              icon:<FaThList/>
-          },
-          {
-            path:"/telefono",
-            name:"Telefono",
-            icon:<BsTelephone/>
-        },
-        {
-          path:"/transporte",
-          name:"Transporte",
-          icon:<BsTruck/>
-      },
-      {
-        path:"/combustible",
-        name:"Combustible",
-        icon:<TbGasStation/>
-    },
+    //       {
+    //           path:"/PedidosSecos",
+    //           name:"Secos",
+    //           icon:<MdOutlineEmojiFoodBeverage/>
+    //       },
+    //       {
+    //           path:"/logistica",
+    //           name:"Logistica",
+    //           icon:<FaThList/>
+    //       },
+    //       {
+    //         path:"/telefono",
+    //         name:"Telefono",
+    //         icon:<BsTelephone/>
+    //     },
+    //     {
+    //       path:"/transporte",
+    //       name:"Transporte",
+    //       icon:<BsTruck/>
+    //   },
+    //   {
+    //     path:"/combustible",
+    //     name:"Combustible",
+    //     icon:<TbGasStation/>
+    // },
 
-      ]
+    //   ]
 
      
       return (
-          <div className='homebarra'>
 
- 
+        <div>
+          <Link className='iconouser' to='/notificaciones' onClick={()=>{ this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faBell} /></Link> 
 
+          <Barra/>
+          
+           
+          
+          {/* <div className='homebarra'>
              <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
                  <div className="top_section">
                      <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
@@ -95,13 +99,13 @@ const Home = () =>{
                     
                  }
              </div>
-             {/* <main>{children}</main> */}
 
-             </div>
+             </div> */}
+          </div>
       );
   };
   
-  
+  export default Home
 
 
         //      <div className='nav'>
@@ -210,7 +214,7 @@ const Home = () =>{
   
 
 
-export default Home
+
       
 
 {/* <PanelMenu  style={{width:'300px'}}/>

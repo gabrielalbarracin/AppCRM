@@ -1,9 +1,9 @@
 
 
 
-.containertabla{
+.containertablatrans{
     width: 100%;
-    margin-left: 70px;
+    margin-left: 20px;
     margin-right: 15px;
 }
 .acciones{
@@ -20,11 +20,23 @@
     height: 5px;
 }
 
-.tabla{
-    width: 100%;
-    
+@media screen and (max-width:500px) {
+    .containertablatrans{
+        margin-left: 0px;
+    }
 }
 
+@media screen and (max-width:500px) {
+    .hometrans {
+        display: none;
+        
+    }
+}
+@media screen and (max-width:500px) {
+.campostrans{
+    display: none;
+}
+}
 .table-primary .tr{
    margin: 50px;
 }
@@ -33,12 +45,36 @@
    margin-bottom: 1px;
    margin-top: 15px;
 }
+@media screen and (max-width:500px) {
+    .cabezeratransporte{
+        margin-left: 0px;
+    }
+}
 
+.titulotrans{
+    margin-right: 81.5%;
+}
+
+@media screen and (max-width:500px) {
+    .titulotrans{
+        display: contents;
+        font-size: small;
+    }
+}
+.expotrans{
+    float: right;
+    margin-right: 20px;
+    
+}
+@media screen and (max-width:500px) {
+    .btnexportar{
+        height: 30px;
+        margin-top: 15px;
+    }
+}
 .btnexportar{
     
     margin-left: 800px;
-    
-    
     
 }
 @media screen and (max-width:500px) {
@@ -53,6 +89,7 @@
   height: 40px;
   
 }
+
 
 .cabezeratransporte h5{
     float: right;
@@ -85,7 +122,9 @@
 
 
 /* formulario para crear */
-
+.modalhedertrans{
+    height: 40px;
+}
 .crearprueba{
     grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
 }

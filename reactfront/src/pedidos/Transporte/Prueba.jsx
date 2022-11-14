@@ -134,7 +134,7 @@ render(){
 
  return(
     <>
-        <div>
+        <div className='hometrans'>
         <Home/> 
         </div>
 
@@ -143,38 +143,39 @@ render(){
         <div className='cabezeratransporte'>
           {/* <Link to='/Createtransporte' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link> */}
           <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
-          <h5>Maestro de vehículo</h5>
+          <h5 className='titulotrans'>Maestro de vehículo</h5>
+          
         </div>
         <div className='btnexportar'>
-            <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
-            <button className='expo'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
+            <button className='expotrans'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
+            <button className='expotrans'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
         </div>
         {/* <Button className="btnNuevo btn btn-success mr-2 btn-sm" type='submit' onClicks={handleShow} />  */}
-         <div className='containertabla'>
+         <div className='containertablatrans'>
            <div className='row'>
             <div className='col'>
-                <Table striped bordered hover className='tabla'>
+                <Table striped bordered hover className='tablatrans' size="sm">
                     <thead >
                         <tr className='acciones'>
                             <th>Id</th>
                             <th>Descripcion</th>
-                            <th>Marca</th>
-                            <th>Patente</th>
+                            <th className='campostrans'>Marca</th>
+                            <th className='campostrans'>Patente</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                     {this.state.data.map(transporte=>{
                     return(
-                        <tr className='acciones2 '>
+                        <tr className='acciones2'>
                             <td >{transporte.id}</td>
                             <td>{transporte.descripcion}</td>
-                            <td>{transporte.marca}</td>
-                            <td>{transporte.patente}</td>
+                            <td className='campostrans'>{transporte.marca}</td>
+                            <td className='campostrans'>{transporte.patente}</td>
                             <td>
-                                <button className="botonac" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
-                                <button className="botonac" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                             </td>
                         </tr>
                     )
@@ -202,9 +203,9 @@ render(){
                 </Table>
 
                 <Modal isOpen={this.state.modalInsertar} className='modalcombus'>
-                <ModalHeader className='modalheder' style={{display: 'block'}}>
+                <ModalHeader className='modalhedertrans' style={{display: 'block'}}>
                 <h5 >Alta de transporte</h5>
-                  <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}></span>
+                  {/* <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}></span> */}
                 </ModalHeader>
                 <ModalBody>
                   <div className="form-group">

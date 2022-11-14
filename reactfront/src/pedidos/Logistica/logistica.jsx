@@ -1,15 +1,11 @@
 import axios from 'axios'
 import { useState, useEffect, Component } from 'react'
-import {Link} from 'react-router-dom'
-//import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap'
-import Button from 'react-bootstrap/Button';
-//import './css/style.css'
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-//import PedidoLogistica from './PedidoLogistica';
+import './Logistica.css'
 const URI = 'http://localhost:9000/logistica/'
 
 class Logistica extends Component {
@@ -107,33 +103,34 @@ render(){
 const {form}=this.state;
     return(
         <>
-        <div>
+        <div className='homelog'>
         <Home/> 
         </div>
 
-    <div className="transporte">
+    <div className="logistica">
         
-        <div className='cabezeratransporte'>
+        <div className='cabezeralogistica'>
           {/* <Link to='/CreatePedidoLogistica' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link> */}
-          <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
-          <h5>Maestro de logistica</h5>
+          <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus}/></button>
+          <h5 className='titulolog'>Maestro de logistica</h5>
         </div>
-        <div className='btnexportar'>
+        
+        <div className='btnexportarlog'>
             <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
             <button className='expo'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
         </div>
         {/* <Button className="btnNuevo btn btn-success mr-2 btn-sm" type='submit' onClicks={handleShow} />  */}
-         <div className='containertabla'>
+         <div className='containertablalog'>
            <div className='row'>
             <div className='col'>
-            <Table striped bordered hover className='tabla'>
+            <Table striped bordered hover className='tablalog' size="sm">
                     <thead >
-                        <tr className='acciones'>
+                        <tr className='accioneslog'>
                             <th>Id</th>
                             <th>Categoria</th>
-                            <th>Articulos</th>
-                            <th>Cantidad</th>
-                            <th>Fech entrega</th>
+                            <th className='campolog'>Articulos</th>
+                            <th className='campolog'>Cantidad</th>
+                            <th className='campolog'>Fech entrega</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -143,13 +140,13 @@ const {form}=this.state;
                         <tr>
                             <td>{transporte.id}</td>
                             <td>{transporte.categoria}</td>
-                            <td>{transporte.articulos}</td>
-                            <td>{transporte.cantidad}</td>
-                            <td>{transporte.fecha_entrega}</td>
+                            <td className='campolog'>{transporte.articulos}</td>
+                            <td className='campolog'>{transporte.cantidad}</td>
+                            <td className='campolog'>{transporte.fecha_entrega}</td>
                             <td>
-                                <button className="btn btn-primary" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                <button className="btn " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
-                                <button className="btn btn-danger" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                <button className="btn " onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                             </td>
                         </tr>
                         )

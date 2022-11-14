@@ -130,26 +130,28 @@ render(){
 
     
         
-        <div >
-          <button className="agregarcombus btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
+        <div className="agregarcombus" >
+          <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
           <h5 className='titulocombus'>Maestro de combustible</h5>
+          {/* <button className='expo' ><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
+            <button className='expo'><i className="fa-sharp fa-solid fa-file-excel"></i></button> */}
         </div>
-            <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
-            <button className='expo'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
+
         
-        {/*
-         <div className='containertabla'>
+           
+        
+        
+         <div className='containertablacom'>
            <div className='row'>
             <div className='col'>
-               
-                <Table striped bordered hover className='tabla' size="sm">
+                <Table striped bordered hover className='tablacombus' size="sm">
                     <thead >
-                        <tr className='acciones'>
+                        <tr className='accionescombu'>
                             <th>Id</th>
                             <th>Vehículo</th>
-                            <th className='tablacombu'>Tipo combus</th>
-                            <th className='tablacombu'>Cantidad</th>
-                            <th className='tablacombu'>Importe</th>
+                            <th className='camposcombu'>Tipo combus</th>
+                            <th className='camposcombu'>Cantidad</th>
+                            <th className='camposcombu'>Importe</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -159,13 +161,15 @@ render(){
                         <tr className='acciones2 '>
                             <td >{transporte.id}</td>
                             <td>{transporte.vehiculo}</td>
-                            <td className='tablacombu'>{transporte.tipo_combustible}</td>
-                            <td className='tablacombu'>{transporte.cantidad}</td>
-                            <td className='tablacombu'>{transporte.importe}</td>
+                            <td className='camposcombu'>{transporte.tipo_combustible}</td>
+                            <td className='camposcombu'>{transporte.cantidad}</td>
+                            <td className='camposcombu'>{transporte.importe}</td>
                             <td>
-                                <button className="botonac" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
-                                <button className="botonac" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+
+                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                             </td>
                         </tr>
                     )
@@ -175,13 +179,14 @@ render(){
                 </Table>
               <Modal isOpen={this.state.modalInsertar} className='modalcombus'>
                 <ModalHeader className='modalheder' style={{display: 'block'}}>
-                  <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}>x</span>
+                  {/* <span  style={{float: 'right'}} onClick={()=>this.modalInsertar()}>x</span> */}
                 </ModalHeader>
                 <ModalBody>
                   <div className="form-group">
                     <label htmlFor="id">ID</label>
                     <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id: this.state.data.length+1}/>
                     <br />
+                    
                     <select className="categoriacom form-select" aria-label="Default select example" required={true} name="vehiculo" id="vehiculo" onChange={this.handleChange} value={form?form.vehiculo: ''}>
                         <option selected>Vehículo</option>
                         <option>Renault Kangoo Dominio:GOA563</option>
@@ -196,7 +201,7 @@ render(){
                         <option>GNC</option>
                         <option>Gas envasado</option>
                     </select>
-                    
+                    <br/>
                     <label htmlFor="capital_bursatil">Ingrese cantidad</label>
                     <input className="form-control" type="text" name="cantidad" id="cantidad" onChange={this.handleChange} value={form?form.cantidad:''}/>
                     <br/>
@@ -205,6 +210,7 @@ render(){
                     <br/>
                     <label htmlFor="capital_bursatil">Total a pagar</label>
                     <input className="form-control" type="text" name="importe" id="importe" onChange={this.handleChange} value={form?form.importe:''}/>
+                    <br/>
                     <br/>
                     <select className="form-select" aria-label="Default select example" required={true} name="tipo_pago" id="tipo_pago" onChange={this.handleChange} value={form?form.tipo_pago:''}>
                         <option selected>Se paga o se debe</option>
@@ -215,7 +221,7 @@ render(){
                 </ModalBody>
 
                 <ModalFooter>
-                  {this.state.tipoModal=='insertar'?
+                  {this.state.tipoModal==='insertar'?
                     <button className="btn btn-success" onClick={()=>this.peticionPost()}>
                     Insertar
                   </button>: <button className="btn btn-primary" onClick={()=>this.peticionPut()}>
@@ -237,7 +243,7 @@ render(){
           </Modal>
             </div>
         </div>
-     </div> */}
+     </div> 
 </div>
 
 )

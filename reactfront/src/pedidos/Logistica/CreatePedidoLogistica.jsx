@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Table from 'react-bootstrap/Table'
-import './PedidoLogistica.css'
+//import './PedidoLogistica.css'
 const URI = 'http://localhost:9000/logistica/'
 
 

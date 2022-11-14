@@ -3,18 +3,31 @@
     
 }
 
+.titulocombus{
+    float: right;
+    margin-right:78% ;
+}
 @media screen and (max-width:500px) {
-.agregarcombus{
-   display: none;
-    margin: 0px;
+.titulocombus{
+    float: right;
+  margin-left: 0px;
+  display: contents;
+    font-size: small;
 }  
 }
 
 .agregarcombus{
    
-    margin-right: 20px;
-    
+
+    display: block;
     margin-left: 60px;
+}
+
+@media screen and (max-width:500px) {
+    .agregarcombus{
+        margin: 5px;
+        
+    }
 }
 
 @media screen and (max-width:500px) {
@@ -23,10 +36,55 @@
     }
 }
 
-.homecombus{
-   
+@media screen and (max-width:500px){
+    .row{
+        margin-left: 0px;
+    }   
 }
 
+
+
+.row{
+   width: 99%; 
+    
+}
+
+.col{
+    margin-left: 60px;
+}
+@media screen and (max-width:500px){
+    .camposcombu{
+        display: none;
+
+    }   
+}
+@media screen and (max-width:500px){
+    .botonac{
+        margin: 2px;
+        width: 30px;
+        text-align: center;
+    }   
+}
+
+/* formulario*/
+.modalheder{
+    height: 30px;
+}
+.form-control{
+    height: 30px;
+} 
+.categoriacom{
+    margin-top: 15px;
+}
+
+.accionescombu{
+    text-align: center;
+}
+/* @media screen and (max-width:500px) {
+.expo{
+    margin-left: 5px;
+}
+} */
 
 
 

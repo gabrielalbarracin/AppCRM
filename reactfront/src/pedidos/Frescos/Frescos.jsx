@@ -122,33 +122,32 @@ render(){
     const {form}=this.state;
  return(
     <>
-        <div>
+        <div className='homefres'>
         <Home/> 
         </div>
 
-    <div className="transporte">
+    <div className="frescos">
         
-        <div className='cabezeratransporte'>
-          {/* <Link to='/CreatePedidosFrescos' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link> */}
-          <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
-          <h5>Maestro de frescos</h5>
+        <div className='cabezerafres'>
+          <button className="btnfres btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
+          <h5 className='titulofres'>Maestro de frescos</h5>
         </div>
-        <div className='btnexportar'>
-            <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
-            <button className='expo'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
+        <div className='btnexportarfres'>
+            <button className='expofres'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
+            <button className='expofres'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
         </div>
         {/* <Button className="btnNuevo btn btn-success mr-2 btn-sm" type='submit' onClicks={handleShow} />  */}
-         <div className='containertabla'>
+         <div className='containertablafres'>
            <div className='row'>
             <div className='col'>
-                <Table striped bordered hover className='tabla'>
+                <Table striped bordered hover className='tablafres'>
                     <thead >
                         <tr className='acciones'>
                             <th>Id</th>
                             <th>Categoria</th>
-                            <th>Articulos</th>
-                            <th>Cantidad</th>
-                            <th>Fech entrega</th>
+                            <th className='campofres'>Articulos</th>
+                            <th className='campofres'>Cantidad</th>
+                            <th className='campofres'>Fech entrega</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -158,13 +157,13 @@ render(){
                         <tr>
                             <td>{transporte.id}</td>
                             <td>{transporte.categoria}</td>
-                            <td>{transporte.articulos}</td>
-                            <td>{transporte.cantidad}</td>
-                            <td>{transporte.fecha_entrega}</td>
+                            <td className='campofres'>{transporte.articulos}</td>
+                            <td className='campofres'>{transporte.cantidad}</td>
+                            <td className='campofres'>{transporte.fecha_entrega}</td>
                             <td>
-                                <button className="btn btn-primary" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                <button className="btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
-                                <button className="btn btn-danger" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                <button className="btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                             </td>
                         </tr>
                         )

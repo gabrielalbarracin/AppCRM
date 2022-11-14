@@ -114,34 +114,35 @@ modalInsertar=()=>{
 render(){
     const {form}=this.state; 
 return(
-    <>
-    <div>
+  <div className="telefono">
+    <div className='hometel'>
     <Home/> 
     </div>
 
-<div className="transporte">
+
     
-    <div className='cabezeratransporte'>
+    <div className='cabezeratele'>
       {/* <Link to='/Creartelefono' className="btnNuevo btn btn-success mr-2 btn-sm"><i className='fas fa-plus'></i></Link> */}
-      <button className="btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
-      <h5>Maestro de telefonos</h5>
+      <button className="botontel btn btn-success" onClick={()=>{this.setState({form: null, tipoModal: 'insertar'}); this.modalInsertar()}}><FontAwesomeIcon icon={faPlus} /></button>
+      <h5 className='titulotel'>Maestro de telefonos</h5>
     </div>
-    <div className='btnexportar'>
-        <button className='expo'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
-        <button className='expo'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
+    
+    <div className='btnexportartel'>
+        <button className='expotel'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
+        <button className='expotel'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
     </div>
     {/* <Button className="btnNuevo btn btn-success mr-2 btn-sm" type='submit' onClicks={handleShow} />  */}
-     <div className='containertabla'>
+     <div className='containertablatel'>
        <div className='row'>
         <div className='col'>
-            <Table striped bordered hover className='tabla'>
+            <Table striped bordered hover className='tablatel' size="sm">
                 <thead >
-                    <tr className='acciones'>
+                    <tr className='accionestel'>
                         <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Empresa tel</th>
+                        <th className='compotel'>Nombre</th>
+                        <th className='compotel'>Empresa tel</th>
                         <th>Numero</th>
-                        <th>Importe</th>
+                        <th className='compotel'>Importe</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -150,10 +151,10 @@ return(
                     return(
                         <tr className='acciones2 '>
                             <td >{transporte.id}</td>
-                            <td>{transporte.nombre}</td>
-                            <td>{transporte.empresa_tel}</td>
+                            <td className='compotel'>{transporte.nombre}</td>
+                            <td className='compotel'>{transporte.empresa_tel}</td>
                             <td>{transporte.numero_linea}</td>
-                            <td>{transporte.importe}</td>
+                            <td className='compotel'>{transporte.importe}</td>
                             <td>
                                 <button className="botonac " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
                                 <button className="botonac " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
@@ -216,13 +217,13 @@ return(
                 </ModalBody>
 
                 <ModalFooter>
-                  {this.state.tipoModal=='insertar'?
+                  {this.state.tipoModal==='insertar'?
                     <button className="btn btn-success" onClick={()=>this.peticionPost()}>
                     Insertar
                   </button>: <button className="btn btn-primary" onClick={()=>this.peticionPut()}>
                     Actualizar
                   </button>
-  }
+                  }
                     <button className="btn btn-danger" onClick={()=>this.modalInsertar()}>Cancelar</button>
                 </ModalFooter>
           </Modal>
@@ -238,9 +239,9 @@ return(
           </Modal>
         </div>
     </div>
+    </div>
  </div>
-</div>
-</>
+
 
     )
   }

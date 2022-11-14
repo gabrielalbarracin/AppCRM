@@ -1,4 +1,83 @@
-.transporte{
+.cabezeraseco{
+    margin-left: 70px;
+   margin-bottom: 1px;
+   margin-top: 15px;
+}
+
+.cabezeraseco h5{
+    float: right;
+    margin-right: 83%;
+}
+@media screen and (max-width:500px){
+    .cabezeraseco{
+        margin-left:0px ;
+        display: flex;
+        
+    }
+}
+
+@media screen and (max-width:500px){
+    .tituloseco{
+        display: contents;
+        font-size: medium;
+        
+    }
+}
+@media screen and (max-width:500px){
+    .botonse{
+        height: 30px;
+        
+    }
+}
+.btnexportarse .expose{
+    float: right;
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    
+}
+
+
+.accionesse{
+    text-align: center;
+}
+
+@media screen and (max-width:500px){
+    .homeseco{
+        display: none;
+    }
+    }
+
+@media screen and (max-width:500px){
+    .btnexportarse{
+        display: none;
+    }
+}
+
+
+@media screen and (max-width:500px){
+    .campose{
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px){
+    .tablase{
+        display:table-footer-group
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* .transporte{
     width: 100%;
     height: 100%;
     display: flex;
@@ -64,4 +143,4 @@ text-align: center;
     width: 100%;
     margin-right: 25px;
     height: 5px;
-}
+} */

@@ -7,6 +7,7 @@ import secosrouter from './routes/SecosRoutes.js'
 import telefonorouter from './routes/TelefonoRoutes.js'
 import logisticarouter from './routes/LogisticaRoute.js'
 import combustiblerouter from './routes/CombustibleRoute.js'
+import informerouter from './routes/InformesRoutes.js'
 const app = express()
 
 
@@ -18,6 +19,7 @@ app.use('/secos', secosrouter )
 app.use('/logistica', logisticarouter)
 app.use('/telefono', telefonorouter)
 app.use('/combustible', combustiblerouter)
+app.use('/informes', informerouter)
 try{
     await db.authenticate()
     console.log('conexion exitosa a la db')

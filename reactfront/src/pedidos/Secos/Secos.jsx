@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 const URI = 'http://localhost:9000/secos/'
 
@@ -158,10 +158,11 @@ return(
                             <td className='campose'>{transporte.cantidad}</td>
                             <td className='campose'>{transporte.fecha_entrega}</td>
                             <td>
-                <button className="btn " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
-                {"   "}
-                <button className="btn " onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
-                </td>
+                            <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+                            <button className="btn " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                            {"   "}
+                            <button className="btn " onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                          </td>
             </tr>
             )
             })}
@@ -190,6 +191,7 @@ return(
             <Modal isOpen={this.state.modalInsertar}>
                 <ModalHeader style={{display: 'block'}}>
                   <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}>x</span>
+                  <h5>Pedido secos</h5>
                 </ModalHeader>
                 <ModalBody>
                   <div className="form-group">
@@ -197,16 +199,16 @@ return(
                     <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id: this.state.data.length+1}/>
                     <br />
                     <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>
-                    <input  type='date' name='fecha_entrega' className=" form-control" id='fecha_entrega' onChange={this.handleChange} value={form?form.fecha_entrega: ''} required={true}></input>
+                    <input  type='date' name='fecha_entrega' className="camposec form-control" id='fecha_entrega' onChange={this.handleChange} value={form?form.fecha_entrega: ''} required={true}></input>
                     <br/>
-                    <select className="categoriasecos form-select" name='categoria' id='categoria' onChange={this.handleChange} value={form?form.categoria: ''} required={true}>
+                    <select className="camposec form-select" name='categoria' id='categoria' onChange={this.handleChange} value={form?form.categoria: ''} required={true}>
                     <option selected>Seleccione categoria</option>
                     <option>Enlatado</option>
                     <option>Liquidos</option>
                     <option>Otros</option>
                 </select>
                     <br />
-                    <select className="categoriasecos form-select" name='articulos' id='articulos' onChange={this.handleChange} value={form?form.articulos: ''} required={true} >
+                    <select className="camposec form-select" name='articulos' id='articulos' onChange={this.handleChange} value={form?form.articulos: ''} required={true} >
                           <option selected>Seleccione articulo</option>
                           <option>leche</option>
                           <option>Aceite</option>

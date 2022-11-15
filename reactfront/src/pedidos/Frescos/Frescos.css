@@ -57,7 +57,7 @@
     .tablafres
     {
         
-        display: table-footer-group;
+        display: inline-table;
     }
 }
 

@@ -10,7 +10,7 @@ import {FiSettings} from 'react-icons/fi'
 import {TbMeat, TbGasStation, } from 'react-icons/tb'
 import {MdOutlineEmojiFoodBeverage} from 'react-icons/md'
 import {BsTelephone, BsTruck} from 'react-icons/bs'
-import {AiOutlineUser} from 'react-icons/ai'
+import {AiOutlineUser, AiOutlineFileDone} from 'react-icons/ai'
 import { NavLink, Link } from 'react-router-dom';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
@@ -30,6 +30,11 @@ const Barra = () =>{
           path:"/configuracion",
           name:"Configuracion",
           icon:<FiSettings/>
+      },
+      {
+        path:"/Informes",
+        name:"Frescos",
+        icon:<AiOutlineFileDone/>
       },
       {
           path:"/Frescos",

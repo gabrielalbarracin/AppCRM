@@ -10,7 +10,7 @@ import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
 import { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 const URI = 'http://localhost:9000/frescos/'
 
@@ -161,6 +161,7 @@ render(){
                             <td className='campofres'>{transporte.cantidad}</td>
                             <td className='campofres'>{transporte.fecha_entrega}</td>
                             <td>
+                            <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
                                 <button className="btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
                                 <button className="btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
@@ -193,6 +194,7 @@ render(){
                 <Modal isOpen={this.state.modalInsertar}>
                 <ModalHeader style={{display: 'block'}}>
                   <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}>x</span>
+                  <h5>Pedido frescos</h5>
                 </ModalHeader>
                 <ModalBody>
                   <div className="form-group">
@@ -200,15 +202,15 @@ render(){
                     <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id: this.state.data.length+1}/>
                     <br />
                     <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>
-                    <input  type='date' name='fecha_entrega' className=" form-control" id='fecha_entrega' onChange={this.handleChange} value={form?form.fecha_entrega: ''} required={true}></input>
+                    <input  type='date' name='fecha_entrega' className="fechainfo form-control" id='fecha_entrega' onChange={this.handleChange} value={form?form.fecha_entrega: ''} required={true}></input>
                     <br/>
-                    <select className="categoriasecos form-select" name='categoria' id='categoria' onChange={this.handleChange} value={form?form.categoria: ''} required={true}>
+                    <select className="fechainfo form-select" name='categoria' id='categoria' onChange={this.handleChange} value={form?form.categoria: ''} required={true}>
                     <option selected>Seleccione categoria</option>
                     <option>Carne</option>
                         <option>Verdura</option>
                 </select>
                     <br />
-                    <select className="categoriasecos form-select" name='articulos' id='articulos' onChange={this.handleChange} value={form?form.articulos: ''} required >
+                    <select className="fechainfo form-select" name='articulos' id='articulos' onChange={this.handleChange} value={form?form.articulos: ''} required >
                           <option selected>Seleccione articulo</option>
                           <option >Carne vaca</option>
                           <option>pollo</option>

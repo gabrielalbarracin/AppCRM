@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Notificaciones from './notificaciones/Notificaciones'
 import Barra from './barra/Barra'
 
+import Informes from './pedidos/Informes/Informes'
+
 import CompCreatePedido from './pedidos/Frescos/CreatePedidosFrescos'
 import Login from './login/auth';
 import Home from './home/home';
@@ -47,7 +49,8 @@ function App() {
         <Route path='/notificaciones' element={ <Notificaciones/>} />
         <Route path='/notificaciones' element={ <Notificaciones/>} />
 
-        
+        <Route path='/Informes' element={ <Informes/>} />
+
         <Route path='/Vertransporte/:id' element={ <CompVerPrueba/>} /> 
         <Route path='/Edittransporte/:id' element={ <CompEditStock/>} />  
         <Route path='/Createtransporte' element={ <CompCreatePedidoPrueba2/>} />

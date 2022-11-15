@@ -1,0 +1,58 @@
+.agregarinfo{
+    margin-left: 70px;
+    margin-bottom: 1px;
+    margin-top: 15px;
+}
+@media screen and (max-width:500px) {
+    .agregarinfo{
+        margin-left: 10px;
+        margin-top: 0px;
+    }
+}
+.tituloinfo{
+    float: right;
+    margin-right: 84.5%;
+}
+@media screen and (max-width:500px) {
+    .tituloinfo
+    {
+        display: contents;
+        font-size: small;
+        float: right;
+        margin-left: 5px;
+    }
+}
+@media screen and (max-width:500px) {
+    .homeinfo
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .botonac
+    {
+        display: contents;
+        margin: 15px;
+    }
+}
+@media screen and (max-width:500px) {
+    .col
+    {
+        margin-left: 0%;
+    }
+}
+@media screen and (max-width:500px) {
+    .infodia
+    {
+        margin-top: 25px;
+    }
+}
+.modalhederr
+{
+   height: 50px;
+}
+
+.fechainfo{
+    width: 400px;
+}

@@ -128,8 +128,8 @@ return(
     </div>
     
     <div className='btnexportartel'>
-        <button className='expotel'><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
-        <button className='expotel'><i className="fa-sharp fa-solid fa-file-excel"></i></button>
+        <button className='expotel' size="sm"><i className="fa-sharp fa-solid fa-file-pdf"></i></button>
+        <button className='expotel' size="sm"><i className="fa-sharp fa-solid fa-file-excel"></i></button>
     </div>
     {/* <Button className="btnNuevo btn btn-success mr-2 btn-sm" type='submit' onClicks={handleShow} />  */}
      <div className='containertablatel'>
@@ -156,10 +156,10 @@ return(
                             <td>{transporte.numero_linea}</td>
                             <td className='compotel'>{transporte.importe}</td>
                             <td>
-                                <button className="botonac " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
-                                <button className="botonac " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
+                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
-                                <button className="botonac " onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
+                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                             </td>
                         </tr>
                     )
@@ -203,7 +203,7 @@ return(
                     <label htmlFor="capital_bursatil">Nuemro de linea</label>
                     <input className="form-control" type="text" name="numero_linea" id="numero_linea" onChange={this.handleChange} value={form?form.numero_linea:''} required={true}/>
                     <br/>
-                    <label htmlFor="capital_bursatil">Importe</label>
+                    <label htmlFor="capital_bursatil">Importe a pagar</label>
                     <input className="form-control" type="text" name="importe" id="importe" onChange={this.handleChange} value={form?form.importe:''} required/>
                     <br/>
                     <select className="categoriacom form-select" aria-label="Default select example" required={true} name="tipo_de_pago" id="tipo_de_pago" onChange={this.handleChange} value={form?form.tipo_de_pago: ''} >

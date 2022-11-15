@@ -3,7 +3,7 @@ import { useState, useEffect, Component } from 'react'
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faPlus,faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import './Logistica.css'
 const URI = 'http://localhost:9000/logistica/'
@@ -144,6 +144,7 @@ const {form}=this.state;
                             <td className='campolog'>{transporte.cantidad}</td>
                             <td className='campolog'>{transporte.fecha_entrega}</td>
                             <td>
+                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
                                 <button className="btn " onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
                                 <button className="btn " onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
@@ -176,6 +177,7 @@ const {form}=this.state;
                 <Modal isOpen={this.state.modalInsertar}>
                 <ModalHeader style={{display: 'block'}}>
                   <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}>x</span>
+                  <h5>Pedido logistica</h5>
                 </ModalHeader>
                 <ModalBody>
                   <div className="form-group">
@@ -183,7 +185,7 @@ const {form}=this.state;
                     <input className="form-control" type="text" name="id" id="id" readOnly onChange={this.handleChange} value={form?form.id: this.state.data.length+1}/>
                     <br />
                     <label for="formGroupExampleInput2" className="fecha form-label">Ingrese fecha de entrega</label>
-                    <input  type='date' name='fecha_entrega' className=" form-control" id='fecha_entrega' onChange={this.handleChange} value={form?form.fecha_entrega: ''} required={true}></input>
+                    <input  type='date' name='fecha_entrega' className="campologistica form-control" id='fecha_entrega' onChange={this.handleChange} value={form?form.fecha_entrega: ''} required={true}></input>
                     <br/>
                     <select className="categoriasecos form-select" name='categoria' id='categoria' onChange={this.handleChange} value={form?form.categoria: ''} required={true}>
                     <option selected>Seleccione categoria</option>

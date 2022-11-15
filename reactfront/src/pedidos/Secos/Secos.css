@@ -63,11 +63,13 @@
 
 @media screen and (max-width:500px){
     .tablase{
-        display:table-footer-group
+        display:inline-table
     }
 }
 
-
+.camposec{
+    width: 100px;
+}
 
 
 

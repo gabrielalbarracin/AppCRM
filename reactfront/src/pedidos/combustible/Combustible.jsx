@@ -7,7 +7,7 @@ import Table from 'react-bootstrap/Table'
 import './Combustible.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { MdImportExport } from 'react-icons/md';
 const URI = 'http://localhost:9000/combustible/'
@@ -165,9 +165,9 @@ render(){
                             <td className='camposcombu'>{transporte.cantidad}</td>
                             <td className='camposcombu'>{transporte.importe}</td>
                             <td>
+                            <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
                                 <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
-                                <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
 
                                 <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
                             </td>
@@ -178,8 +178,9 @@ render(){
                     </tbody>
                 </Table>
               <Modal isOpen={this.state.modalInsertar} className='modalcombus'>
-                <ModalHeader className='modalheder' style={{display: 'block'}}>
-                  {/* <span  style={{float: 'right'}} onClick={()=>this.modalInsertar()}>x</span> */}
+                <ModalHeader className='modalhedercom' style={{display: 'block'}}>
+                 <span  style={{float: 'right'}} onClick={()=>this.modalInsertar()}>x</span> 
+                  <h5>Combustible</h5>
                 </ModalHeader>
                 <ModalBody>
                   <div className="form-group">

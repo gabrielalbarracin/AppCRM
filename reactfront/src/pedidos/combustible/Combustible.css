@@ -80,6 +80,10 @@
 .accionescombu{
     text-align: center;
 }
+
+.modalhedercom{
+    height: 50px;
+}
 /* @media screen and (max-width:500px) {
 .expo{
     margin-left: 5px;

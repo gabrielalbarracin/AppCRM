@@ -66,10 +66,17 @@
     }
 }
 
+.accionestel{
+    text-align: center;
+}
 
-
-
-
+.expotel{
+    width: 30px;
+}
+.btnexportartel{
+    height: 30px;
+    margin-right: 34px;
+}
 /* .cantidad{
     margin: 10px;
 }

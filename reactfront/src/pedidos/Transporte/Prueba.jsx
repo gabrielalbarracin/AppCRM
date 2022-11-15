@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import Home from '../../home/home'
 import Table from 'react-bootstrap/Table'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faTrashAlt, faPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 const URI = 'http://localhost:9000/transporte/'
 
@@ -173,6 +173,7 @@ render(){
                             <td className='campostrans'>{transporte.marca}</td>
                             <td className='campostrans'>{transporte.patente}</td>
                             <td>
+                            <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
                                 <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.modalInsertar()}}><FontAwesomeIcon icon={faEdit}/></button>
                                 {"   "}
                                 <button className="botonac btn" onClick={()=>{this.seleccionarEmpresa(transporte); this.setState({modalEliminar: true})}}><FontAwesomeIcon icon={faTrashAlt}/></button>
@@ -204,8 +205,9 @@ render(){
 
                 <Modal isOpen={this.state.modalInsertar} className='modalcombus'>
                 <ModalHeader className='modalhedertrans' style={{display: 'block'}}>
-                <h5 >Alta de transporte</h5>
-                  {/* <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}></span> */}
+                
+                 <span style={{float: 'right'}} onClick={()=>this.modalInsertar()}>X</span> 
+                 <h5 >Alta de transporte</h5>
                 </ModalHeader>
                 <ModalBody>
                   <div className="form-group">
